@@ -1,0 +1,92 @@
+
+\documentclass[a4paper, 12pt]{book}
+%\usepackage[T1]{fontenc}
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
+\usepackage{url}
+%\usepackage[dvipdfm]{graphicx}
+\usepackage{graphicx}
+\usepackage{float}  %% H para posicionar figuras
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
+\usepackage{latexsym}  %% Logo LaTeX
+
+\input{./content/vars/Variables}
+
+\title{\docTitle}
+\author{\docAuthor}
+
+\renewcommand{\baselinestretch}{1.5}  %% Interlineado
+
+\begin{document}
+
+
+
+\renewcommand\tablename{Tabla}
+\renewcommand\contentsname{Índice}
+\renewcommand\listfigurename{Lista de Figuras}
+\renewcommand\listtablename{Lista de Tablas}
+
+\renewcommand{\appendixname}{Apéndice}
+%\renewcommand{\appendixtocname}{Anexos}
+%\renewcommand{\appendixpagename}{Anexos}
+
+\renewcommand{\refname}{Bibliografía}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% PORTADA
+\include{./content/title/TitlePage}
+% TRIBUNAL
+\include{./content/title/SignPage}
+% DEDICATORIA
+\include{./content/title/Dedicatory}
+% AGRADECIMIENTOS
+
+% RESUMEN
+\include{./content/title/Summary}
+
+% ABSTRACT
+
+
+% ÍNDICES
+\tableofcontents 
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+
+
+
+% CAPÍTULOS ________________________________________
+\pagenumbering{arabic}
+\include{./content/chapters/Introduction}
+\include{./content/chapters/Targets}
+\include{./content/chapters/StateOfArt}
+\include{./content/chapters/Design}
+\include{./content/chapters/ExperimentsValidation}
+\include{./content/chapters/Results}
+\include{./content/chapters/Conclusions}
+
+% BIBLIOGRAFÍA
+\bibliographystyle{abbrv}
+\bibliography{./content/bib/Bibliography}  
+% http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+% APÉNDICES
+\include{./content/apps/Appendix}
+
+
+\include{./content/chapters/resources}
+
+
+
+
+
+
+
+
+
+\end{document}
