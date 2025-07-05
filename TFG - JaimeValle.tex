@@ -12,9 +12,21 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+%\usepackage{fancyhdr}	% To control headers and footers
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\sisetup{
+	input-ignore={.},
+	group-separator = {},
+	input-decimal-markers={.}, 
+	output-decimal-marker = {,},
+	group-minimum-digits=4
+	}
+
 
 \usepackage[skip=10pt]{parskip}	% To avoid default indentantion and add vertical space between paragraphs
-
 
 
 
@@ -30,7 +42,6 @@
 \begin{document}
 
 
-
 \renewcommand\tablename{Tabla}
 \renewcommand\contentsname{Índice}
 \renewcommand\listfigurename{Lista de Figuras}
@@ -43,7 +54,8 @@
 \renewcommand{\refname}{Bibliografía}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\pagestyle{plain}		% Show empty header and page number centered in footer
+\pagenumbering{Roman}	% Page numbers as arabic: I, II, III...
 % PORTADA
 \include{./content/title/TitlePage}
 % TRIBUNAL
@@ -57,6 +69,9 @@
 
 % ABSTRACT
 
+% ACRONYMS
+\include{./content/title/Acronyms}
+
 
 % ÍNDICES
 \tableofcontents 
@@ -68,7 +83,8 @@
 
 
 % CAPÍTULOS ________________________________________
-\pagenumbering{arabic}
+\pagestyle{headings}	% Show header with section information and page number centered in footer
+\pagenumbering{arabic}	% Page numbers as arabic: 1, 2, 3...
 \include{./content/chapters/Introduction}
 \include{./content/chapters/Targets}
 \include{./content/chapters/StateOfArt}

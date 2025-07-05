@@ -1,5 +1,433 @@
-\chapter{Estado del arte}
-\label{chap:estado-del-arte}
+	%\chapter{Estado del arte}
+%\label{chap:estado-del-arte}
+\chapter{Las bases de la navegación aérea}
+\label{chap:BasesNavegacionAerea}
 
-\textit{[8-10 páginas] Estado del arte actual}
+En los inicios de la aviación los esfuerzos se concentraban en que los aviones se mantuvieran en el aire de forma segura, pero con el aumento de la actividad comercial aérea, la coordinación y organización de los vuelos era cada vez más necesaria. Este proceso de guiar a las aeronaves de un punto a otro mientras se garantiza su seguridad y eficiencia es lo que se conoce como <<navegación aérea>>.
+
+Así, a principios del siglo XX, durante los inicios de la navegación aérea, ésta se basaba en la observación directa de puntos de referencia en tierra, como picos montañosos, lagos, pueblos, etc. Esto presentaba un gran inconveniente, y es la imposibilidad de volar durante la noche o en condiciones de visibilidad reducida. Por ello, se comenzaron a dotar a los aeródromos con haces de luz (aerofaros) y radio así como a incorporar personal técnico para informar mediante banderas de las condiciones del aeródromo lo que aumentó la comunicación por vía aérea.
+
+Con la evolución de los aviones cada vez más veloces y con mayor alcance, se comenzaron a emplear técnicas de navegación empleando elementos bien conocidos en la navegación marítima. Algunos de estos fueron el astrolabio y el sextante, que les permitía conocer la posición mediante la observación de estrellas (navegación astronómica). También se hizo necesaria la regulación del tráfico aéreo mediante personal de tierra para evitar conflictos durante las rutas, lo que se considera el inicio del Servicio de Control de Tránsito Aéreo, basado en estimaciones de tiempo y rutas sobre mapas (navegación a estima).
+
+Fue durante la Segunda Guerra Mundial (1939-1945), ante la necesidad de discernir cuales eran los aviones aliados o enemigos, cuando se desarrolló el sistema RADAR (\textit{RAdio Detection And Ranging}). El perfeccionamiento de este sistema en el ámbito civil permitió aumentar ampliamente la capacidad de espacio aéreo debido a la reducción de la incertidumbre en el posicionamiento de las aeronaves que, hasta ahora, se hacían a estima.
+
+Además, los avances en tecnología décadas más tarde, permitió la aparición de las radioayudas en tierra, como el NDB, el ADF, el DME y el VOR para ayuda a la navegación, y a sistemas como el ILS para ayuda al aterrizaje. Todo ello permitía volar de manera más segura y eficiente incluso en condiciones meteorológica desfavorables.
+
+Estos avances fueron tan importantes que a día de hoy siguen siendo la base de la navegación aérea. De este modo, las rutas aéreas convencionales se conforman como trayectorias entre dos radioayudas en tierra, generalmente dos o más equipos coexistentes VOR/DME. 
+
+Si bien, el crecimiento del tráfico aéreo propició que en 1996 se presentase una nueva forma de crear rutas más flexibles que no dependiesen de la posición fija de los equipos de tierra. Así, en 1998,  EUROCONTROL, siguiendo recomendaciones de la ICAO (\textit{International Civil Aviation Organization}) introdujo la RNAV (\textit{Random NAVigation}), que incluye puntos de ruta que no coinciden con la ubicación de los equipos de tierra, sino en intersecciones de las señales de dos o más radioayudas.
+
+
+
+
+
+
+
+\section{Radioayudas convencionales}
+\label{sec:RadioayudasConvencionales}
+
+Las radioayudas convencionales son las estaciones en tierra que, emitiendo ondas electromagnéticas, sirven para guiar a las aeronaves en vuelo gracias a los equipos de a bordo o embarcados. Aunque existen otras, la navegación aérea actual se apoyan en las las que se presentan en las siguientes secciones.
+
+Todas ellas transmiten sus portadoras principales en el rango de frecuencias VHF reservado para radioayudas comprendido entre los \SI{108.00}{MHz} y los \SI{117.95}{MHz}, dejando el rango del espectro radioeléctrico reservado para banda aeronáutica de \SI{118.00}{MHz} a \SI{136.975}{MHz} para las comunicaciones civiles de corta y media distancia por voz entre pilotos y controladores aéreos con modulación en amplitud o AM (\textit{Amplitude Modulation}). Las comunicaciones larga distancia se realizan en la banda HF (\textit{High Frequency}) que se encuentran alojadas en diferentes bandas del rango de \SI{3}{} a \SI{30}{kHz}.
+
+
+\pagebreak
+
+\subsection{En ruta, salida y aproximación}
+\label{subsec:RadioayudasEnRutaSalidaAproximacion}
+
+\subsubsection{VOR (\textit{Very High Frequency Omnidirectional Range})}
+\label{subsubsec:VOR}
+
+El Radiofaro Omnidireccional de Muy Alta Frecuencia emite tres señales en VHF: una señal de identificación en código Morse, y otras dos señales de rumbos, una de ellas fija (referencia) y la otra con variación de fase, de tal forma que compone direcciones angulares equidistantes. 
+
+A cada una de estas direcciones acimutales (horizonales) se las denomina radial, y sirve como guía de trayectoria a las aeronaves. Su portadora principal transmite en la frecuencia asignada en el rango entre los \SI{108.00}{MHz} y los \SI{111.85}{MHz} para los de área terminal (corto alcance, hasta \SI{25}{NM}), y entre los \SI{112.00}{MHz} y los \SI{117.95}{MHz} para los de ruta (medio y largo alcance, hasta \SI{200}{NM}). 
+
+% https://wiki.ivao.aero/en/home/training/documentation/VHF_Omnidirectional_Range_-_VOR_Instrument
+
+A su vez, existen dos tipos:
+	
+	\begin{itemize}
+		\item CVOR (\textit{Conventional VOR}): el desfase entre la señal variable y la señal de referencia se realiza electrónicamente variando el patrón de modulación de fase, obteniendo una precisión cercana a $1\degree$ para cada radial.
+		\item DVOR (\textit{Doppler VOR}): el desfase entre la señal variable y la señal de referencia se realiza mediante la emisión secuencial desde antenas concéntricas con la antena central de referencia, generando un efecto Doppler. 
+	\end{itemize}
+	
+	% https://navans.com/vor-ventajas-limitaciones-y-futuro/
+	
+	\begin{figure}[!hbtp]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/content/VOR.jpg}
+		\caption{Estación VOR en tierra.}
+		%https://www.gacetaeronautica.com/gaceta/wp-101/wp-content/uploads/2013/06/ea3.jpg
+		\label{fig:VOR}
+	\end{figure}
+	
+	
+	
+	
+	
+	
+\pagebreak
+
+\subsubsection{DME (\textit{Distance Measuring Equipment})}
+\label{subsubsec:DME}
+
+El Equipo de Medición de Distancias en tierra es interrogado por el equipo de a bordo de la aeronave, midiendo el tiempo empleado por la señal desde que se emitió la interrogación hasta que se recibe la respuesta. Dividiendo entre dos y tomando en cuenta el tiempo de procesamiento y espera establecidos, se obtiene la distancia entre ambos equipos. Hay que tener en cuenta que al sobrevolar la vertical del equipo de tierra, la distancia medida no es cero, sino la de la altura de la aeronave. La mayoría de los VOR tienen co-ubicados un DME.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[height=4.7cm]{images/content/DME.jpg}
+	\caption{Estación DME en tierra.}
+	%https://eriktronik.com/images/gosteri/SAM_0701.JPG
+	\label{fig:VOR}
+\end{figure}
+
+\subsubsection{NDB (\textit{Non-Directional Beacon}) y ADF (\textit{Automatic Direction Finder})}
+\label{subsubsec:DME_ADF}
+
+El NDB (Baliza No Direccional) emite en una determinada frecuencia y el equipo de a bordo de la aeronave asociado a este sistema, el ADF (Buscador Automático de Dirección), recibe e indica la dirección desde la que proviene la señal. Por tanto, proporciona a la aeronave información de posicionamiento relativo respecto a la estación terrestre. Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concentrándose la mayor parte de ellos en el rango de \SI{250}{kHz} a \SI{450}{kHz}, con alcances entre \SI{15}{NM} y \SI{75}{NM}.
+	
+\begin{figure}[!hbtp]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=5cm]{images/content/NDB.jpg}
+		
+		\caption{Equipo NDB en tierra.}
+		\label{fig:NDB}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=5cm]{images/content/ADF.jpg}
+		\caption{ADF mostrando rumbo hacia el NDB.}
+		%https://flyingwithpassiondotorg.wordpress.com/wp-content/uploads/2016/05/adf-fixed-card.png?w=298&h=300
+		\label{fig:ADF}
+		\end{subfigure}
+	\caption{Estación NDB en tierra e instrumento del equipo embarcado ADF.}
+	\label{fig:NDB_ADF}
+\end{figure}
+
+
+
+
+
+
+
+\pagebreak
+
+\subsection{Aterrizajes}
+\label{sec:RadioayudasAterrizajes}
+
+\subsubsection{ILS (\textit{Instrument Landing System})}
+\label{subsubsec:ILS}
+
+El Sistema de Aterrizaje Instrumental es el encargado de guiar a las aeronaves en su fase de aproximación final al aeropuerto. Se compone de dos subsistemas: 
+
+\begin{itemize}
+\item LOC (\textit{Localizer}): el localizador, emisor ubicado en la cabecera de la pista contraria y alineado con el eje de pista, guía lateralmente a la aeronave con un alcance típico de hasta \SI{10}{NM}, emitiendo su portadora en el rango de \SI{108.10}{MHz}  \SI{111.95}{MHz}; 
+
+\item GS (\textit{Glide Slope}): el emisor de la senda de planeo ubicado en un lateral de la pista cerca de la TDZ (\textit{Touch Down Zone}), guía verticalmente a la aeronave. El ángulo de descenso estándar es de \SI{3}{\degree} (\SI{5.24}{\percent}) y el alcance típico de \SI{10}{NM}, emitiendo su portadora en el rango de \SI{329.15}{MHz} a \SI{335.00}{MHz}, emparejándose para sintonizarse de forma automática con el LOC.
+\end{itemize}
+
+%https://wiki.ivao.aero/en/home/training/documentation/Instrument_Landing_System_-_ILS_Instrument
+
+En conjunto, guían a la aeronave a través de una especie de cono para aterrizar en condiciones de baja e incluso nula visibilidad o simplemente como apoyo con buena visibilidad. 
+
+\begin{figure}[!hbtp]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{images/content/ILS_LOC.jpg}
+		%https://www.facebook.com/NormekaAS/posts/ils-localizer-antennas-and-masts-manufactured-by-normeka/409175296396730/
+		\caption{Antenas emisoras del localizador (LOC).}
+		\label{fig:NDB}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[height=4.5cm]{images/content/ILS_GS.jpg}
+		\caption{Antenas emisoras de la senda de planeo (GS).}
+		%https://upload.wikimedia.org/wikipedia/commons/6/6f/EDDV-ILS_09R_Glideslope.jpg
+		\label{fig:ADF}
+		\end{subfigure}
+	\caption{Antenas del sistema ILS para aterrizaje por instrumentos.}
+	\label{fig:NDB_ADF}
+	
+\end{figure}
+
+\begin{figure}[!hbtp]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{images/content/ILS_LOC_Pattern.jpg}
+		%https://i.sstatic.net/zCIXN.jpg
+		\caption{Patrón emitido por el localizador (LOC).}
+		\label{fig:NDB}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{images/content/ILS_GS_Pattern.jpg}
+		\caption{Patrón emitido por la senda de planeo (GS).}
+		%https://i.sstatic.net/NTids.jpg
+		\label{fig:ADF}
+		\end{subfigure}
+	\caption{Patrón radioeléctrico del ILS (LOC + GS).}
+	\label{fig:NDB_ADF}
+\end{figure}
+
+Existen tres categorías, de menos a más precisas: CAT I, CAT II, CAT III (a, b, c). Cuanto más precisa es la categoría y, por tanto la señal recibida, menor visibilidad requiere para poder abordar el aterrizaje. Además, se apoya en ayudas visuales como el VASI (\textit{Visual Approach Slope Indicator}) y el PAPI (\textit{Precision Approach Path Indicator}) que consiste en una serie de luces que según el ángulo de visualización pueden verse rojas o blancas. Si se está volando por debajo de la senda de planeo se verán más luces rojas que blancas, y viceversa, si se está volando por encima de la senda de plano se verán más luces blancas que rojas. Idealmente, deben verse el mismo número de cada color, lo que significa que se está volando según la senda de planeo estipulada.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/content/PAPI.jpg}
+	%https://www.turama.es/papi-vasi-y-ols-por-que-son-indispensables-en-los-aeropuertos
+	\caption{PAPI (\textit{Precision Approach Path Indicator}).}
+	\label{fig:PAPI}
+\end{figure}
+
+
+
+
+
+\subsubsection{MLS (\textit{Microwave Landing System})}
+\label{subsubsec:MLS}
+
+Se trata de un Sistema de Aterrizaje por Microondas que tiene la misma utilidad que el ILS pero no se limita a guiar aproximaciones alineadas con el eje de pista, sino que permite guiar a la aeronave a través de trayectorias curvas durante la aproximación. Este sistema, aunque presenta grandes ventajas respecto al ILS, su alto coste de implementación y el avance las técnicas de posicionamiento por satélite han conllevado a que el empleo de esta tecnología en el sector sea marginal.
+
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/content/MLS.jpg}
+	%https://heritage.engineersaustralia.org.au/wiki/Place:Interscan_Microwave#/media/File:EHRP-0177_SNECV_InterscanMLS_antennae.jpeg
+	\caption{\textit{MLS (\textit{Microwave Landing System})}.}
+	\label{fig:MLS}
+\end{figure}
+
+
+
+
+
+\pagebreak
+
+\section{Sistemas de aumentación basadas en GNSS}
+\label{sec:SistemasAumentacionGNSS}
+
+
+
+
+
+
+
+
+
+\section{Navegación basada en prestaciones}
+\label{sec:NavegacionBasadaPrestaciones}
+
+
+
+
+De este modo se pueden crear rutas sin necesidad de desplegar nuevas infraestructuras en tierra y se ahorra tiempo y combustible al realizar trayectorias más cortas. A su vez, la RNAV se divide en B-RNAV (\textit{Basic Area-RNAV}), que obliga a llevar equipos a bordo que permitan mantenerse dentro de la ruta con un margen de $\pm5\;NM$ durante el $95\%$ del tiempo; y la P-RNAV (\textit{Precision Area-RNAV}), que reduce el margen a $\pm1\;NM$.
+
+
+
+
+
+
+\section{Sistemas de vigilancia}
+\label{sec:SistemasVigilancia}
+
+\subsection{Radares primario y secundario}
+\label{subsec:RadaresPrimarioSecundario}
+
+El radar (Radio Detection And Ranging / Detección y Medición de Distancias por Radio) es un equipo que emite ondas electromagnéticas para medir distancias y direcciones, principalmente. La determinación de la posición de las aeronaves permite reducir la incertidumbre y por tanto el espaciado entre ellas, agilizando el tráfico y aumentando la capacidad del espacio aéreo. Puede dividirse en dos:
+•Radar primario o PSR (Primary Surveillance Radar / Radar de Vigilancia Primario) es un sistema pasivo en el que el equipo de tierra emite ondas electromagnéticas y espera a recibir la reflexión de la señal con cualquier objeto (o blanco) en su camino. El problema es que al no tener a las aeronaves identificadas, no es posible discernir fácilmente si un eco ha sido generado por una aeronave o por cualquier otro objeto (falso eco).
+•Radar secundario o SSR (Secondary Surveillance Radar / Radar de Vigilancia Secundario) es un sistema activo que requiere de un equipo de a bordo en la aeronave, el transponder / squawk (transmitter – responder / transmisor – receptor). El equipo de tierra interroga indiscriminadamente a todos los receptores que se encuentren al alcance y son éstos los que, a través de un código SSR asignado (número de 4 cifras codificado en octal, de 0000 a 7777, 4096 combinaciones posibles), responden al equipo de tierra con el identificativo (código SSR) (modo A), y también con otros parámetros como altitud (modo C) y muchos otros (modo S).
+
+%Imágenes extraídas de:
+%http://upload.wikimedia.org/wikipedia/commons/2/20/ASR-9_Radar_Antenna.jpg
+%http://www.flying-the-winglets.de/images/Transponder.jpg
+%https://twitter.com/controladores/status/539108523402342401/photo/1. Twitter: @controladores.
+
+
+\subsection{Vigilancia Dependiente Automática}
+\label{subsec:VigilanciaDependienteAutomatica}
+
+
+
+
+
+
+
+
+\section{Organización del espacio aéreo}
+\label{sec:OrganizacionEspacioAereo}
+
+\subsection{Regiones de vuelo}
+\label{subsec:RegionesVuelo}
+
+En 1944 fue creada la ICAO/OACI (International Civil Aviation Organization / Organización de Aviación Civil Internacional) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada. Ésta divide el espacio aéreo mundial en varias zonas:
+· Norteamérica (NAM) · África (AFI)
+· Atlántico Norte (NAT) · Europa (EUR)
+· Caribe (CAR) · Oriente Medio (MID)
+· Pacífico (PAC) · Asia (ASIA)
+· Sudamérica (SUD)
+A su vez, éstas se dividen en regiones locales (sectorización) debido a las diferentes características y necesidades de cada zona y se conocen como FIR (Flight Information Region / Región de Información de vuelo) y UIR (Upper Information Region / Región Superior de Información de Vuelo). Ambas suelen coincidir en límites laterales, pero verticalmente la FIR engloba desde el suelo (GND, Ground) hasta el nivel de vuelo FL245 y el UIR se ubica por encima, dando servicio a partir de FL245 sin limitación superior (UNL, Unlimited), es hasta FL460 donde proporciona servicio de control de tráfico aéreo.
+Dentro de las FIR existen lo que se denominan sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. Dentro del espacio aéreo controlado existen diferentes zonas de control aéreo atendiendo a la fase de vuelo en la que se encuentren las aeronaves. De menor a mayor territorio controlado son:
+• ATZ (Airport Traffic Zone / Zona de Tránsito de Aeródromo): con centro en el aeropuerto, se extiende con un radio de unas 5 NM y contiene a la torre de control (TWR, Tower).
+• CTR (Control Zone / Zona de Control): se extiende unas millas más lejos del aeropuerto y contiene a Control de Aproximación (APP, Approach), que se encarga de dirigir las aeronaves en sus salidas y llegadas desde/hacia el aeropuerto.
+• TMA (Terminal Manouvering Area / Área Terminal de Maniobras): más lejos que aproximación, se extiende para dirigir las aeronaves hacia y en las aerovías (AWY, Airway).
+
+%Imágenes extraídas de:
+%Ontíveros, Jorge. Descubrir el control aéreo. AENA.
+%http://www.aena.es/csee/ccurl/470/12/fir_espana.swf
+%http://www.takeoffbriefing.com/wp-content/uploads/2013/01/map_eur_nat.png
+%http://www.ivao.es/uploads/4838cec89268f544eec84c2fceeef8b3.JPG
+%http://html.rincondelvago.com/000202990.png
+%http://files.ivao.es/FIR/LECM/imagenes/inferior.jpg
+
+
+\subsection{Clases y restricciones}
+\label{subsec:ClasesRestricciones}
+
+Se distinguen diferentes clases de espacio aéreo atendiendo a la serie de restricciones y normas impuestas en la zona:
+• Espacio aéreo controlado: A, B, C, D, E, siendo el A el más restrictivo donde ninguna aeronave bajo vuelo VFR puede entrar. Las aeronaves se comunicarán con el ATC (Air Traffic Control / Control de Tráfico Aéreo)
+• Espacio aéreo no controlado: F, G. Sin ATC. Las aeronaves deben seguir unas reglas básicas para no interferir con otros tráficos. Es recomendable, pero no obligatorio el reporte de posiciones a otras aeronaves en la zona.
+Además, existen zonas especiales:
+• D (Danger): zonas peligrosas que no se sobrevolarán por seguridad.
+• R (Restricted): zonas que no se sobrevolarán sin permiso.
+• P (Prohibited): sólo aeronaves militares con aprobación del Ministerio de Defensa.
+
+%Imágenes extraídas de:
+%Recursos propios. Fotografías en Adolfo Suárez Madrid-Barajas (LEMD/MAD). Autor: Jaime Valle Alonso.
+%Cartas aeronáuticas de AENA, versión electrónica. AIP.
+%http://cessna.txtav.com/~/media/Images/News-Events/Press-Galleries/singleengine/skyhawk/Skyhawk%20Picture%209/sin_haw_flt09_2010_1280x1024.jpg
+%http://www.radiodx.qsl.br/ondas2.gif
+
+
+\subsection{Reglas de vuelo y meteorología}
+\label{subsec:ReglasVueloMeteorologia}
+
+Al principio la navegación aérea se realizaba exclusivamente por observación del terreno que se estaba sobrevolando. Esto implicaba que debían existir condiciones VMC (Visual Meteorological Conditions / Condiciones Meteorológicas Visuales) y poder volar bajo reglas VFR (Visual Flight Rules / Reglas de Vuelo Visual). Esto limitaba el vuelo a horas diurnas y condiciones meteorológicas que permitiesen una buena visibilidad para poder mantener separaciones seguras con el terreno y con otros tráficos.
+Con la evolución de la tecnología, se fueron implantando las radioayudas terrestres y los equipos de a bordo o embarcados, lo que permitió el vuelo en condiciones IMC (Instrumental Meteorological Conditions / Condiciones Meteorológicas Instrumentales) bajo las reglas IFR (Instrumental Flight Rules / Reglas de Vuelo Instrumental) basándose en la interpretación de la información ofrecida por los equipos al recibir las emisiones radioeléctricas.
+
+%Imágenes extraídas de:
+%Recursos propios. Fotografía de Toledo desde el aire. Autor: Jaime Valle Alonso.
+%http://www.radio970am.com.py/system/files/img_contenido/dia_caluroso_7.jpg
+%http://3.bp.blogspot.com/-rlMRzSs6M6E/T4skEuQX36I/AAAAAAAAAfQ/anYPMIQaxuE/s400/DSC_0001.jpg
+%https://sanctuarystation.files.wordpress.com/2008/11/p1060026.jpg
+%http://www.ivao.ca/pilot/images/ifr.jpg
+%http://www.gacetaeronautica.com/gaceta/wp-101/wp-content/uploads/2013/06/ea3.jpg. Autor: Fernando Puppio.
+
+
+
+\subsection{Separación entre aeronaves}
+\label{subsec:SeparacionAeronaves}
+
+La separación entre las aeronaves puede ser en dos planos:
+• Horizontal: se separan de manera longitudinal -unas detrás de otras por una distancia o tiempo marcados- o bien lateral, por una distancia regulada. Se asigna en base a la información de su posición proporcionada al controlador aéreo por los pilotos, o bien con la ayuda del radar al proporcionar este sistema información sobre la posición de las aeronaves. Por tanto, depende de la fase del vuelo (despegue, en ruta, aproximación, aterrizaje), de la estela turbulenta del avión precedente así como de la precisión de posicionamiento y las velocidades relativas entre ambas aeronaves. Varía entre \SI{3}{} y \SI{10}{NM}.
+• Vertical: se consigue al asignar a las aeronaves distintas capas de altitud o niveles, separados entre sí por \SI{1000}{ft} (\SI{300}{m}) dentro del espacio RVSM (Reduced Vertical Separation Minimum / Separación Vertical Reducida Mínima) y 2000 pies (600 metros) en espacio no-RVSM. Se asigna nivel par o impar a una aeronave dependiendo de la dirección de su ruta (Norte, Este: par; Sur, Oeste: impar).
+
+%Imágenes extraídas de:
+%http://www.aerothai.co.th/maar/images/rvsm.gif
+%http://cdn.londonreconnections.com/assets/planes.jpg
+%http://cdn-www.airliners.net/aviation-photos/photos/4/1/9/1000914.jpg. Autor: Jakub Vanek.
+
+
+\subsection{La meteorología en la aviación}
+\label{subsec:MeteorologiaAviacion}
+
+Una de las variables que más afecta a la aviación son las condiciones meteorológicas.
+• Turbulencias: variaciones repentinas de la dirección del viento.
+• Cizalladura (wind-shear): variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación con el suelo.
+• Nubes y niebla: pueden llegar a reducir considerablemente la visibilidad de la tripulación, produciendo desorientación.
+• Engelamiento: produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico.
+La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia. Cerca de los aeropuertos y, en general a bajas altitudes, se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreo lo más precisa posible. En cambio, en fase de ruta se “cala” o setea el altímetro con la presión estándar de referencia (1013,25 hPa / 29,92 inHg), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
+El viento también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada por el piloto (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
+La dirección e intensidad del viento, junto con la altitud también determinan distintas velocidades:
+• GS (Ground Speed / Velocidad respecto a tierra): velocidad del avión en el seno del fluido más o menos la velocidad del fluido.
+• IAS (Indicated Airspeed / Velocidad Indicada del Aire): velocidad relativa del avión respecto del aire incidente en el anemómetro. Depende de la densidad del aire, por lo que al aumentar la altitud, la IAS disminuye. Es muy importante porque denota la maniobrabilidad de la aeronave y las fuerzas estructurales a las que estás sometida.
+• CAS (Calibrated Airspeed / Velocidad del Aire Calibrada): es la IAS más la corrección del error debido al ángulo de ataque del avión y del propio instrumento.
+• TAS (True airspeed / Velocidad del Aire Real): es la CAS corregida por la altitud y la temperatura.
+Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave entre la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
+
+%Imágenes extraídas de:
+%Ontíveros, Jorge. Descubrir el control aéreo. AENA.
+%https://lh5.googleusercontent.com/-Ae5y62WuyNo/UXhf_qVRUII/AAAAAAAAAxM/oZwTesBZvVQ/w551-h467/tacan5.jpg
+
+
+\subsection{Hora común y entidades normativas}
+\label{subsec:HoraComunEntidadesNormativas}
+
+LA HORA:
+Dado que el movimiento de aeronaves tiene carácter internacional es necesaria una referencia temporal común para evitar confusiones. Se toma como referencia la hora del huso horario perteneciente al meridiano de Greenwich. Lo que se conoce como la hora GMT (Greenwich Meridian Time) o UTC (Universal Time Coordinated) y que en el argot aeronáutico se llama hora Zulu. Por ejemplo, Madrid se encuentra en UTC+1 en invierno y UTC+2 en verano.
+LAS NORMAS:
+Es muy importante que el sector aeronáutico esté muy regulado para reducir al máximo posible los riegos que conllevan sus operaciones.
+• OACI, EUROCONTROL y CEAC (Conferencia Europea de Aviación Civil).
+• IATA
+• RCA (Reglamento de la Circulación Aérea). Incluye normativa OACI y EUROCONTROL más las necesidades particulares de España.
+• AIP (Aeronautical Inforamtion Publication)
+
+%Imágenes extraídas de:
+%http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eurocontrol_logo_2010.svg/474px-Eurocontrol_logo_2010.svg.png
+%http://upload.wikimedia.org/wikipedia/en/thumb/d/d5/IATA_Logo.svg/1280px-IATA_Logo.svg.png
+%http://www.fomento.gob.es/NR/rdonlyres/9BC566E5-5A38-424A-B180-D3AA39E98EB1/40337/CEAC.gif
+%http://www.icao.int/Meetings/High-Level-SecurityConf-2002/PublishingImages/IcaoLogo.png?Mobile=1&Source=%2FMeetings%2FHigh-Level-SecurityConf-2002%2F_layouts%2Fmobile%2Fview.aspx%3FList%3D5a4be47d-6856-4b9b-bb8e-578df9e9cd74%26View%3D7f50316c-0979-4107-9262-ba06c9f68a42%26CurrentPage%3D1
+
+
+\subsection{Plan y fichas de vuelo}
+\label{subsec:PlanFichasVuelo}
+
+El plan de vuelo es la fuente básica de la información para conocer las intenciones de los pilotos. Sobre estos datos se basa el control del tráfico aéreo. Algunos de los recogidos en este informe son, entre otros:
+• el indicativo de vuelo o su matrícula.
+• el aeropuerto de origen, destino y alternativo.
+• la hora de salida y estimada del trayecto.
+• la ruta que el piloto propone volar (puede ser modificada según disponibilidad y necesidades del ATC).
+• la altitud.
+• la autonomía del avión.
+• la velocidad.
+• el número de personas a bordo.
+Todas las instrucciones que el controlador aéreo transmite a los pilotos y las solicitudes que éstos hacen se anotan en la ficha de progreso de vuelo, datos que han sido trasladados del plan de vuelo. Estas fichas se imprimen y colocan en bahías, organizadas por fases de vuelo o rumbos, y son distribuidas a todos los sectores por donde van a pasar los aviones. Sus objetivos principales son:
+• Rápido recordatorio de las últimas instrucciones emitidas.
+• Backup por si el servicio informático falla (“se cae”) conocer posiciones aproximadas de los aviones en el espacio aéreo controlado.
+
+%Imágenes extraídas de:
+%http://upload.wikimedia.org/wikipedia/commons/9/9e/International_flight_plan.png
+%https://twitter.com/controladores/status/541171761954709505/photo/1
+
+
+
+\subsection{Automatización y gestión de afluencia de tráfico}
+\label{subsec:AutomatizacionGestionTrafico}
+
+
+AUTOMATIZACIÓN:
+Gracias a los sistemas informáticos, la automatización permite a los ATC descargarse de tareas repetitivas y centrarse en otras que requieran su atención.
+El Sistema Automatizado para el Control del Tráfico Aéreo (SACTA) es el que se encarga en España de ayudar en la gestión del tráfico aéreo. Integra todos los sistemas de procesado de datos de todas las torres y centros de control.
+GESTIÓN DE LA AFLUENCIA DE TRÁFICO:
+Eurocontrol se encarga de coordinar el tráfico aéreo de la zona europea con el fin de evitar la congestión del espacio aéreo. Gracias al servicio ATFM (Air Traffic Flow Management / Gestión del Flujo del Tráfico Aéreo), se asignan slots a los vuelos, es decir, una ventana temporal. Si un avión pierde su slot, debe esperar hasta que exista un hueco.
+
+%Imágenes extraídas de:
+%Recursos propios. Fotografías en Adolfo Suárez Madrid-Barajas (LEMD/MAD). Autor: Jaime Valle Alonso.
+%http://i.ytimg.com/vi/Ja_IL8Fqofk/maxresdefault.jpg
+%https://twitter.com/controladores/status/556799521158881284/photo/1
+%http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eurocontrol_logo_2010.svg/474px-Eurocontrol_logo_2010.svg.png
+%http://www.enaire.es/csee/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1237567460781&ssbinary=true
+
+
+
+\subsection{Seguridad en vuelo}
+\label{subsec:SeguridadVuelo}
+
+Para evitar que existan incidentes durante el vuelo, se dispone de dos sistemas que ayudan a prevenir estas situaciones: la Alerta de Conflicto y el Aviso de Tráfico y Alerta de Colisión (TCAS).
+Tierra:
+• Alerta de Conflicto: avisa al controlador cuando dos aeronaves van a cruzarse a menos distancia de la estipulada.
+Aire:
+• Sistema de Aviso de Tráfico y Alerta de Colisión (TCAS): Equipo instalado a bordo de los aviones; suministra al piloto la posición relativa de los aviones cercanos, tanto en el plano vertical como en el horizontal.
+• Modo TA (Traffic Advisory): notifica un posible conflicto.
+• Modo TA/RA (Traffic Advisory / Resolution Advisory): además indica cómo solucionar el conflicto.
+Para que estos datos sean recogidos es necesario que en las aeronaves que puedan cruzarse en su camino mantengan activado un transpondedor que trasmite toda la información antes relacionada.
+
+%Imágenes extraídas de:
+%http://www.lvnl.nl/binaries/content/gallery/luchtverkeersleiding/luchtverkeersleiding/stca.jpg
+%http://www.austrianaviationart.org/b737/tcas/tcas2.jpg
+
 
