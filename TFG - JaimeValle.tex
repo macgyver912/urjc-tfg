@@ -16,6 +16,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{gensymb}
+\usepackage[resetlabels,labeled]{multibib}	% use multiple bibliographies
+\usepackage[skip=10pt]{parskip}	% To avoid default indentantion and add vertical space between paragraphs
 \usepackage{siunitx}
 \sisetup{
 	input-ignore={.},
@@ -24,12 +26,10 @@
 	output-decimal-marker = {,},
 	group-minimum-digits=4
 	}
+\usepackage{hyperref}
 
-
-\usepackage[skip=10pt]{parskip}	% To avoid default indentantion and add vertical space between paragraphs
-
-
-
+% Additional bibliography for figures
+\newcites{Fig}{Fuente de las imágenes}
 
 
 \input{./content/vars/Variables}
@@ -94,9 +94,13 @@
 \include{./content/chapters/Conclusions}
 
 % BIBLIOGRAFÍA
-\bibliographystyle{abbrv}
+\bibliographystyle{ieeetr}
 \bibliography{./content/bib/Bibliography}  
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+\bibliographystyleFig{ieeetr}
+\bibliographyFig{./content/bib/FigureSources}
+
 
 % APÉNDICES
 \include{./content/apps/Appendix}
