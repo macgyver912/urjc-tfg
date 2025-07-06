@@ -26,39 +26,39 @@ Si bien, el crecimiento del tráfico aéreo propició que en 1996 se presentase 
 \section{Radioayudas convencionales}
 \label{sec:RadioayudasConvencionales}
 
-Las radioayudas convencionales son las estaciones en tierra que, emitiendo ondas electromagnéticas, sirven para guiar a las aeronaves en vuelo gracias a los equipos de a bordo o embarcados. Aunque existen otras, la navegación aérea actual se apoyan en las las que se presentan en las siguientes secciones.
+Las radioayudas convencionales son las estaciones en tierra que, emitiendo ondas electromagnéticas, sirven para guiar a las aeronaves en vuelo gracias a los equipos de a bordo o embarcados. Aunque existen otras, la navegación aérea actual se apoya principalmente en las las que se presentan en las siguientes secciones.
 
-Todas ellas transmiten sus portadoras principales en el rango de frecuencias VHF reservado para radioayudas comprendido entre los \SI{108.00}{MHz} y los \SI{117.95}{MHz}, dejando el rango del espectro radioeléctrico reservado para banda aeronáutica de \SI{118.00}{MHz} a \SI{136.975}{MHz} para las comunicaciones civiles de corta y media distancia por voz entre pilotos y controladores aéreos con modulación en amplitud o AM (\textit{Amplitude Modulation}). Las comunicaciones larga distancia se realizan en la banda HF (\textit{High Frequency}) que se encuentran alojadas en diferentes bandas del rango de \SI{3}{} a \SI{30}{kHz}.
+Todas ellas transmiten sus portadoras principales en el rango de frecuencias VHF reservado para radioayudas comprendido entre los \SI{108.00}{MHz} y los \SI{117.95}{MHz}, dejando el rango del espectro radioeléctrico VHF reservado para la banda aeronáutica civil de \SI{118.00}{MHz} a \SI{136.975}{MHz} para las comunicaciones civiles de corta y media distancia por voz entre pilotos y controladores aéreos con modulación en amplitud o AM (\textit{Amplitude Modulation}). Las comunicaciones de larga distancia se realizan en la banda HF (\textit{High Frequency}) que se encuentran alojadas en diferentes bandas del rango de \SI{3}{} a \SI{30}{kHz}.
 
 
 \pagebreak
 
-\subsection{En ruta, salida y aproximación}
+\subsection{Radioayudas en ruta, salida y aproximación}
 \label{subsec:RadioayudasEnRutaSalidaAproximacion}
 
 \subsubsection{VOR (\textit{Very High Frequency Omnidirectional Range})}
 \label{subsubsec:VOR}
 
-El Radiofaro Omnidireccional de Muy Alta Frecuencia emite tres señales en VHF: una señal de identificación en código Morse, y otras dos señales de rumbos, una de ellas fija (referencia) y la otra con variación de fase, de tal forma que compone direcciones angulares equidistantes. 
+El Radiofaro Omnidireccional de Muy Alta Frecuencia emite tres señales en VHF: una señal de identificación en código Morse, y otras dos señales de rumbos, una de ellas fija (referencia) y la otra con variación de fase, de tal forma que compone direcciones angulares equidistantes. A cada una de estas direcciones acimutales (horizonales) se las denomina radial, y sirve como guía de trayectoria a las aeronaves. 
 
-A cada una de estas direcciones acimutales (horizonales) se las denomina radial, y sirve como guía de trayectoria a las aeronaves. Su portadora principal transmite en la frecuencia asignada en el rango entre los \SI{108.00}{MHz} y los \SI{111.85}{MHz} para los de área terminal (corto alcance, hasta \SI{25}{NM}), y entre los \SI{112.00}{MHz} y los \SI{117.95}{MHz} para los de ruta (medio y largo alcance, hasta \SI{200}{NM}). 
+Su portadora principal transmite en la frecuencia asignada en el rango entre los \SI{108.00}{MHz} y los \SI{111.85}{MHz} para los de área terminal (corto alcance, hasta \SI{25}{NM}), y entre los \SI{112.00}{MHz} y los \SI{117.95}{MHz} para los de ruta (medio y largo alcance, hasta \SI{200}{NM}) \cite{VOR}. 
 
-% https://wiki.ivao.aero/en/home/training/documentation/VHF_Omnidirectional_Range_-_VOR_Instrument
 
 A su vez, existen dos tipos:
 	
 	\begin{itemize}
+	
 		\item CVOR (\textit{Conventional VOR}): el desfase entre la señal variable y la señal de referencia se realiza electrónicamente variando el patrón de modulación de fase, obteniendo una precisión cercana a $1\degree$ para cada radial.
-		\item DVOR (\textit{Doppler VOR}): el desfase entre la señal variable y la señal de referencia se realiza mediante la emisión secuencial desde antenas concéntricas con la antena central de referencia, generando un efecto Doppler. 
+		
+		\item DVOR (\textit{Doppler VOR}): el desfase entre la señal variable y la señal de referencia se realiza mediante la emisión secuencial desde antenas concéntricas (véase la Figura \ref{fig:VOR}) con la antena central de referencia, generando un efecto Doppler. 
+		
 	\end{itemize}
 	
-	% https://navans.com/vor-ventajas-limitaciones-y-futuro/
-	
+		
 	\begin{figure}[!hbtp]
 		\centering
 		\includegraphics[width=0.6\linewidth]{images/content/VOR.jpg}
-		\caption{Estación VOR en tierra.}
-		%https://www.gacetaeronautica.com/gaceta/wp-101/wp-content/uploads/2013/06/ea3.jpg
+		\caption[Estación VOR en tierra.]{Estación VOR en tierra \citeFig{VOR_url}.}
 		\label{fig:VOR}
 	\end{figure}
 	
@@ -76,31 +76,30 @@ El Equipo de Medición de Distancias en tierra es interrogado por el equipo de a
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[height=4.7cm]{images/content/DME.jpg}
-	\caption{Estación DME en tierra.}
-	%https://eriktronik.com/images/gosteri/SAM_0701.JPG
+	\includegraphics[height=4.5cm]{images/content/DME.jpg}
+	\caption[Estación DME en tierra.]{Estación DME en tierra \citeFig{DME_url}.}
 	\label{fig:DME}
 \end{figure}
 
 \subsubsection{NDB (\textit{Non-Directional Beacon}) y ADF (\textit{Automatic Direction Finder})}
 \label{subsubsec:DME_ADF}
 
-El NDB (Baliza No Direccional) emite en una determinada frecuencia y el equipo de a bordo de la aeronave asociado a este sistema, el ADF (Buscador Automático de Dirección), recibe e indica la dirección desde la que proviene la señal. Por tanto, proporciona a la aeronave información de posicionamiento relativo respecto a la estación terrestre. Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concentrándose la mayor parte de ellos en el rango de \SI{250}{kHz} a \SI{450}{kHz}, con alcances entre \SI{15}{NM} y \SI{75}{NM}.
+El NDB (Baliza No Direccional) emite en una determinada frecuencia y el equipo de a bordo de la aeronave asociado a este sistema, el ADF (Buscador Automático de Dirección), recibe e indica la dirección desde la que proviene la señal. Por tanto, proporciona a la aeronave información de posicionamiento relativo respecto a la estación terrestre. 
+
+Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concentrándose la mayor parte de ellos en el rango de \SI{250}{kHz} a \SI{450}{kHz}, con alcances entre \SI{15}{NM} y \SI{75}{NM} \cite{NDB}.
 	
 \begin{figure}[!hbtp]
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[height=5cm]{images/content/NDB.jpg}
-		
+		\includegraphics[height=4.5cm]{images/content/NDB.jpg}
 		\caption[Equipo NDB en tierra.]{Equipo NDB en tierra \citeFig{NDB_url}.}
 		\label{fig:NDB}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[height=5cm]{images/content/ADF.jpg}
-		\caption{ADF mostrando rumbo hacia el NDB.}
-		%https://flyingwithpassiondotorg.wordpress.com/wp-content/uploads/2016/05/adf-fixed-card.png?w=298&h=300
+		\includegraphics[height=4.5cm]{images/content/ADF.jpg}
+		\caption[ADF mostrando rumbo hacia el NDB.]{ADF mostrando rumbo hacia el NDB \citeFig{ADF_url}.}
 		\label{fig:ADF}
 		\end{subfigure}
 	\caption{Estación NDB en tierra e instrumento del equipo embarcado ADF.}
@@ -115,7 +114,7 @@ El NDB (Baliza No Direccional) emite en una determinada frecuencia y el equipo d
 
 \pagebreak
 
-\subsection{Aterrizajes}
+\subsection{Radioayudas para aterrizajes}
 \label{sec:RadioayudasAterrizajes}
 
 \subsubsection{ILS (\textit{Instrument Landing System})}
@@ -126,10 +125,9 @@ El Sistema de Aterrizaje Instrumental es el encargado de guiar a las aeronaves e
 \begin{itemize}
 \item LOC (\textit{Localizer}): el localizador, emisor ubicado en la cabecera de la pista contraria y alineado con el eje de pista, guía lateralmente a la aeronave con un alcance típico de hasta \SI{10}{NM}, emitiendo su portadora en el rango de \SI{108.10}{MHz}  \SI{111.95}{MHz}; 
 
-\item GS (\textit{Glide Slope}): el emisor de la senda de planeo ubicado en un lateral de la pista cerca de la TDZ (\textit{Touch Down Zone}), guía verticalmente a la aeronave. El ángulo de descenso estándar es de \SI{3}{\degree} (\SI{5.24}{\percent}) y el alcance típico de \SI{10}{NM}, emitiendo su portadora en el rango de \SI{329.15}{MHz} a \SI{335.00}{MHz}, emparejándose para sintonizarse de forma automática con el LOC.
+\item GS (\textit{Glide Slope}): el emisor de la senda de planeo ubicado en un lateral de la pista cerca de la TDZ (\textit{Touch Down Zone}), guía verticalmente a la aeronave. El ángulo de descenso estándar es de \SI{3}{\degree} (\SI{5.24}{\percent}) y el alcance típico de \SI{10}{NM}, emitiendo su portadora en el rango de \SI{329.15}{MHz} a \SI{335.00}{MHz} \cite{ILS}, emparejándose para sintonizarse de forma automática con el LOC.
 \end{itemize}
 
-%https://wiki.ivao.aero/en/home/training/documentation/Instrument_Landing_System_-_ILS_Instrument
 
 En conjunto, guían a la aeronave a través de una especie de cono para aterrizar en condiciones de baja e incluso nula visibilidad o simplemente como apoyo con buena visibilidad. 
 
@@ -138,15 +136,13 @@ En conjunto, guían a la aeronave a través de una especie de cono para aterriza
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[height=4.5cm]{images/content/ILS_LOC.jpg}
-		%https://www.facebook.com/NormekaAS/posts/ils-localizer-antennas-and-masts-manufactured-by-normeka/409175296396730/
-		\caption{Antenas emisoras del localizador (LOC).}
+		\caption[Antenas del localizador (LOC).]{Antenas del localizador (LOC) \citeFig{ILS_LOC_url}.}
 		\label{fig:ILS_LOC}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[height=4.5cm]{images/content/ILS_GS.jpg}
-		\caption{Antenas emisoras de la senda de planeo (GS).}
-		%https://upload.wikimedia.org/wikipedia/commons/6/6f/EDDV-ILS_09R_Glideslope.jpg
+		\caption[Antenas de la senda de planeo (GS).]{Antenas de la senda de planeo (GS) \citeFig{ILS_GS_url}.}
 		\label{fig:ILS_GS}
 		\end{subfigure}
 	\caption{Antenas del sistema ILS para aterrizaje por instrumentos.}
@@ -159,15 +155,13 @@ En conjunto, guían a la aeronave a través de una especie de cono para aterriza
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{images/content/ILS_LOC_Pattern.jpg}
-		%https://i.sstatic.net/zCIXN.jpg
-		\caption{Patrón emitido por el localizador (LOC).}
+		\caption[Patrón del localizador (LOC).]{Patrón del localizador (LOC). \citeFig{ILS_LOC_Pattern_url}}
 		\label{fig:ILS_LOC_Pattern}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=0.9\linewidth]{images/content/ILS_GS_Pattern.jpg}
-		\caption{Patrón emitido por la senda de planeo (GS).}
-		%https://i.sstatic.net/NTids.jpg
+		\caption[Patrón de la senda de planeo (GS).]{Patrón de la senda de planeo (GS) \citeFig{ILS_GS_Pattern_url}.}
 		\label{fig:ILS_GS_Pattern}
 		\end{subfigure}
 	\caption{Patrón radioeléctrico del ILS (LOC + GS).}
@@ -179,8 +173,7 @@ Existen tres categorías, de menos a más precisas: CAT I, CAT II, CAT III (a, b
 \begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{images/content/PAPI.jpg}
-	%https://www.turama.es/papi-vasi-y-ols-por-que-son-indispensables-en-los-aeropuertos
-	\caption{PAPI (\textit{Precision Approach Path Indicator}).}
+	\caption[PAPI (\textit{Precision Approach Path Indicator}).]{PAPI (\textit{Precision Approach Path Indicator}) \citeFig{PAPI_url}.}
 	\label{fig:PAPI}
 \end{figure}
 
@@ -197,8 +190,7 @@ Se trata de un Sistema de Aterrizaje por Microondas que tiene la misma utilidad 
 \begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=0.75\linewidth]{images/content/MLS.jpg}
-	%https://heritage.engineersaustralia.org.au/wiki/Place:Interscan_Microwave#/media/File:EHRP-0177_SNECV_InterscanMLS_antennae.jpeg
-	\caption{\textit{MLS (\textit{Microwave Landing System})}.}
+	\caption[MLS ({\textit{Microwave Landing System})}.]{MLS ({\textit{Microwave Landing System})} \citeFig{MLS_url}.}
 	\label{fig:MLS}
 \end{figure}
 
