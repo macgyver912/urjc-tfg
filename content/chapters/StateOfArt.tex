@@ -283,47 +283,66 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 \section{Organización del espacio aéreo}
 \label{sec:OrganizacionEspacioAereo}
 
-\subsection{Regiones de vuelo}
-\label{subsec:RegionesVuelo}
+\subsection{Regiones de vuelo y zonas especiales}
+\label{subsec:RegionesVueloZonasEspeciales}
 
-En 1944 fue creada la ICAO/OACI (International Civil Aviation Organization / Organización de Aviación Civil Internacional) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada \cite{Ontiveros}. Ésta divide el espacio aéreo mundial en varias zonas:
-· Norteamérica (NAM) · África (AFI)
-· Atlántico Norte (NAT) · Europa (EUR)
-· Caribe (CAR) · Oriente Medio (MID)
-· Pacífico (PAC) · Asia (ASIA)
-· Sudamérica (SUD)
-A su vez, éstas se dividen en regiones locales (sectorización) debido a las diferentes características y necesidades de cada zona y se conocen como FIR (Flight Information Region / Región de Información de vuelo) y UIR (Upper Information Region / Región Superior de Información de Vuelo). Ambas suelen coincidir en límites laterales, pero verticalmente la FIR engloba desde el suelo (GND, Ground) hasta el nivel de vuelo FL245 y el UIR se ubica por encima, dando servicio a partir de FL245 sin limitación superior (UNL, Unlimited), es hasta FL460 donde proporciona servicio de control de tráfico aéreo.
-Dentro de las FIR existen lo que se denominan sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. Dentro del espacio aéreo controlado existen diferentes zonas de control aéreo atendiendo a la fase de vuelo en la que se encuentren las aeronaves. De menor a mayor territorio controlado son:
-• ATZ (Airport Traffic Zone / Zona de Tránsito de Aeródromo): con centro en el aeropuerto, se extiende con un radio de unas 5 NM y contiene a la torre de control (TWR, Tower).
-• CTR (Control Zone / Zona de Control): se extiende unas millas más lejos del aeropuerto y contiene a Control de Aproximación (APP, Approach), que se encarga de dirigir las aeronaves en sus salidas y llegadas desde/hacia el aeropuerto.
-• TMA (Terminal Manouvering Area / Área Terminal de Maniobras): más lejos que aproximación, se extiende para dirigir las aeronaves hacia y en las aerovías (AWY, Airway).
+En 1944 fue creada la OACI (Organización de Aviación Civil Internacional) o ICAO (\textit{International Civil Aviation Organization}) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada. Ésta divide el espacio aéreo mundial en varias zonas: Norteamérica (NAM), África (AFI), Atlántico Norte (NAT), Europa (EUR), Caribe (CAR), Oriente Medio (MID), Pacífico (PAC), Asia (ASIA), Sudamérica (SUD) \cite{Ontiveros}.
 
-%Imágenes extraídas de:
-%Ontíveros, Jorge. Descubrir el control aéreo. AENA.
-%http://www.aena.es/csee/ccurl/470/12/fir_espana.swf
-%http://www.takeoffbriefing.com/wp-content/uploads/2013/01/map_eur_nat.png
-%http://www.ivao.es/uploads/4838cec89268f544eec84c2fceeef8b3.JPG
-%http://html.rincondelvago.com/000202990.png
-%http://files.ivao.es/FIR/LECM/imagenes/inferior.jpg
+A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen coincidir pero se distinguen verticalmente. Así, se diferencias dos espacios aéreos:
+
+\begin{itemize}
+
+	\item \underline{Espacio aéreo inferior} o Región de Información de Vuelo, FIR (\textit{Flight Information Region}). Comprende desde la superficie del terreno (GND, \textit{Ground}) hasta el nivel de vuelo FL245.
+	
+	\item \underline{Espacio aéreo superior} o Región Superior de Información de Vuelo, UIR (\textit{Upper Information Region}). Se sitúa por encima de las FIR, desde el nivel de vuelo FL245 y sin límite superior, si bien sólo se presta servicio de control de tráfico aéreo hasta FL460.
+	
+\end{itemize}
+
+\pagebreak
+
+De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. De menor a mayor extensión:
+
+\begin{itemize}
+
+\item \underline{Zona de Tránsito de Aeródromo, ATZ} (\textit{Airport Traffic Zone}): con centro en el aeropuerto, se extiende con un radio de unas 5 NM y contiene a la torre de control (TWR, \textit{Tower}).
+
+\item \underline{Zona de Control, CTR} (\textit{Control Zone}): se extiende unas millas más lejos del aeropuerto y contiene a Control de Aproximación (APP, \textit{Approach}), que se encarga de dirigir las aeronaves en sus salidas y llegadas desde/hacia el aeropuerto.
+
+\item \underline{Área Terminal de Maniobras, TMA} (\textit{Terminal Manouvering Area}): más lejos que aproximación, se extiende para dirigir las aeronaves hacia y en las aerovías (AWY, \textit{Airway}).
+
+\end{itemize}
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.65\linewidth]{images/content/AreasATC.jpg}
+	\caption[Sectorización de las zonas de control ATC.]{Sectorización de las zonas de control ATC \citeFig{AreasATC_url}.}
+	\label{fig:AreasATC}
+\end{figure}
 
 
-\subsection{Clases y restricciones}
-\label{subsec:ClasesRestricciones}
+Además, dentro de estos sectores se distinguen zonas de carácter especial para su sobrevuelo, pudiendo quedar restringido su carácter a un horario, rango de altitud o condiciones particulares:
 
-Se distinguen diferentes clases de espacio aéreo atendiendo a la serie de restricciones y normas impuestas en la zona:
-• Espacio aéreo controlado: A, B, C, D, E, siendo el A el más restrictivo donde ninguna aeronave bajo vuelo VFR puede entrar. Las aeronaves se comunicarán con el ATC (Air Traffic Control / Control de Tráfico Aéreo)
-• Espacio aéreo no controlado: F, G. Sin ATC. Las aeronaves deben seguir unas reglas básicas para no interferir con otros tráficos. Es recomendable, pero no obligatorio el reporte de posiciones a otras aeronaves en la zona.
-Además, existen zonas especiales:
-• D (Danger): zonas peligrosas que no se sobrevolarán por seguridad.
-• R (Restricted): zonas que no se sobrevolarán sin permiso.
-• P (Prohibited): sólo aeronaves militares con aprobación del Ministerio de Defensa.
+\begin{itemize}
+	\item \underline{Zonas D} (\textit{Danger}): zonas peligrosas que, por seguridad, se evitarán sobrevolar.
 
-%Imágenes extraídas de:
-%Recursos propios. Fotografías en Adolfo Suárez Madrid-Barajas (LEMD/MAD). Autor: Jaime Valle Alonso.
-%Cartas aeronáuticas de AENA, versión electrónica. AIP.
-%http://cessna.txtav.com/~/media/Images/News-Events/Press-Galleries/singleengine/skyhawk/Skyhawk%20Picture%209/sin_haw_flt09_2010_1280x1024.jpg
-%http://www.radiodx.qsl.br/ondas2.gif
+	\item \underline{Zonas R} (\textit{Restricted}): zonas que no se sobrevolarán sin la autorización pertinente.
+	
+	\item \underline{Zonas P} (\textit{Prohibited}): sólo aeronaves militares con aprobación del Ministerio de Defensa.
+\end{itemize}
 
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.40\linewidth]{images/content/ZonasDRP.jpg}
+	\caption[Zonas de carácter especial para su sobrevuelo: D, R, P.]{Zonas de carácter especial para su sobrevuelo: D, R, P \citeFig{ZonasDRP_url}.}
+	\label{fig:ZonasDRP}
+\end{figure}
+
+
+
+
+
+
+\pagebreak
 
 \subsection{Reglas de vuelo y meteorología}
 \label{subsec:ReglasVueloMeteorologia}
