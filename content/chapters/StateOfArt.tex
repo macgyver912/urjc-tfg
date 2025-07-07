@@ -202,24 +202,156 @@ Se trata de un Sistema de Aterrizaje por Microondas que tiene la misma utilidad 
 
 \pagebreak
 
-\section{Sistemas de aumentación basados en GNSS}
-\label{sec:SistemasAumentacionGNSS}
-
-//TODO
-
-
-
-
-
-
-
 \section{Navegación basada en prestaciones}
 \label{sec:NavegacionBasadaPrestaciones}
 
-//TODO
+La navegación convencional con rutas y procedimientos basados en radioayudas terrestres convencionales como VOR/DME y NDB es poco flexible y se limita a segmentos rectos, quedando la trayectoria en todo momento dependiente de la línea que unía ambas estaciones o a fijos definidos en la intersección de ciertos radiales y distancias a dichas estaciones.
+
+La evolución de la tecnología de los equipos embarcados y los equipos terrestres permitieron han permitido aumentar la precisión de posicionamiento y reducir la incertidumbre de localización, lo que ha permitido dotar de mayor flexibilidad al espacio aéreo. Esto se debe a la implantación de procedimientos que no contemplan la necesidad de sobrevolar radioayudas terrestres.
+Así, se define la navegación de área o RNAV (\textit{aRea NAVigation}), cuyos fijos de ruta no tienen por qué venir determinados por la cobertura de equipos en tierra sino que pueden ser, por ejemplo, coordenadas latitud-longitud.
+
+En la Figura \ref{fig:PBN} puede verse claramente que las rutas convencionales necesitan, en general, mayor distancia a recorrer, con el respectivo aumento del consumo de combustible y emisiones nocivas, mayor tiempo de vuelo así como menor comodidad para el pasaje que las RNAV.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/content/PBN.png}
+	\caption[Rutas convencionales, RNAV y RNP.]{Rutas convencionales, RNAV y RNP \citeFig{PBN_url}.}
+	\label{fig:PBN}
+\end{figure}
 
 
-De este modo se pueden crear rutas sin necesidad de desplegar nuevas infraestructuras en tierra y se ahorra tiempo y combustible al realizar trayectorias más cortas. A su vez, la RNAV se divide en B-RNAV (\textit{Basic Area-RNAV}), que obliga a llevar equipos a bordo que permitan mantenerse dentro de la ruta con un margen de $\pm5\;NM$ durante el $95\%$ del tiempo; y la P-RNAV (\textit{Precision Area-RNAV}), que reduce el margen a $\pm1\;NM$.
+\pagebreak
+
+\subsection{RNAV}
+\label{subsec:RNAV}
+
+Por tanto, RNAV se define como la serie de procedimientos para navegación aérea que permite conocer la posición de la aeronave y de los próximos puntos de ruta basándose bien en radioayudas terrestres como VOR/DME y NDB, bien en constelaciones GNSS, bien en la aviónica de a bordo como los sistemas de navegación inerciales INS (\textit{Inertial Navigation Systems}) en conjunto con los sistemas de referencia inerciales IRS (\textit{Inertial Reference Systems}), o bien en una combinación de todos ellos \cite{PBN_AESA}. 
+
+
+De este modo se pueden crear rutas sin necesidad de desplegar nuevas infraestructuras en tierra y se pueden definir rutas más eficiones, ahorrando tiempo y combustible al realizar trayectorias más cortas. A su vez, la RNAV se divide en B-RNAV (\textit{Basic-Area RNAV}), que obliga a llevar equipos a bordo que permitan mantenerse dentro de la ruta con un margen de \SI{\pm5}{NM} durante el \SI{95}{\percent} del tiempo; y la P-RNAV (\textit{Precision-Area RNAV}), que reduce el margen a \SI{\pm1}{NM}.
+
+
+En cuanto a la calidad de la información de posicionamiento, que depende tanto de las fuentes de entrada al sistema RNAV como de la propia base de datos que emplea el sistema, se definen los sistemas RNAV-X, donde X significa la máxima desviación permitida lateralmente respecto de la ruta establecida en millas náuticas durante un máximo del 5\% del tiempo. Es decir, si se tiene RNAV-5, el \SI{95}{\percent} se tiene que estar dentro del pasillo con anchura \SI{10}{NM} y centrado en el eje de la ruta (\SI{5}{NM} a cada lado).
+
+Estos requisitos de precisión dependen del área de aplicación, es decir, para áreas oceánicas, donde la densidad de tráfico es mucho menor que sobre los continentes, se admite RNAV-10, mientras que en áreas muy congestionadas se va hacia RNAV-1.
+
+\subsection{RNP}
+\label{subsec:RNP}
+
+Un paso más allá va RNP (\textit{Required Navigation Performance}), que, adicionalmente a las RNAV, exige monitorización y alertas del funcionamiento sobre las prestaciones de los sistemas. Para poder realizar operaciones RNP tanto los propios sistemas de posicionamiento y navegación como los de monitorización deben trabajar correctamente con sus parámetros dentro de un límite, traspasado el cuál, el sistema de alerta debe avisar del malfuncionamiento del sistema o una parte de él para tomar las medidas necesarias o abandonar el procedimiento RNP.
+
+De este modo, definiéndose el error total del sistema, TSE (\textit{Total System Error}) como la desviación lateral probable de la aeronave, se establece RNP-X (con X = TSE) como la navegación con requisitos de X NM de precisión a hacia ambos lados de la ruta para un \SI{95}{\percent} del tiempo, y un valor de 2X NM hacia cada lateral como zona de contingencia (véase Figura \ref{fig:RNAV_RNP}), a partir de la cual, si la aeronave se desvía, el sistema de monitorización y alerta debe avisar del suceso. Además, define una continuidad, disponibilidad e integridad igual o superior al \SI{99.999}{\percent}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.80\linewidth]{images/content/RNAV_RNP.png}
+	\caption[Diferencias y similitudes entre RNAV y RNP.]{Diferencias y similitudes entre RNAV y RNP \citeFig{RNAV_RNP_url}.}
+	\label{fig:RNAV_RNP}
+\end{figure}
+
+
+
+
+
+
+%
+%\begin{itemize}
+%\item RNAV Básica (B-RNAV) y RNP-5 RNAV ($\pm5$ NM; 95\%).
+%\item RNAV Precisión (P-RNAV) y RNP-1 RNAV ($\pm1$ NM; 95\%).
+%\end{itemize}
+%
+%Cada vez más aeropuertos de la geografía española están \textbf{adoptando los procedimientos RNAV}, de momento para salidas por ser menos restrictivas, como son el aeropuerto de Adolfo Suárez - Madrid Barajas, Barcelona - El Prat y Palma de Mallorca. En la siguiente página se muestran a modo de comparativa la misma región en la cartas aeronáuticas para Salidas Instrumentales Normalizadas o SID (\textit{Standard Instrumental Departure}) con navegación convencional y RNAV del aeropuerto de Barcelona - El Prat, en concreto para la pista 25R.
+%
+%\begin{figure}[htbp]
+%	\centering
+%		\includegraphics[width=15cm]{./Figuras/LEBL_Convencional.png}
+%	\caption{Extracto de SID convencional de la RWY 25R de LEBL (extraído de \cite{ENAIRE_AIP}).}
+%	\label{fig:LEBL_Convencional}
+%\end{figure}
+%
+%
+%
+%Puede aprecierse cómo en la Figura \ref{fig:LEBL_Convencional} todas las salidas hacia Europa y las Islas Baleares cuelgan de un arco definido completamente en base a \textbf{distancias DME de los DVOR} de Barcelona (116.70 MHz) y El Prat (114.30 MHz). Esta navegación se realiza a partir de los \textbf{equipos de a bordo} de la aeronave con ayuda del procesamiento de la señal de las radio ayudas terrestres.
+%
+%\pagebreak
+%
+%En cambio, en la Figura \ref{fig:LEBL_RNAV} algunas de las salidas son completamente \textbf{independientes} al resto. Esto se traduce en la posibilidad de realizar tramos más \textbf{directos y cortos}, con el impacto directo sobre el consumo de combustible, las emisiones y el tiempo y la eficiencia de vuelo. Además, contribuye a \textbf{aumentar la capacidad del espacio aéreo}, ya que al estar en salidas con trayectos independientes, pueden sacarse más aviones del aeropuerto sin que uno tenga que ser necesariamente precedente del otro en la misma ruta de salida.
+%Por tanto, la capacidad en \textbf{número de operaciones} del aeropuerto se ve \textbf{incrementada}.
+%
+%\begin{figure}[htbp]
+%	\centering
+%		\includegraphics[width=15cm]{./Figuras/LEBL_P-RNAV.png}
+%	\caption{Extracto de SID P-RNAV de la RWY 25R de LEBL (extraído de \cite{ENAIRE_AIP}).}
+%	\label{fig:LEBL_RNAV}
+%\end{figure}
+
+\section{Concepto PBN}
+\label{sec:PBN}
+
+La navegación basada en prestaciones o PBN (\textit{Performance-Based Navigation}) es un concepto que supone una evolución en la navegación de área o RNAV, aprovechando la capacidad de navegación de las aeronaves mediante la especificación de requisitos de prestaciones, en vez de basarse en el equipamiento de unos determinados sistemas de navegación \cite{ENAIRE_PBN}.
+
+Para ello se identifican un conjunto de especificaciones que dan lugar a una serie de \textbf{requisitos de prestaciones} y se proponen posibles sensores y sistemas que pueden emplearse para cumplir dichos requisitos.
+
+\subsection{Importancia de GNSS en PBN}
+\label{subsec:GNSS}
+
+Entendiendo GNSS (\textit{Global Navigation Satellite System}) como cada uno del conjunto de sistemas que basan el cómputo del posicionamiento de un blanco en una constelación de satélites, como GPS, GLONASS, BeiDou o Galileo, se trata del sistema facilitador más importante para PBN. De hecho, tanto OACI como Eurocontrol, en sus proyectos colocan a GNSS como el sistema de navegación principal. Las redes de radio ayudas terrestres convencionales servirán entonces como respaldo.
+
+Es más, los sistemas GNSS se categorizan como los únicos sistemas capaces de cumplir las las especificaciones más exigentes que se describen en el Manual PBN (Doc. 9613 de OACI). Así, en Europa,  ya emplean la navegación por satélite en todas las fases del vuelo: salida (SID), ruta, llegada (STAR) y aproximación instrumental.
+
+\subsection{Requisitos GNSS para PBN}
+\label{subsec:RequisitosGNSS}
+
+Si bien los sistemas GNSS pueden aportar la mejor solución de navegación, por sí sólos no son confiables, ya que solamente se compromenten a dar ciertas prestaciones de precisión y disponibilidad. Pero como vimos anteriormente, la navegación bajo el normativa RNP necesita de sistemas de monitorización de alerta, siendo los siguientes conceptos fundamentales para la aprobación del uso de navegación GNSS por la OACI \cite{PBN_AESA}:
+
+\begin{itemize}
+\item Precisión,  entendida como la diferencia en distancia entre la posición estimada y la posición real. Se expresa como un percentil de la distribución de errores.
+
+\item Disponibilidad o probabilidad de que el sistema esté operando con todos sus parámetros dentro de valores admisibles de precisión, integridad y continuidad, durante la operación a realizar. Se expresa como un porcentaje de tiempo, evaludado sobre largos periodos temporales.
+
+\item Integridad o confianza en el correcto funcionamiento del sistema. Se establece un tiempo máximo de alerta, dentro del cuál, cuando alguno de los parámetros del sistema sobrepasa el umbral de operación segura, el sistema de monitorización y alerta debe detectar e informar de que existe un fallo y notificar, por ejemplo, que uno de los satélites no debe emplearse para realizar el cómputo de posicionamiento, o incluso marcar el sistema como inoperativo. Si esta premisa no puede cumplirse, el sistema no puede ser empleado para navegación.
+
+\item Continuidad o tiempo medio entre interrupciones no programadas. Es decir, es el tiempo estimado estadísticamente entre fallos del equipo, sin tener en cuenta los apagones programados por mantenimiento.
+\end{itemize}
+
+Para cumplir con todos estos parámetros se necesita de sistemas que complementen a los sistemas GNSS estándar, conocidos como sistemas de aumentación GNSS y que serán detallados en la próxima sección.
+
+
+
+\section{Sistemas de aumentación GNSS}
+\label{sec:SistemasAumentacionGNSS}
+
+Los sistemas de aumentación GNSS son aquellos que aportan mayor confiabilidad tanto en la precisión de posicionamiento, disponibilidad, integridad y continuidad a las constelaciones GNSS. Basan su operatividad en la monitorización de las señales GNSS desde puntos de referencia bien definidos y emitiendo una serie de correcciones y advertencias a los receptores que estén a su alcance de tal forma que garantice la mejor de las posibles operaciones minimizando el error que en ese momento la constelación GNSS en particular esté proporcionando.
+
+Se categorizan según el tipo de infraestructura en el que se apoyen para realizar correcciones a las soluciones estándar:
+
+\begin{itemize}
+\item Sistemas SBAS, basados en satélites, como WAAS en Estados Unidos, EGNOS en Europa y otros como GAGAN y MSAS. Se emplean satélites para dar cobertura a extensas áreas continentales.
+
+\item Sistemas GBAS, basados en estaciones terrestres con cobertura local dentro de \SI{50}{NM} del aeropuerto en el que se ubican.
+
+\item Sistemas ABAS, con aviónica embarcada en aeronaves.
+\end{itemize}
+
+
+\subsection{Ventajas del uso de PBN y GNSS}
+\label{subsec:PBN_Ventajas}
+
+El empleo de navegación PBN en conjunto con GNSS, aporta una serie de ventajas directas e indirectas en el sector aeronáutico. El primero y más evidente es que la inversión para dotar a aeropuertos de la capacidad de aceptar aproximaciones PBN es muy reducido comparado con los altos costes de inversión de los sistemas radioeléctricos convencionales. Además, el mantenimiento de estos sistemas es más económico, ofreciendo reducción de costes y mayor eficiencia para el aeropuerto.
+
+Por otro lado, mejora la seguridad operacional, sobre todo en condiciones LVP (\textit{Low Visibility Procedures}) y de noche, además de aportar mayor flexibilidad al espacio aéreo y hacer un uso más eficiente de éste. Esto conlleva a una reducción inmediata de gases contaminantes y la posibilidad de reducir la \textbf{huella acústica} sobre poblaciones cercanas a los aeropuertos.
+
+La necesidad de mínimas radioayudas en tierra, sólo como sistema de respaldo (\textit{backup}), por lo que no hay que invertir en nuevas. Incluso, podrían volverse más accesibles aquellos aeropuertos que no cuenten con sistemas de aterrizaje por instrumentos como ILS o MLS a un coste muy reducido.
+
+Pero la navegación basada en GNSS no sólo tiene ventajas sobre los aeropuertos, ni en rutas continentales, sino que otro de sus puntos clave está en la mejora de la navegación intercontinental y sobre océanos. La navegación convencional no puede apoyarse sobre radio ayudas terrestres en rutas oceánicas por la propia cobertura de éstas pocas millas náuticas más allá de la línea de costa. Es entonces cuando entran en juego los sistemas de navegación inerciales, INS (\textit{Inertial Navigation Systems}) y los sistemas de referencia inerciales, IRS (\textit{Inertial Reference Systems}).
+
+El problema de estos sistemas embarcados es que una vez se ajustan en tierra, en una posición bien conocida del aeropuerto de origen, no tienen ninguna referencia de otros sistemas a lo largo de todo el trayecto, por lo que el error es acumulativo, haciendo que la precisión en el seguimiento de la ruta sea cada vez menor cuanto mayor sea el tiempo de vuelo. Esto exige que las rutas oceánicas tengan separaciones laterales de varias decenas de millas náuticas.
+
+Cuando se emplean sistemas GNSS, éstos pueden aportar información muy valiosa a otros subsistemas de aviónica, como por ejemplo estos sistemas inerciales, que pueden ser actualizados y corregidos en pleno vuelo cada cierto tiempo, reduciendo considerablemente el error.
+
+
+
+
 
 
 
@@ -273,6 +405,29 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 \subsection{Vigilancia Dependiente Automática}
 \label{subsec:VigilanciaDependienteAutomatica}
 
+%Uno de los sistemas que está ampliamente extendido a día de hoy y que será obligatorio en los próximos años para todas las aeronaves civiles es el ADS o Vigilancia Dependiente Automática (\textit{Automatic Dependent Surveillance}).
+%
+%Se trata de un sistema de vigilancia en el cual la aeronave transmite por enlace de datos su \textbf{identificativo}, \textbf{posición} extraída principalmente de los sistemas GNSS de a bordo y otros \textbf{datos adicionales} de relevancia para el personal del Servicio de Tránsito Aéreo. 
+%
+%Existen dos tipos: \textbf{ADS-C}, donde la transimisión de datos se realiza hacia una estación de tierra previo \textbf{contrato}, y \textbf{ADS-B}, donde la transmisión de datos se realiza mediante \textbf{difusión} o \textit{broadcast}, por lo que cualquier receptor apropiado puede decodificar los datos enviados.
+%
+%\begin{figure}[htbp]
+%	\centering
+%		\includegraphics[width=14cm]{./Figuras/Flightradar24.png}
+%	\caption{Datos ADS-B recogidos por la plataforma Flightradar24 (\cite{ENAIRE_AIP}).}
+%	\label{fig:Flightradar24}
+%\end{figure}
+%
+%Como se comentó anteriormente, al igual que ocurría con la navegación en rutas oceánicas, la \textbf{vigilancia} del espacio aéreo sobre el océano es \textbf{muy limitada} y prácticamente se reduce a comunicaciones de voz en banda HF entre piloto y controlador para reportar posición y coordenadas y hora del siguiente punto de la ruta.
+%
+%Con \textbf{ADS} se puede tener una \textbf{mejor cobertura mundial} sobre zonas donde los radares primaro (PSR) y secundario (SSR) no alcanzan, además de tener muchas otras ventajas que pueden incorporarse a futuros sistemas tanto de vigilancia como de comunicaciones y navegación.
+%
+%\section{Conclusiones}
+%\label{sec:Conclusiones}
+%
+%Como se ha detallado a lo largo del documento, \textbf{PBN} supone una \textbf{mejora en la calidad del servicio} prestado realizando un cambio de ideología sobre los procedimientos convencionales. Esto repercute directamente en una mejor protección del \textbf{medio ambiente}, una reducción de \textbf{costes} para las compañías aéreas al evitar frustradas y desvíos a alternativos, sobre todo en aeropuertos con pocas infraestructuras de radio ayudas, y como no podría ser de otro modo en este sector, una mejora la \textbf{seguridad} en las operaciones.
+%
+%Hay que destacar que PBN se basa en la \textbf{navegación GNSS}, y es ésta tecnología la que ha posibilidado, a través de \textbf{sistemas de aumentación}, tener sistemas confiables y seguros a nivel global, además de ser uno de los facilitadores para otro tipo de funcionalidades que vendrán en el futuro.
 
 
 
@@ -359,50 +514,6 @@ Con la evolución de la tecnología, se fueron implantando las radioayudas terre
 \end{figure}
 
 
-
-
-
-\subsection{La meteorología en la aviación}
-\label{subsec:MeteorologiaAviacion}
-
-Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas.
-
-Las turbulencias se definen como variaciones repentinas de la dirección del viento, siendo especialmente relevante la cizalladura (\textit{wind-shear}), pues son variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
-
-La visibilidad también juega un papel muy importante, pues en condiciones de visibilidad reducida para la tripulación puede producirse pérdida de conciencia situacional (\textit{situational awareness}), por lo que las nubes y la niebla son determinantes para el tipo de vuelo a realizar y sus limitaciones.
-
-En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el engelamiento, ya que la deposición de hielo, principalmente sobre el ala produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico. Por ello, las aeronaves suelen equipar sistemas de calefacción en los bordes de ataque del ala y en elementos críticos como los tubos pitot y los sensores de ángulo de ataque.
-
-
-La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
-
-\begin{figure}[!hbtp]
-	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
-	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
-	\label{fig:QNH}
-\end{figure}
-
-El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
-
-La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
-
-\begin{itemize}
-
-	\item GS (\textit{Ground Speed}): es la velocidad respecto a tierra y se define como la velocidad de la aeronave en el seno del fluido más, o menos en su caso, la velocidad del fluido.
-
-	\item IAS (\textit{Indicated Airspeed}): es la velocidad indicada respecto del aire, definiéndose como la velocidad relativa del avión respecto del aire incidente en el anemómetro (generalmente medida mediante uno o varios tubo pitot). Depende de la densidad del aire, por lo que al aumentar la altitud, esta velocidad disminuye disminuye. Es muy importante porque denota la maniobrabilidad y prestaciones de la aeronave y las fuerzas estructurales a las que estás sometida.
-
-	\item CAS (\textit{Calibrated Airspeed}: es la velocidad respecto del aire calibrada, definida como la IAS  con corrección del error debido al ángulo de ataque del avión y del propio instrumento. Es la menos usada de forma directa.
-
-	\item TAS (\textit{True airspeed}) es la velocidad real respecto al aire, definiéndose como la CAS corregida por la altitud y la temperatura.
-	
-Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave y la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
-
-\end{itemize}
-
-
-
 \subsection{Separación entre aeronaves}
 \label{subsec:SeparacionAeronaves}
 
@@ -481,24 +592,6 @@ Además de los servicios de vigilancia y control de tráfico aéreo, para evitar
 	\end{itemize}
 \end{itemize}
 
-%\begin{figure}[!hbtp]
-%	\centering
-%	\begin{subfigure}{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=0.9\linewidth]{images/content/STCA.jpg}
-%		\caption[Sistema de Alerta de Conflicto a Corto Plazo (STCA).]{Sistema de Alerta de Conflicto a Corto Plazo (STCA) \citeFig{STCA_url}.}
-%		\label{fig:STCA}
-%	\end{subfigure}%
-%	\begin{subfigure}{0.5\textwidth}
-%		\centering
-%		\includegraphics[width=0.9\linewidth]{images/content/TCAS.jpg}
-%		\caption[Sistema de Alerta de Tráfico y Evasión de Colisión.]{Sistema de Alerta de Tráfico y Evasión de Colisión (TCAS) \citeFig{TCAS_url}}
-%		\label{fig:TCAS}
-%	\end{subfigure}
-%	\caption{Sistemas de prevención de conflictos STCA y TCAS.}
-%	\label{fig:STCA_TCAS}
-%\end{figure}
-
 \begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=0.6\linewidth]{images/content/TCAS.jpg}
@@ -507,5 +600,70 @@ Además de los servicios de vigilancia y control de tráfico aéreo, para evitar
 \end{figure}
 
 Para que estos datos sean recogidos es necesario que en las aeronaves que puedan cruzarse en su camino mantengan activado su transpondedor en el modo correspondiente para trasmitir toda la información.
+
+
+
+
+
+\pagebreak
+
+\section{La meteorología en la aviación}
+\label{sec:MeteorologiaAviacion}
+
+Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas.
+
+Las turbulencias se definen como variaciones repentinas de la dirección del viento, siendo especialmente relevante la cizalladura (\textit{wind-shear}), pues son variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
+
+La visibilidad también juega un papel muy importante, pues en condiciones de visibilidad reducida para la tripulación puede producirse pérdida de conciencia situacional (\textit{situational awareness}), por lo que las nubes y la niebla son determinantes para el tipo de vuelo a realizar y sus limitaciones.
+
+En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el engelamiento, ya que la deposición de hielo, principalmente sobre el ala produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico. Por ello, las aeronaves suelen equipar sistemas de calefacción en los bordes de ataque del ala y en elementos críticos como los tubos pitot y los sensores de ángulo de ataque.
+
+
+La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
+	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
+	\label{fig:QNH}
+\end{figure}
+
+El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
+
+La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
+
+\begin{itemize}
+
+	\item GS (\textit{Ground Speed}): es la velocidad respecto a tierra y se define como la velocidad de la aeronave en el seno del fluido más, o menos en su caso, la velocidad del fluido.
+
+	\item IAS (\textit{Indicated Airspeed}): es la velocidad indicada respecto del aire, definiéndose como la velocidad relativa del avión respecto del aire incidente en el anemómetro (generalmente medida mediante uno o varios tubo pitot). Depende de la densidad del aire, por lo que al aumentar la altitud, esta velocidad disminuye disminuye. Es muy importante porque denota la maniobrabilidad y prestaciones de la aeronave y las fuerzas estructurales a las que estás sometida.
+
+	\item CAS (\textit{Calibrated Airspeed}: es la velocidad respecto del aire calibrada, definida como la IAS  con corrección del error debido al ángulo de ataque del avión y del propio instrumento. Es la menos usada de forma directa.
+
+	\item TAS (\textit{True airspeed}) es la velocidad real respecto al aire, definiéndose como la CAS corregida por la altitud y la temperatura.
+	
+Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave y la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
+
+\end{itemize}
+
+
+
+\pagebreak
+
+\section{Rutas y procedimientos estandarizados}
+\label{sec:RutasProcedimientos}
+
+//TODO: rutas en ruta, carta aeronautica AIP
+
+\subsection{Salidas normalizadas por instrumentos}
+\label{subsec:SID}
+
+//TODO: SID del AIP, convencional vs RNAV
+
+\subsection{Llegadas normalizadas por instrumentos}
+\label{subsec:STAR}
+
+//TODO: STAR del AIP, convencional vs RNAV
+
 
 
