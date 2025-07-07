@@ -344,21 +344,19 @@ Además, dentro de estos sectores se distinguen zonas de carácter especial para
 
 \pagebreak
 
-\subsection{Reglas de vuelo y meteorología}
-\label{subsec:ReglasVueloMeteorologia}
+\subsection{Visibilidad y reglas de vuelo}
+\label{subsec:VisibilidadReglasVuelo}
 
 Como se comentó en \textit{\ref{chap:BasesNavegacionAerea}. \nameref{chap:BasesNavegacionAerea}}, en los comienzos de la navegación aérea se realizaba exclusivamente por observación del terreno que se estaba sobrevolando. Esto implicaba que debían existir Condiciones Meteorológicas Visuales, VMC (\textit{Visual Meteorological Conditions}) y poder volar bajo reglas Reglas de Vuelo Visual, VFR (\textit{Visual Flight Rules}). Esto limitaba el vuelo a horas diurnas y condiciones meteorológicas que permitiesen una buena visibilidad para poder mantener separaciones seguras con el terreno y con otros tráficos.
 
 Con la evolución de la tecnología, se fueron implantando las radioayudas terrestres y los equipos de a bordo o embarcados, lo que permitió el vuelo en Condiciones Meteorológicas Instrumentales, IMC (\textit{Instrumental Meteorological Conditions}) bajo las Reglas de Vuelo Instrumental, IFR (\textit{Instrumental Flight Rules}) basándose en la interpretación de la información ofrecida por los equipos al recibir las emisiones radioeléctricas.
 
-%Imágenes extraídas de:
-%Recursos propios. Fotografía de Toledo desde el aire. Autor: Jaime Valle Alonso.
-%http://www.radio970am.com.py/system/files/img_contenido/dia_caluroso_7.jpg
-%http://3.bp.blogspot.com/-rlMRzSs6M6E/T4skEuQX36I/AAAAAAAAAfQ/anYPMIQaxuE/s400/DSC_0001.jpg
-%https://sanctuarystation.files.wordpress.com/2008/11/p1060026.jpg
-%http://www.ivao.ca/pilot/images/ifr.jpg
-%http://www.gacetaeronautica.com/gaceta/wp-101/wp-content/uploads/2013/06/ea3.jpg. Autor: Fernando Puppio.
-
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/content/ReglasVuelo.jpg}
+	\caption[Visibilidad, condiciones y reglas de vuelo.]{Visibilidad, condiciones y reglas de vuelo \citeFig{VFR_url}\citeFig{IFR_url}\citeFig{TLD}.}
+	\label{fig:ZonasDRP}
+\end{figure}
 
 
 
@@ -367,65 +365,72 @@ Con la evolución de la tecnología, se fueron implantando las radioayudas terre
 \subsection{La meteorología en la aviación}
 \label{subsec:MeteorologiaAviacion}
 
-Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas:
+Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas.
+
+Las turbulencias se definen como variaciones repentinas de la dirección del viento, siendo especialmente relevante la cizalladura (\textit{wind-shear}), pues son variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
+
+La visibilidad también juega un papel muy importante, pues en condiciones de visibilidad reducida para la tripulación puede producirse pérdida de conciencia situacional (\textit{situational awareness}), por lo que las nubes y la niebla son determinantes para el tipo de vuelo a realizar y sus limitaciones.
+
+En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el engelamiento, ya que la deposición de hielo, principalmente sobre el ala produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico. Por ello, las aeronaves suelen equipar sistemas de calefacción en los bordes de ataque del ala y en elementos críticos como los tubos pitot y los sensores de ángulo de ataque.
+
+
+La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
+	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
+	\label{fig:QNH}
+\end{figure}
+
+El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
+
+La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
 
 \begin{itemize}
 
-\item Turbulencias: variaciones repentinas de la dirección del viento.
+	\item GS (\textit{Ground Speed}): es la velocidad respecto a tierra y se define como la velocidad de la aeronave en el seno del fluido más, o menos en su caso, la velocidad del fluido.
 
-\item Cizalladura (\textit{wind-shear}): variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
+	\item IAS (\textit{Indicated Airspeed}): es la velocidad indicada respecto del aire, definiéndose como la velocidad relativa del avión respecto del aire incidente en el anemómetro (generalmente medida mediante uno o varios tubo pitot). Depende de la densidad del aire, por lo que al aumentar la altitud, esta velocidad disminuye disminuye. Es muy importante porque denota la maniobrabilidad y prestaciones de la aeronave y las fuerzas estructurales a las que estás sometida.
 
-\item Nubes y niebla: pueden llegar a reducir considerablemente la visibilidad de la tripulación, produciendo desorientación (conciencia situacional o \textit{situational awareness}).
+	\item CAS (\textit{Calibrated Airspeed}: es la velocidad respecto del aire calibrada, definida como la IAS  con corrección del error debido al ángulo de ataque del avión y del propio instrumento. Es la menos usada de forma directa.
 
-\item Engelamiento: produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico.
+	\item TAS (\textit{True airspeed}) es la velocidad real respecto al aire, definiéndose como la CAS corregida por la altitud y la temperatura.
+	
+Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave y la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
 
 \end{itemize}
 
-La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreo lo más precisa posible. En cambio, en fase de ruta se  o configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
-
-El viento también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada por el piloto (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
-La dirección e intensidad del viento, junto con la altitud también determinan distintas velocidades:
-• GS (Ground Speed / Velocidad respecto a tierra): velocidad del avión en el seno del fluido más o menos la velocidad del fluido.
-• IAS (Indicated Airspeed / Velocidad Indicada del Aire): velocidad relativa del avión respecto del aire incidente en el anemómetro. Depende de la densidad del aire, por lo que al aumentar la altitud, la IAS disminuye. Es muy importante porque denota la maniobrabilidad de la aeronave y las fuerzas estructurales a las que estás sometida.
-• CAS (Calibrated Airspeed / Velocidad del Aire Calibrada): es la IAS más la corrección del error debido al ángulo de ataque del avión y del propio instrumento.
-• TAS (True airspeed / Velocidad del Aire Real): es la CAS corregida por la altitud y la temperatura.
-Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave entre la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
-
-%Imágenes extraídas de:
-%Ontíveros, Jorge. Descubrir el control aéreo. AENA.
-%https://lh5.googleusercontent.com/-Ae5y62WuyNo/UXhf_qVRUII/AAAAAAAAAxM/oZwTesBZvVQ/w551-h467/tacan5.jpg
 
 
 \subsection{Separación entre aeronaves}
 \label{subsec:SeparacionAeronaves}
 
 La separación entre las aeronaves puede ser en dos planos:
-• Horizontal: se separan de manera longitudinal -unas detrás de otras por una distancia o tiempo marcados- o bien lateral, por una distancia regulada. Se asigna en base a la información de su posición proporcionada al controlador aéreo por los pilotos, o bien con la ayuda del radar al proporcionar este sistema información sobre la posición de las aeronaves. Por tanto, depende de la fase del vuelo (despegue, en ruta, aproximación, aterrizaje), de la estela turbulenta del avión precedente así como de la precisión de posicionamiento y las velocidades relativas entre ambas aeronaves. Varía entre \SI{3}{} y \SI{10}{NM}.
-• Vertical: se consigue al asignar a las aeronaves distintas capas de altitud o niveles, separados entre sí por \SI{1000}{ft} (\SI{300}{m}) dentro del espacio RVSM (Reduced Vertical Separation Minimum / Separación Vertical Reducida Mínima) y 2000 pies (600 metros) en espacio no-RVSM. Se asigna nivel par o impar a una aeronave dependiendo de la dirección de su ruta (Norte, Este: par; Sur, Oeste: impar).
 
-%Imágenes extraídas de:
-%http://www.aerothai.co.th/maar/images/rvsm.gif
-%http://cdn.londonreconnections.com/assets/planes.jpg
-%http://cdn-www.airliners.net/aviation-photos/photos/4/1/9/1000914.jpg. Autor: Jakub Vanek.
+\begin{itemize}
+
+	\item Horizontal: se separan de manera longitudinal -unas detrás de otras por una distancia o tiempo marcados- o bien lateral, por una distancia regulada. Se asigna en base a la información de su posición proporcionada al controlador aéreo por los pilotos, o bien con la ayuda del radar al proporcionar este sistema información sobre la posición de las aeronaves. Por tanto, depende de la fase del vuelo (despegue, en ruta, aproximación, aterrizaje), de la estela turbulenta del avión precedente así como de la precisión de posicionamiento y las velocidades relativas entre ambas aeronaves. Varía entre \SI{3}{} y \SI{10}{NM}.
+
+	\item Vertical: se consigue al asignar a las aeronaves distintas capas de altitud o niveles, separados entre sí por \SI{1000}{ft} (\SI{300}{m}) dentro del espacio de Separación Vertical Reducida Mínima, RVSM (\textit{Reduced Vertical Separation Minimum}) y \SI{2000}{ft} (\SI{600}{m}) en espacio no-RVSM. Se asigna nivel par o impar a una aeronave dependiendo de la dirección de su ruta.
+
+\end{itemize}
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/RVSM.jpg}
+	\caption[Separación Vertical Reducida Mínima, RVSM.]{Separación Vertical Reducida Mínima, RVSM \cite{RVSM_url}.}
+	\label{fig:RVSM}
+\end{figure}
 
 
-\subsection{Hora común y entidades normativas}
-\label{subsec:HoraComunEntidadesNormativas}
 
-LA HORA:
-Dado que el movimiento de aeronaves tiene carácter internacional es necesaria una referencia temporal común para evitar confusiones. Se toma como referencia la hora del huso horario perteneciente al meridiano de Greenwich. Lo que se conoce como la hora GMT (Greenwich Meridian Time) o UTC (Universal Time Coordinated) y que en el argot aeronáutico se llama hora Zulu. Por ejemplo, Madrid se encuentra en UTC+1 en invierno y UTC+2 en verano.
-LAS NORMAS:
-Es muy importante que el sector aeronáutico esté muy regulado para reducir al máximo posible los riegos que conllevan sus operaciones.
-• OACI, EUROCONTROL y CEAC (Conferencia Europea de Aviación Civil).
-• IATA
-• RCA (Reglamento de la Circulación Aérea). Incluye normativa OACI y EUROCONTROL más las necesidades particulares de España.
-• AIP (Aeronautical Inforamtion Publication)
+\subsection{Hora común}
+\label{subsec:HoraComun}
 
-%Imágenes extraídas de:
-%http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eurocontrol_logo_2010.svg/474px-Eurocontrol_logo_2010.svg.png
-%http://upload.wikimedia.org/wikipedia/en/thumb/d/d5/IATA_Logo.svg/1280px-IATA_Logo.svg.png
-%http://www.fomento.gob.es/NR/rdonlyres/9BC566E5-5A38-424A-B180-D3AA39E98EB1/40337/CEAC.gif
-%http://www.icao.int/Meetings/High-Level-SecurityConf-2002/PublishingImages/IcaoLogo.png?Mobile=1&Source=%2FMeetings%2FHigh-Level-SecurityConf-2002%2F_layouts%2Fmobile%2Fview.aspx%3FList%3D5a4be47d-6856-4b9b-bb8e-578df9e9cd74%26View%3D7f50316c-0979-4107-9262-ba06c9f68a42%26CurrentPage%3D1
+Dado que el movimiento de aeronaves tiene carácter internacional es necesaria una referencia temporal común para evitar confusiones. Se toma como referencia la hora del huso horario perteneciente al meridiano de Greenwich. Lo que se conoce como la hora GMT (\textit{Greenwich Meridian Time}) o UTC (\textit{Universal Time Coordinated}) y que en el argot aeronáutico se llama hora Zulu. Por ejemplo, Madrid se encuentra en UTC+1 en invierno y UTC+2 en verano.
+
+
 
 
 \subsection{Plan y fichas de vuelo}
