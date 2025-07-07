@@ -254,37 +254,6 @@ De este modo, definiéndose el error total del sistema, TSE (\textit{Total Syste
 
 
 
-%
-%\begin{itemize}
-%\item RNAV Básica (B-RNAV) y RNP-5 RNAV ($\pm5$ NM; 95\%).
-%\item RNAV Precisión (P-RNAV) y RNP-1 RNAV ($\pm1$ NM; 95\%).
-%\end{itemize}
-%
-%Cada vez más aeropuertos de la geografía española están \textbf{adoptando los procedimientos RNAV}, de momento para salidas por ser menos restrictivas, como son el aeropuerto de Adolfo Suárez - Madrid Barajas, Barcelona - El Prat y Palma de Mallorca. En la siguiente página se muestran a modo de comparativa la misma región en la cartas aeronáuticas para Salidas Instrumentales Normalizadas o SID (\textit{Standard Instrumental Departure}) con navegación convencional y RNAV del aeropuerto de Barcelona - El Prat, en concreto para la pista 25R.
-%
-%\begin{figure}[htbp]
-%	\centering
-%		\includegraphics[width=15cm]{./Figuras/LEBL_Convencional.png}
-%	\caption{Extracto de SID convencional de la RWY 25R de LEBL (extraído de \cite{ENAIRE_AIP}).}
-%	\label{fig:LEBL_Convencional}
-%\end{figure}
-%
-%
-%
-%Puede aprecierse cómo en la Figura \ref{fig:LEBL_Convencional} todas las salidas hacia Europa y las Islas Baleares cuelgan de un arco definido completamente en base a \textbf{distancias DME de los DVOR} de Barcelona (116.70 MHz) y El Prat (114.30 MHz). Esta navegación se realiza a partir de los \textbf{equipos de a bordo} de la aeronave con ayuda del procesamiento de la señal de las radio ayudas terrestres.
-%
-%\pagebreak
-%
-%En cambio, en la Figura \ref{fig:LEBL_RNAV} algunas de las salidas son completamente \textbf{independientes} al resto. Esto se traduce en la posibilidad de realizar tramos más \textbf{directos y cortos}, con el impacto directo sobre el consumo de combustible, las emisiones y el tiempo y la eficiencia de vuelo. Además, contribuye a \textbf{aumentar la capacidad del espacio aéreo}, ya que al estar en salidas con trayectos independientes, pueden sacarse más aviones del aeropuerto sin que uno tenga que ser necesariamente precedente del otro en la misma ruta de salida.
-%Por tanto, la capacidad en \textbf{número de operaciones} del aeropuerto se ve \textbf{incrementada}.
-%
-%\begin{figure}[htbp]
-%	\centering
-%		\includegraphics[width=15cm]{./Figuras/LEBL_P-RNAV.png}
-%	\caption{Extracto de SID P-RNAV de la RWY 25R de LEBL (extraído de \cite{ENAIRE_AIP}).}
-%	\label{fig:LEBL_RNAV}
-%\end{figure}
-
 \section{Concepto PBN}
 \label{sec:PBN}
 
@@ -352,6 +321,47 @@ Cuando se emplean sistemas GNSS, éstos pueden aportar información muy valiosa 
 
 
 
+
+\pagebreak
+
+\section{La meteorología en la aviación}
+\label{sec:MeteorologiaAviacion}
+
+Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas.
+
+Las turbulencias se definen como variaciones repentinas de la dirección del viento, siendo especialmente relevante la cizalladura (\textit{wind-shear}), pues son variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
+
+La visibilidad también juega un papel muy importante, pues en condiciones de visibilidad reducida para la tripulación puede producirse pérdida de conciencia situacional (\textit{situational awareness}), por lo que las nubes y la niebla son determinantes para el tipo de vuelo a realizar y sus limitaciones.
+
+En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el engelamiento, ya que la deposición de hielo, principalmente sobre el ala produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico. Por ello, las aeronaves suelen equipar sistemas de calefacción en los bordes de ataque del ala y en elementos críticos como los tubos pitot y los sensores de ángulo de ataque.
+
+
+La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
+	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
+	\label{fig:QNH}
+\end{figure}
+
+El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
+
+La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
+
+\begin{itemize}
+
+	\item GS (\textit{Ground Speed}): es la velocidad respecto a tierra y se define como la velocidad de la aeronave en el seno del fluido más, o menos en su caso, la velocidad del fluido.
+
+	\item IAS (\textit{Indicated Airspeed}): es la velocidad indicada respecto del aire, definiéndose como la velocidad relativa del avión respecto del aire incidente en el anemómetro (generalmente medida mediante uno o varios tubo pitot). Depende de la densidad del aire, por lo que al aumentar la altitud, esta velocidad disminuye disminuye. Es muy importante porque denota la maniobrabilidad y prestaciones de la aeronave y las fuerzas estructurales a las que estás sometida.
+
+	\item CAS (\textit{Calibrated Airspeed}: es la velocidad respecto del aire calibrada, definida como la IAS  con corrección del error debido al ángulo de ataque del avión y del propio instrumento. Es la menos usada de forma directa.
+
+	\item TAS (\textit{True airspeed}) es la velocidad real respecto al aire, definiéndose como la CAS corregida por la altitud y la temperatura.
+	
+Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave y la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
+
+\end{itemize}
 
 
 
@@ -596,65 +606,68 @@ Para que estos datos sean recogidos es necesario que en las aeronaves que puedan
 
 
 
-\pagebreak
-
-\section{La meteorología en la aviación}
-\label{sec:MeteorologiaAviacion}
-
-Una de las variables que más impacto tienen en la aviación son las condiciones meteorológicas. Así, pueden definirse una serie de conceptos clave relacionados directamente con las condiciones atmosféricas.
-
-Las turbulencias se definen como variaciones repentinas de la dirección del viento, siendo especialmente relevante la cizalladura (\textit{wind-shear}), pues son variaciones muy bruscas de la dirección del viento que elevan y bajan al avión gran distancia en muy poco tiempo debido a la variación en la sustentación. Es muy peligrosa en la fase de aproximación y aterrizaje debido a la limitada maniobrabilidad y mínima separación de las aeronaves con la superficie terrestre u otros obstáculos.
-
-La visibilidad también juega un papel muy importante, pues en condiciones de visibilidad reducida para la tripulación puede producirse pérdida de conciencia situacional (\textit{situational awareness}), por lo que las nubes y la niebla son determinantes para el tipo de vuelo a realizar y sus limitaciones.
-
-En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el engelamiento, ya que la deposición de hielo, principalmente sobre el ala produce aumento del peso de la aeronave y la resistencia al aire, a la vez que reduce la sustentación al modificar el perfil aerodinámico. Por ello, las aeronaves suelen equipar sistemas de calefacción en los bordes de ataque del ala y en elementos críticos como los tubos pitot y los sensores de ángulo de ataque.
-
-
-La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
-
-\begin{figure}[!hbtp]
-	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
-	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
-	\label{fig:QNH}
-\end{figure}
-
-El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
-
-La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
-
-\begin{itemize}
-
-	\item GS (\textit{Ground Speed}): es la velocidad respecto a tierra y se define como la velocidad de la aeronave en el seno del fluido más, o menos en su caso, la velocidad del fluido.
-
-	\item IAS (\textit{Indicated Airspeed}): es la velocidad indicada respecto del aire, definiéndose como la velocidad relativa del avión respecto del aire incidente en el anemómetro (generalmente medida mediante uno o varios tubo pitot). Depende de la densidad del aire, por lo que al aumentar la altitud, esta velocidad disminuye disminuye. Es muy importante porque denota la maniobrabilidad y prestaciones de la aeronave y las fuerzas estructurales a las que estás sometida.
-
-	\item CAS (\textit{Calibrated Airspeed}: es la velocidad respecto del aire calibrada, definida como la IAS  con corrección del error debido al ángulo de ataque del avión y del propio instrumento. Es la menos usada de forma directa.
-
-	\item TAS (\textit{True airspeed}) es la velocidad real respecto al aire, definiéndose como la CAS corregida por la altitud y la temperatura.
-	
-Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el número de MACH. Se trata de la relación entre la velocidad de la aeronave y la velocidad del sonido (generalmente en aviación comercial entre 0.79 y 0.85).
-
-\end{itemize}
-
-
 
 \pagebreak
 
 \section{Rutas y procedimientos estandarizados}
 \label{sec:RutasProcedimientos}
 
-//TODO: rutas en ruta, carta aeronautica AIP
+\subsection{Salidas y llegadas normalizadas por instrumentos y RNAV}
+\label{subsec:SID_STAR_RNAV}
 
-\subsection{Salidas normalizadas por instrumentos}
-\label{subsec:SID}
+Cada vez más aeropuertos de la geografía española están adoptando los procedimientos RNAV para sus salidas y llegadas normalizadas por instrumentos (SID, \textit{Standard Instrumental Departure}; STAR, \textit{Standard Arrival}). Tal es así, que aeropuertos como el Adolfo Suárez - Madrid Barajas, Barcelona - El Prat y Málaga - Costa del Sol sólo admiten ya salidas y llegadas RNAV. En otros aeropuertos, como el de Palma de Mallorca, conviven los procedimientos convencionales y los RNAV.
 
-//TODO: SID del AIP, convencional vs RNAV
+En la siguiente página se muestran a modo de comparativa la misma región en la cartas aeronáuticas para SID para la pista 25R con navegación convencional y RNAV del aeropuerto de Barcelona - El Prat durante su fase de convivencia, puesto que a día de hoy ya sólo existen SID RNAV.
 
-\subsection{Llegadas normalizadas por instrumentos}
-\label{subsec:STAR}
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/LEBL_Convencional.png}
+	\caption[Extracto de SID convencional de la RWY 25R de LEBL.]{Extracto de SID convencional de la RWY 25R de LEBL \citeFig{AIP_2016_url}.}
+	\label{fig:LEBL_Convencional}
+\end{figure}
 
-//TODO: STAR del AIP, convencional vs RNAV
+
+Puede apreciarse cómo en la Figura \ref{fig:LEBL_Convencional} todas las salidas hacia Europa y las Islas Baleares cuelgan de un arco definido completamente en base a distancias DME de los DVOR de Barcelona (BCN, \SI{116.70}{MHz}) y El Prat (PRA, \SI{114.30}{MHz}). Esta navegación se realiza a partir de los equipos de a bordo de la aeronave con ayuda del procesamiento de la señal de las radio ayudas terrestres.
+
+En cambio, en la Figura \ref{fig:LEBL_RNAV} algunas de las salidas son completamente independientes al resto. Esto se traduce en la posibilidad de realizar tramos más directos y cortos, con el impacto directo sobre el consumo de combustible, las emisiones y el tiempo y la eficiencia de vuelo. Además, contribuye a aumentar la capacidad del espacio aéreo, ya que al estar en salidas con trayectos independientes, pueden sacarse más aviones del aeropuerto sin que uno tenga que ser necesariamente precedente del otro en la misma ruta de salida, viéndose incrementada la capacidad en número de operaciones del aeropuerto.
+
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/content/LEBL_P-RNAV.png}
+	\caption[Extracto de SID P-RNAV de la RWY 25R de LEBL.]{Extracto de SID P-RNAV de la RWY 25R de LEBL \citeFig{AIP_2016_url}.}
+	\label{fig:LEBL_RNAV}
+\end{figure}
+
+
+\subsection{Aterrizajes normalizados por instrumentos y PBN}
+\label{subsec:ILS_PBN}
+
+En octubre de 2013 se publicó el primer procedimiento de aproximación instrumental \textbf{RNP APCH} en España en el aeropuerto de Santander y poco a poco se han ido introduciendo en el resto de aeródromos. A día de hoy, el aeropuerto Seve Ballesteros de Santander presenta las siguientes opciones para aproximación por instrumentos a su pista 29.
+
+En la Figura \ref{fig:LEXJ_IAC_RWY29_LPV}, la cual requiere de equipos que cumplan con LPV SBAS, puede verse cómo el hipódromo de espera se encuentra alejado del núcleo de población, evitando impacto acústico y riesgos potenciales.
+
+Y hay que darse cuenta de que se está comparando con una aproximación ILS Cat I (Figura \ref{fig:LEXJ_IAC_RWY29_ILS}). Si comparamos con la aproximación de no precisión basada en VOR para la misma pista o para cualquier otra sin el sistema ILS, las mejoras van mucho más allá.
+
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/LEXJ_IAC_RWY29_ILS.jpg}
+	\caption[Aproximación por instrumentos a LEXJ RWY 29 procedimiento ILS.]{Aproximación por instrumentos a LEXJ RWY 29 procedimiento ILS \citeFig{AIP_2025_url}.}
+	\label{fig:LEXJ_IAC_RWY29_ILS}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/LEXJ_IAC_RWY29_LPV.jpg}
+	\caption[Aproximación por instrumentos a LEXJ RWY 29 procedimiento LPV.]{Aproximación por instrumentos a LEXJ RWY 29 procedimiento LPV \citeFig{AIP_2025_url}.}
+	\label{fig:LEXJ_IAC_RWY29_LPV}
+\end{figure}
+
+\newpage
+
 
 
 
