@@ -11,11 +11,20 @@ Con la evolución de los aviones cada vez más veloces y con mayor alcance, se c
 
 Fue durante la Segunda Guerra Mundial (1939-1945), ante la necesidad de discernir cuales eran los aviones aliados o enemigos, cuando se desarrolló el sistema RADAR (\textit{RAdio Detection And Ranging}). El perfeccionamiento de este sistema en el ámbito civil permitió aumentar ampliamente la capacidad de espacio aéreo debido a la reducción de la incertidumbre en el posicionamiento de las aeronaves que, hasta ahora, se hacían a estima.
 
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.95\linewidth]{images/content/LEMD_1931.jpg}
+	\caption[Aeropuerto de Madrid-Barajas en el año 1931.]{Aeropuerto de Madrid-Barajas en el año 1931 \citeFig{LEMD_1931_url}.}
+	\label{fig:LEMD_1931}
+\end{figure}
+
 Además, los avances en tecnología décadas más tarde, permitió la aparición de las radioayudas en tierra, como el NDB, el ADF, el DME y el VOR para ayuda a la navegación, y a sistemas como el ILS para ayuda al aterrizaje. Todo ello permitía volar de manera más segura y eficiente incluso en condiciones meteorológica desfavorables.
 
 Estos avances fueron tan importantes que a día de hoy siguen siendo la base de la navegación aérea. De este modo, las rutas aéreas convencionales se conforman como trayectorias entre dos radioayudas en tierra, generalmente dos o más equipos coexistentes VOR/DME. 
 
-Si bien, el crecimiento del tráfico aéreo propició que en 1996 se presentase una nueva forma de crear rutas más flexibles que no dependiesen de la posición fija de los equipos de tierra. Así, en 1998,  EUROCONTROL, siguiendo recomendaciones de la ICAO (\textit{International Civil Aviation Organization}) introdujo la RNAV (\textit{Random NAVigation}), que incluye puntos de ruta que no coinciden con la ubicación de los equipos de tierra, sino en intersecciones de las señales de dos o más radioayudas.
+Si bien, el crecimiento del tráfico aéreo propició que en 1996 se presentase una nueva forma de crear rutas más flexibles que no dependiesen de la posición fija de los equipos de tierra. Así, en 1998,  EUROCONTROL, siguiendo recomendaciones de la ICAO (\textit{International Civil Aviation Organization}) introdujo la RNAV (\textit{Random NAVigation}), que incluye puntos de ruta que no coinciden con la ubicación de los equipos de tierra, sino en intersecciones de las señales de dos o más radioayudas \cite{Apuntes_HistoriaAviacion}.
+
+\clearpage
 
 
 
@@ -26,15 +35,39 @@ Si bien, el crecimiento del tráfico aéreo propició que en 1996 se presentase 
 \section{Radioayudas convencionales}
 \label{sec:RadioayudasConvencionales}
 
-Las radioayudas convencionales son las estaciones en tierra que, emitiendo ondas electromagnéticas, sirven para guiar a las aeronaves en vuelo gracias a los equipos de a bordo o embarcados. Aunque existen otras, la navegación aérea actual se apoya principalmente en las las que se presentan en las siguientes secciones.
+Las radioayudas convencionales son las estaciones en tierra que, emitiendo ondas electromagnéticas, sirven para guiar a las aeronaves en vuelo gracias a los equipos de a bordo o embarcados. Aunque existen otras, la navegación aérea actual se apoya principalmente en las las que se presentan en las siguientes secciones \cite{Apuntes_IngenieriaAeroespacial}.
 
 Todas ellas transmiten sus portadoras principales en el rango de frecuencias VHF reservado para radioayudas comprendido entre los \SI{108.00}{MHz} y los \SI{117.95}{MHz}, dejando el rango del espectro radioeléctrico VHF reservado para la banda aeronáutica civil de \SI{118.00}{MHz} a \SI{136.975}{MHz} para las comunicaciones civiles de corta y media distancia por voz entre pilotos y controladores aéreos con modulación en amplitud o AM (\textit{Amplitude Modulation}). Las comunicaciones de larga distancia se realizan en la banda HF (\textit{High Frequency}) que se encuentran alojadas en diferentes bandas del rango de \SI{3}{} a \SI{30}{kHz}.
 
 
-\pagebreak
 
 \subsection{Radioayudas en ruta, salida y aproximación}
 \label{subsec:RadioayudasEnRutaSalidaAproximacion}
+
+\subsubsection{NDB (\textit{Non-Directional Beacon}) y ADF (\textit{Automatic Direction Finder})}
+\label{subsubsec:DME_ADF}
+
+La baliza no direccional o NDB (\textit{Non-Directional Beacon}) emite en una determinada frecuencia y el equipo de a bordo de la aeronave asociado a este sistema, el ADF (Buscador Automático de Dirección), recibe e indica la dirección desde la que proviene la señal. Por tanto, proporciona a la aeronave información de posicionamiento relativo respecto a la estación terrestre. 
+
+Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concentrándose la mayor parte de ellos en el rango de \SI{250}{kHz} a \SI{450}{kHz}, con alcances entre \SI{15}{NM} y \SI{75}{NM} \cite{NDB}.
+	
+\begin{figure}[!hbtp]
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[height=6cm]{images/content/NDB.jpg}
+		\caption[Equipo NDB en tierra.]{Equipo NDB en tierra \citeFig{NDB_url}.}
+		\label{fig:NDB}
+	\end{subfigure}%
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[height=6cm]{images/content/ADF.jpg}
+		\caption[ADF mostrando rumbo hacia el NDB.]{ADF mostrando rumbo hacia el NDB \citeFig{ADF_url}.}
+		\label{fig:ADF}
+	\end{subfigure}
+	\caption{Estación NDB en tierra e instrumento del equipo embarcado ADF.}
+	\label{fig:NDB_ADF}
+\end{figure}
 
 \subsubsection{VOR (\textit{Very High Frequency Omnidirectional Range})}
 \label{subsubsec:VOR}
@@ -42,7 +75,6 @@ Todas ellas transmiten sus portadoras principales en el rango de frecuencias VHF
 El Radiofaro Omnidireccional de Muy Alta Frecuencia emite tres señales en VHF: una señal de identificación en código Morse, y otras dos señales de rumbos, una de ellas fija (referencia) y la otra con variación de fase, de tal forma que compone direcciones angulares equidistantes. A cada una de estas direcciones acimutales (horizonales) se las denomina radial, y sirve como guía de trayectoria a las aeronaves. 
 
 Su portadora principal transmite en la frecuencia asignada en el rango entre los \SI{108.00}{MHz} y los \SI{111.85}{MHz} para los de área terminal (corto alcance, hasta \SI{25}{NM}), y entre los \SI{112.00}{MHz} y los \SI{117.95}{MHz} para los de ruta (medio y largo alcance, hasta \SI{200}{NM}) \cite{VOR}. 
-
 
 A su vez, existen dos tipos:
 	
@@ -54,57 +86,33 @@ A su vez, existen dos tipos:
 		
 	\end{itemize}
 	
-		
+	
 	\begin{figure}[!hbtp]
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/content/VOR.jpg}
-		\caption[Estación VOR en tierra.]{Estación VOR en tierra \citeFig{VOR_url}.}
-		\label{fig:VOR}
-	\end{figure}
+		\begin{subfigure}{0.7\textwidth}
+			\centering
+			\includegraphics[height=4cm]{images/content/VOR.jpg}
+			\caption[Estación VOR.]{Estación VOR \citeFig{VOR_url}.}
+			\label{fig:VOR}
+		\end{subfigure}%
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\includegraphics[height=4cm]{images/content/DME.jpg}
+			\caption[Estación DME.]{Estación DME \citeFig{DME_url}.}
+			\label{fig:DME}
+		\end{subfigure}
+		\caption{Estación VOR/DME (\ref{fig:VOR}) y DME (\ref{fig:DME}).}
+		\label{fig:ILS}
+	\end{figure}	
 	
-	
-	
-	
-	
-	
-\pagebreak
-
 \subsubsection{DME (\textit{Distance Measuring Equipment})}
 \label{subsubsec:DME}
 
 El Equipo de Medición de Distancias en tierra es interrogado por el equipo de a bordo de la aeronave, midiendo el tiempo empleado por la señal desde que se emitió la interrogación hasta que se recibe la respuesta. Dividiendo entre dos y tomando en cuenta el tiempo de procesamiento y espera establecidos, se obtiene la distancia entre ambos equipos. Hay que tener en cuenta que al sobrevolar la vertical del equipo de tierra, la distancia medida no es cero, sino la de la altura de la aeronave. La mayoría de los VOR tienen co-ubicados un DME.
 
-\begin{figure}[!hbtp]
-	\centering
-	\includegraphics[height=4.5cm]{images/content/DME.jpg}
-	\caption[Estación DME en tierra.]{Estación DME en tierra \citeFig{DME_url}.}
-	\label{fig:DME}
-\end{figure}
 
-\subsubsection{NDB (\textit{Non-Directional Beacon}) y ADF (\textit{Automatic Direction Finder})}
-\label{subsubsec:DME_ADF}
 
-El NDB (Baliza No Direccional) emite en una determinada frecuencia y el equipo de a bordo de la aeronave asociado a este sistema, el ADF (Buscador Automático de Dirección), recibe e indica la dirección desde la que proviene la señal. Por tanto, proporciona a la aeronave información de posicionamiento relativo respecto a la estación terrestre. 
 
-Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concentrándose la mayor parte de ellos en el rango de \SI{250}{kHz} a \SI{450}{kHz}, con alcances entre \SI{15}{NM} y \SI{75}{NM} \cite{NDB}.
-	
-\begin{figure}[!hbtp]
-	\centering
-	\begin{subfigure}{0.5\textwidth}
-		\centering
-		\includegraphics[height=4.5cm]{images/content/NDB.jpg}
-		\caption[Equipo NDB en tierra.]{Equipo NDB en tierra \citeFig{NDB_url}.}
-		\label{fig:NDB}
-	\end{subfigure}%
-	\begin{subfigure}{0.5\textwidth}
-		\centering
-		\includegraphics[height=4.5cm]{images/content/ADF.jpg}
-		\caption[ADF mostrando rumbo hacia el NDB.]{ADF mostrando rumbo hacia el NDB \citeFig{ADF_url}.}
-		\label{fig:ADF}
-	\end{subfigure}
-	\caption{Estación NDB en tierra e instrumento del equipo embarcado ADF.}
-	\label{fig:NDB_ADF}
-\end{figure}
 
 
 
@@ -120,7 +128,7 @@ Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concent
 \subsubsection{ILS (\textit{Instrumental Landing System})}
 \label{subsubsec:ILS}
 
-El Sistema de Aterrizaje Instrumental es el encargado de guiar a las aeronaves en su fase de aproximación final al aeropuerto. Se compone de dos subsistemas: 
+El Sistema de Aterrizaje Instrumental es el sistema instrumental por excelencia encargado de guiar a las aeronaves en su fase de aproximación final al aeropuerto. Se compone de dos subsistemas: 
 
 \begin{itemize}
 \item LOC (\textit{Localizer}): el localizador, emisor ubicado en la cabecera de la pista contraria y alineado con el eje de pista, guía lateralmente a la aeronave con un alcance típico de hasta \SI{10}{NM}, emitiendo su portadora en el rango de \SI{108.10}{MHz}  \SI{111.95}{MHz}; 
@@ -147,7 +155,6 @@ En conjunto, guían a la aeronave a través de una especie de cono para aterriza
 	\end{subfigure}
 	\caption{Antenas del sistema LOC del ILS para guiado lateral en aterrizaje.}
 	\label{fig:ILS}
-	
 \end{figure}
 
 \begin{figure}[!hbtp]
@@ -208,13 +215,13 @@ Se trata de un Sistema de Aterrizaje por Microondas que tiene la misma utilidad 
 La navegación convencional con rutas y procedimientos basados en radioayudas terrestres convencionales como VOR/DME y NDB es poco flexible y se limita a segmentos rectos, quedando la trayectoria en todo momento dependiente de la línea que unía ambas estaciones o a fijos definidos en la intersección de ciertos radiales y distancias a dichas estaciones.
 
 La evolución de la tecnología de los equipos embarcados y los equipos terrestres permitieron han permitido aumentar la precisión de posicionamiento y reducir la incertidumbre de localización, lo que ha permitido dotar de mayor flexibilidad al espacio aéreo. Esto se debe a la implantación de procedimientos que no contemplan la necesidad de sobrevolar radioayudas terrestres.
-Así, se define la navegación de área o RNAV (\textit{aRea NAVigation}), cuyos fijos de ruta no tienen por qué venir determinados por la cobertura de equipos en tierra sino que pueden ser, por ejemplo, coordenadas latitud-longitud.
+Así, se define la navegación de área o RNAV (\textit{aRea NAVigation}), cuyos fijos de ruta no tienen por qué venir determinados por la cobertura de equipos en tierra sino que pueden ser, por ejemplo, coordenadas latitud-longitud \cite{Apuntes_SistemasGNSS}.
 
 En la Figura \ref{fig:PBN} puede verse claramente que las rutas convencionales necesitan, en general, mayor distancia a recorrer, con el respectivo aumento del consumo de combustible y emisiones nocivas, mayor tiempo de vuelo así como menor comodidad para el pasaje que las RNAV.
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.75\linewidth]{images/content/PBN.png}
+	\includegraphics[width=0.9\linewidth]{images/content/PBN.png}
 	\caption[Rutas convencionales, RNAV y RNP.]{Rutas convencionales, RNAV y RNP \citeFig{PBN_url}.}
 	\label{fig:PBN}
 \end{figure}
@@ -244,10 +251,17 @@ De este modo, definiéndose el error total del sistema, TSE (\textit{Total Syste
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.80\linewidth]{images/content/RNAV_RNP.png}
+	\includegraphics[width=0.65\linewidth]{images/content/RNAV_RNP.png}
 	\caption[Diferencias y similitudes entre RNAV y RNP.]{Diferencias y similitudes entre RNAV y RNP \citeFig{RNAV_RNP_url}.}
 	\label{fig:RNAV_RNP}
 \end{figure}
+
+
+
+
+
+
+
 
 
 
@@ -290,7 +304,7 @@ Para cumplir con todos estos parámetros se necesita de sistemas que complemente
 \section{Sistemas de aumentación GNSS}
 \label{sec:SistemasAumentacionGNSS}
 
-Los sistemas de aumentación GNSS son aquellos que aportan mayor confiabilidad tanto en la precisión de posicionamiento, disponibilidad, integridad y continuidad a las constelaciones GNSS. Basan su operatividad en la monitorización de las señales GNSS desde puntos de referencia bien definidos y emitiendo una serie de correcciones y advertencias a los receptores que estén a su alcance de tal forma que garantice la mejor de las posibles operaciones minimizando el error que en ese momento la constelación GNSS en particular esté proporcionando.
+Los sistemas de aumentación GNSS son aquellos que aportan mayor confiabilidad tanto en la precisión de posicionamiento, disponibilidad, integridad y continuidad a las constelaciones GNSS. Basan su operatividad en la monitorización de las señales GNSS desde puntos de referencia bien definidos y emitiendo una serie de correcciones y advertencias a los receptores que estén a su alcance de tal forma que garantice la mejor de las posibles operaciones minimizando el error que en ese momento la constelación GNSS en particular esté proporcionando \cite{Apuntes_SistemasGNSS}.
 
 Se categorizan según el tipo de infraestructura en el que se apoyen para realizar correcciones a las soluciones estándar:
 
@@ -314,7 +328,7 @@ La necesidad de mínimas radioayudas en tierra, sólo como sistema de respaldo (
 
 Pero la navegación basada en GNSS no sólo tiene ventajas sobre los aeropuertos, ni en rutas continentales, sino que otro de sus puntos clave está en la mejora de la navegación intercontinental y sobre océanos. La navegación convencional no puede apoyarse sobre radio ayudas terrestres en rutas oceánicas por la propia cobertura de éstas pocas millas náuticas más allá de la línea de costa. Es entonces cuando entran en juego los sistemas de navegación inerciales, INS (\textit{Inertial Navigation Systems}) y los sistemas de referencia inerciales, IRS (\textit{Inertial Reference Systems}).
 
-El problema de estos sistemas embarcados es que una vez se ajustan en tierra, en una posición bien conocida del aeropuerto de origen, no tienen ninguna referencia de otros sistemas a lo largo de todo el trayecto, por lo que el error es acumulativo, haciendo que la precisión en el seguimiento de la ruta sea cada vez menor cuanto mayor sea el tiempo de vuelo. Esto exige que las rutas oceánicas tengan separaciones laterales de varias decenas de millas náuticas.
+El problema de estos sistemas embarcados es que una vez se ajustan en tierra, en una posición bien conocida del aeropuerto de origen, no tienen ninguna referencia de otros sistemas a lo largo de todo el trayecto, por lo que el error es acumulativo, haciendo que la precisión en el seguimiento de la ruta sea cada vez menor cuanto mayor sea el tiempo de vuelo \cite{Apuntes_SistemasGNSS}. Esto exige que las rutas oceánicas tengan separaciones laterales de varias decenas de millas náuticas.
 
 Cuando se emplean sistemas GNSS, éstos pueden aportar información muy valiosa a otros subsistemas de aviónica, como por ejemplo estos sistemas inerciales, que pueden ser actualizados y corregidos en pleno vuelo cada cierto tiempo, reduciendo considerablemente el error.
 
