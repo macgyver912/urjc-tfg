@@ -405,32 +405,23 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 \subsection{Vigilancia Dependiente Automática}
 \label{subsec:VigilanciaDependienteAutomatica}
 
-%Uno de los sistemas que está ampliamente extendido a día de hoy y que será obligatorio en los próximos años para todas las aeronaves civiles es el ADS o Vigilancia Dependiente Automática (\textit{Automatic Dependent Surveillance}).
-%
-%Se trata de un sistema de vigilancia en el cual la aeronave transmite por enlace de datos su \textbf{identificativo}, \textbf{posición} extraída principalmente de los sistemas GNSS de a bordo y otros \textbf{datos adicionales} de relevancia para el personal del Servicio de Tránsito Aéreo. 
-%
-%Existen dos tipos: \textbf{ADS-C}, donde la transimisión de datos se realiza hacia una estación de tierra previo \textbf{contrato}, y \textbf{ADS-B}, donde la transmisión de datos se realiza mediante \textbf{difusión} o \textit{broadcast}, por lo que cualquier receptor apropiado puede decodificar los datos enviados.
-%
-%\begin{figure}[htbp]
-%	\centering
-%		\includegraphics[width=14cm]{./Figuras/Flightradar24.png}
-%	\caption{Datos ADS-B recogidos por la plataforma Flightradar24 (\cite{ENAIRE_AIP}).}
-%	\label{fig:Flightradar24}
-%\end{figure}
-%
-%Como se comentó anteriormente, al igual que ocurría con la navegación en rutas oceánicas, la \textbf{vigilancia} del espacio aéreo sobre el océano es \textbf{muy limitada} y prácticamente se reduce a comunicaciones de voz en banda HF entre piloto y controlador para reportar posición y coordenadas y hora del siguiente punto de la ruta.
-%
-%Con \textbf{ADS} se puede tener una \textbf{mejor cobertura mundial} sobre zonas donde los radares primaro (PSR) y secundario (SSR) no alcanzan, además de tener muchas otras ventajas que pueden incorporarse a futuros sistemas tanto de vigilancia como de comunicaciones y navegación.
-%
-%\section{Conclusiones}
-%\label{sec:Conclusiones}
-%
-%Como se ha detallado a lo largo del documento, \textbf{PBN} supone una \textbf{mejora en la calidad del servicio} prestado realizando un cambio de ideología sobre los procedimientos convencionales. Esto repercute directamente en una mejor protección del \textbf{medio ambiente}, una reducción de \textbf{costes} para las compañías aéreas al evitar frustradas y desvíos a alternativos, sobre todo en aeropuertos con pocas infraestructuras de radio ayudas, y como no podría ser de otro modo en este sector, una mejora la \textbf{seguridad} en las operaciones.
-%
-%Hay que destacar que PBN se basa en la \textbf{navegación GNSS}, y es ésta tecnología la que ha posibilidado, a través de \textbf{sistemas de aumentación}, tener sistemas confiables y seguros a nivel global, además de ser uno de los facilitadores para otro tipo de funcionalidades que vendrán en el futuro.
+Uno de los sistemas que ha crecido exponencialmente es la Vigilancia Dependiente Automática, ADS (\textit{Automatic Dependent Surveillance}). Se trata de un sistema de vigilancia en el cual la aeronave transmite por enlace de datos su identificativo, su posición (extraída principalmente de los sistemas GNSS de a bordo) y otros datos adicionales de relevancia para el personal del Servicio de Tránsito Aéreo. 
+
+Existen dos tipos: \textbf{ADS-C}, donde la transimisión de datos se realiza hacia una estación de tierra previo contrato, y ADS-B, donde la transmisión de datos se realiza mediante difusión o \textit{broadcast} en la frecuencia de \SI{1090}{MHz}, por lo que cualquier receptor apropiado puede decodificar los datos enviados.
+
+Este último, el ADS-B, es obligatorio en Estados Unidos para todas las aeronaves que vuelen por encima de FL100	 a partir de 2020, y en Europa para ese mismo año para las aeronaves con MTOW superior a \SI{5700}{kg} o cuya velocidad de crucero supere los \SI{250}{KTAS} \cite{ADS}.
 
 
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/content/Flightradar24.png}
+	\caption[Datos ADS-B recogidos por la plataforma Flightradar24.]{Datos ADS-B recogidos por la plataforma Flightradar24 \citeFig{Flightradar24_url}.}
+	\label{fig:Flightradar24}
+\end{figure}
 
+Como se comentó anteriormente, al igual que ocurría con la navegación en rutas oceánicas, la vigilancia del espacio aéreo sobre el océano es muy limitada y prácticamente se reduce a comunicaciones de voz en banda HF entre piloto y controlador para reportar posición y coordenadas y hora del siguiente punto de la ruta.
+
+Con \textbf{ADS} se puede tener una mejor cobertura mundial sobre zonas donde los radares primaro (PSR) y secundario (SSR) no alcanzan, además de tener muchas otras ventajas que pueden incorporarse a futuros sistemas tanto de vigilancia como de comunicaciones y navegación.
 
 
 
