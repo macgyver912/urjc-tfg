@@ -419,7 +419,7 @@ La separación entre las aeronaves puede ser en dos planos:
 \begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/content/RVSM.jpg}
-	\caption[Separación Vertical Reducida Mínima, RVSM.]{Separación Vertical Reducida Mínima, RVSM \cite{RVSM_url}.}
+	\caption[Separación Vertical Reducida Mínima, RVSM.]{Separación Vertical Reducida Mínima, RVSM \citeFig{RVSM_url}.}
 	\label{fig:RVSM}
 \end{figure}
 
@@ -433,61 +433,79 @@ Dado que el movimiento de aeronaves tiene carácter internacional es necesaria u
 
 
 
+\pagebreak
+
 \subsection{Plan y fichas de vuelo}
 \label{subsec:PlanFichasVuelo}
 
-El plan de vuelo es la fuente básica de la información para conocer las intenciones de los pilotos. Sobre estos datos se basa el control del tráfico aéreo. Algunos de los recogidos en este informe son, entre otros:
-• el indicativo de vuelo o su matrícula.
-• el aeropuerto de origen, destino y alternativo.
-• la hora de salida y estimada del trayecto.
-• la ruta que el piloto propone volar (puede ser modificada según disponibilidad y necesidades del ATC).
-• la altitud.
-• la autonomía del avión.
-• la velocidad.
-• el número de personas a bordo.
-Todas las instrucciones que el controlador aéreo transmite a los pilotos y las solicitudes que éstos hacen se anotan en la ficha de progreso de vuelo, datos que han sido trasladados del plan de vuelo. Estas fichas se imprimen y colocan en bahías, organizadas por fases de vuelo o rumbos, y son distribuidas a todos los sectores por donde van a pasar los aviones. Sus objetivos principales son:
-• Rápido recordatorio de las últimas instrucciones emitidas.
-• Backup por si el servicio informático falla (“se cae”) conocer posiciones aproximadas de los aviones en el espacio aéreo controlado.
+El plan de vuelo es la fuente básica de la información para conocer las intenciones de los pilotos. Sobre estos datos se basa el control del tráfico aéreo. Algunos de los recogidos en este informe son, entre otros: el indicativo de vuelo o su matrícula, el aeropuerto de origen, destino y alternativo, la hora de salida y duración estimada del trayecto (hora de llegada estimada), la ruta a seguir, la altitud y velocidad de crucero, la autonomía de la aeronave y el número de personas a bordo (véase siguiente Figura \citeFig{FlightPlan_url}). Cualquiera de los datos relacionados con la ruta pueden verse modificados según la disponibilidad y necesidades de Servicio de Tránsito Aéreo.
 
-%Imágenes extraídas de:
-%http://upload.wikimedia.org/wikipedia/commons/9/9e/International_flight_plan.png
-%https://twitter.com/controladores/status/541171761954709505/photo/1
-
-
-
-\subsection{Automatización y gestión de afluencia de tráfico}
-\label{subsec:AutomatizacionGestionTrafico}
-
-
-AUTOMATIZACIÓN:
-Gracias a los sistemas informáticos, la automatización permite a los ATC descargarse de tareas repetitivas y centrarse en otras que requieran su atención.
-El Sistema Automatizado para el Control del Tráfico Aéreo (SACTA) es el que se encarga en España de ayudar en la gestión del tráfico aéreo. Integra todos los sistemas de procesado de datos de todas las torres y centros de control.
-GESTIÓN DE LA AFLUENCIA DE TRÁFICO:
-Eurocontrol se encarga de coordinar el tráfico aéreo de la zona europea con el fin de evitar la congestión del espacio aéreo. Gracias al servicio ATFM (Air Traffic Flow Management / Gestión del Flujo del Tráfico Aéreo), se asignan slots a los vuelos, es decir, una ventana temporal. Si un avión pierde su slot, debe esperar hasta que exista un hueco.
-
-%Imágenes extraídas de:
-%Recursos propios. Fotografías en Adolfo Suárez Madrid-Barajas (LEMD/MAD). Autor: Jaime Valle Alonso.
-%http://i.ytimg.com/vi/Ja_IL8Fqofk/maxresdefault.jpg
-%https://twitter.com/controladores/status/556799521158881284/photo/1
-%http://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eurocontrol_logo_2010.svg/474px-Eurocontrol_logo_2010.svg.png
-%http://www.enaire.es/csee/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1237567460781&ssbinary=true
+\begin{figure}[!hbtp]
+	\centering
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[height=10.5cm]{images/content/FlightPlan.png}
+		\caption[Plantilla de plan de vuelo.]{Plantilla de plan de vuelo \citeFig{FlightPlan_url}.}
+		\label{fig:FlightPlan}
+	\end{subfigure}%
+	\begin{subfigure}{0.5\textwidth}
+		\centering
+		\includegraphics[height=10.5cm]{images/content/FlightStrips.jpg}
+		\caption[Fichas de progreso de vuelo.]{Fichas de progreso de vuelo \citeFig{FlightStrips_url}}
+		\label{fig:FlightStrips}
+	\end{subfigure}
+	\caption{Plan de vuelo y fichas de progreso de vuelo.}
+	\label{fig:FlightPlanFlightStrips}
+\end{figure}
+	
+Todas las instrucciones que el controlador aéreo transmite a los pilotos y las solicitudes que éstos hacen se anotan en la ficha de progreso de vuelo, datos que han sido trasladados desde el plan de vuelo. Estas fichas se imprimen y colocan en bahías, organizadas por fases de vuelo o rumbos, y son distribuidas a todos los sectores por donde van a pasar los aviones. De esta forma sirven como rápido recordatorio de las últimas instrucciones emitidas y, más importante, como respaldo (\textit{backup}) por si el servicio informático falla (<<se cae>>) y así conocer las últimas posiciones aproximadas de los aviones.
 
 
+
+\pagebreak
 
 \subsection{Seguridad en vuelo}
 \label{subsec:SeguridadVuelo}
 
-Para evitar que existan incidentes durante el vuelo, se dispone de dos sistemas que ayudan a prevenir estas situaciones: la Alerta de Conflicto y el Aviso de Tráfico y Alerta de Colisión (TCAS).
-Tierra:
-• Alerta de Conflicto: avisa al controlador cuando dos aeronaves van a cruzarse a menos distancia de la estipulada.
-Aire:
-• Sistema de Aviso de Tráfico y Alerta de Colisión (TCAS): Equipo instalado a bordo de los aviones; suministra al piloto la posición relativa de los aviones cercanos, tanto en el plano vertical como en el horizontal.
-• Modo TA (Traffic Advisory): notifica un posible conflicto.
-• Modo TA/RA (Traffic Advisory / Resolution Advisory): además indica cómo solucionar el conflicto.
-Para que estos datos sean recogidos es necesario que en las aeronaves que puedan cruzarse en su camino mantengan activado un transpondedor que trasmite toda la información antes relacionada.
+Además de los servicios de vigilancia y control de tráfico aéreo, para evitar que existan incidentes durante el vuelo, se dispone de dos sistemas embarcados en las aeronaves que ayudan a prevenir estas situaciones: el Sistema de Alerta de Conflicto a Corto Plazo (STCA, Short-Term Conflict Alert) y el Sistema de Alerta de Tráfico y Evasión de Colisión (TCAS, \textit{Traffic Alert and Collision Avoidance System}).
 
-%Imágenes extraídas de:
-%http://www.lvnl.nl/binaries/content/gallery/luchtverkeersleiding/luchtverkeersleiding/stca.jpg
-%http://www.austrianaviationart.org/b737/tcas/tcas2.jpg
+\begin{itemize}
+
+	\item STCA: avisa en pantalla al controlador cuando dos aeronaves van a cruzarse a menos distancia de la estipulada en un periodo de tiempo relativamente corto \cite{STCA}.
+
+	\item TCAS: Equipo instalado a bordo de los aviones; suministra al piloto la posición relativa de los aviones cercanos, tanto en el plano vertical como en el horizontal.
+
+	\begin{itemize}
+		\item Modo TA (\textit{Traffic Advisory}): notifica un posible conflicto.
+		\item Modo TA/RA (\textit{Traffic Advisory / Resolution Advisory}): además indica cómo solucionar el conflicto.
+	\end{itemize}
+\end{itemize}
+
+%\begin{figure}[!hbtp]
+%	\centering
+%	\begin{subfigure}{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.9\linewidth]{images/content/STCA.jpg}
+%		\caption[Sistema de Alerta de Conflicto a Corto Plazo (STCA).]{Sistema de Alerta de Conflicto a Corto Plazo (STCA) \citeFig{STCA_url}.}
+%		\label{fig:STCA}
+%	\end{subfigure}%
+%	\begin{subfigure}{0.5\textwidth}
+%		\centering
+%		\includegraphics[width=0.9\linewidth]{images/content/TCAS.jpg}
+%		\caption[Sistema de Alerta de Tráfico y Evasión de Colisión.]{Sistema de Alerta de Tráfico y Evasión de Colisión (TCAS) \citeFig{TCAS_url}}
+%		\label{fig:TCAS}
+%	\end{subfigure}
+%	\caption{Sistemas de prevención de conflictos STCA y TCAS.}
+%	\label{fig:STCA_TCAS}
+%\end{figure}
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.6\linewidth]{images/content/TCAS.jpg}
+	\caption[Sistema de Alerta de Tráfico y Evasión de Colisión.]{Sistema de Alerta de Tráfico y Evasión de Colisión (TCAS) \citeFig{TCAS_url}}
+	\label{fig:TCAS}
+\end{figure}
+
+Para que estos datos sean recogidos es necesario que en las aeronaves que puedan cruzarse en su camino mantengan activado su transpondedor en el modo correspondiente para trasmitir toda la información.
 
 
