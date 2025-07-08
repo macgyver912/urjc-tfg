@@ -271,28 +271,37 @@ De este modo, definiéndose el error total del sistema, TSE (\textit{Total Syste
 \section{Concepto PBN}
 \label{sec:PBN}
 
-La navegación basada en prestaciones o PBN (\textit{Performance-Based Navigation}) es un concepto que supone una evolución en la navegación de área o RNAV, aprovechando la capacidad de navegación de las aeronaves mediante la especificación de requisitos de prestaciones, en vez de basarse en el equipamiento de unos determinados sistemas de navegación \cite{ENAIRE_PBN}.
+La navegación basada en prestaciones o PBN (\textit{Performance-Based Navigation}) es un concepto que supone una evolución en la navegación de área o RNAV, aprovechando la capacidad de navegación de las aeronaves mediante la especificación de requisitos de prestaciones, en vez de basarse en el equipamiento de unos determinados sistemas de navegación \cite{ENAIRE_PBN} \cite{OACI_PBN}.
 
-Para ello se identifican un conjunto de especificaciones que dan lugar a una serie de \textbf{requisitos de prestaciones} y se proponen posibles sensores y sistemas que pueden emplearse para cumplir dichos requisitos.
+Para ello se identifican un conjunto de especificaciones que dan lugar a una serie de requisitos de prestaciones y se proponen posibles sensores y sistemas que pueden emplearse para tal fin.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/content/PBN_diagrama.png}
+	\caption[Características PBN: RNAV y RNP.]{Características PBN: RNAV y RNP \citeFig{PBN_url}.}
+	\label{fig:PBN_diagrama}
+\end{figure}
+
+
 
 \subsection{Importancia de GNSS en PBN}
 \label{subsec:GNSS}
 
-Entendiendo GNSS (\textit{Global Navigation Satellite System}) como cada uno del conjunto de sistemas que basan el cómputo del posicionamiento de un blanco en una constelación de satélites, como GPS, GLONASS, BeiDou o Galileo, se trata del sistema facilitador más importante para PBN. De hecho, tanto OACI como Eurocontrol, en sus proyectos colocan a GNSS como el sistema de navegación principal. Las redes de radio ayudas terrestres convencionales servirán entonces como respaldo.
+Entendiendo GNSS (\textit{Global Navigation Satellite System}) como cada uno del conjunto de sistemas que basan el cómputo del posicionamiento de un blanco en una constelación de satélites, como GPS, GLONASS, BeiDou o Galileo, se trata del sistema facilitador más importante para PBN. De hecho, tanto OACI como Eurocontrol, en sus proyectos colocan a GNSS como el sistema de navegación principal paras las nuevas rutas en mejora de la eficiencia. Las redes de radio ayudas terrestres convencionales servirán entonces como respaldo.
 
-Es más, los sistemas GNSS se categorizan como los únicos sistemas capaces de cumplir las las especificaciones más exigentes que se describen en el Manual PBN (Doc. 9613 de OACI). Así, en Europa,  ya emplean la navegación por satélite en todas las fases del vuelo: salida (SID), ruta, llegada (STAR) y aproximación instrumental.
+Es más, los sistemas GNSS se categorizan como los únicos sistemas capaces de cumplir las las especificaciones más exigentes que se describen en el Manual PBN (Doc. 9613 de OACI) \cite{OACI_PBN}. Así, en Europa,  ya emplean la navegación por satélite en todas las fases del vuelo: salida (SID), ruta, llegada (STAR) y aproximación instrumental.
 
 \subsection{Requisitos GNSS para PBN}
 \label{subsec:RequisitosGNSS}
 
-Si bien los sistemas GNSS pueden aportar la mejor solución de navegación, por sí sólos no son confiables, ya que solamente se compromenten a dar ciertas prestaciones de precisión y disponibilidad. Pero como vimos anteriormente, la navegación bajo el normativa RNP necesita de sistemas de monitorización de alerta, siendo los siguientes conceptos fundamentales para la aprobación del uso de navegación GNSS por la OACI \cite{PBN_AESA}:
+Si bien los sistemas GNSS pueden aportar la mejor solución de navegación, por sí sólos no son confiables, ya que solamente se comprometen a dar ciertas prestaciones de precisión y disponibilidad. Pero como vimos anteriormente, la navegación bajo el normativa RNP necesita de sistemas de monitorización de alerta, siendo los siguientes conceptos fundamentales para la aprobación del uso de navegación GNSS por la OACI \cite{PBN_AESA}:
 
 \begin{itemize}
-\item Precisión,  entendida como la diferencia en distancia entre la posición estimada y la posición real. Se expresa como un percentil de la distribución de errores.
+\item Precisión, entendida como la diferencia en distancia entre la posición estimada y la posición real. Se expresa como un percentil de la distribución de errores.
 
-\item Disponibilidad o probabilidad de que el sistema esté operando con todos sus parámetros dentro de valores admisibles de precisión, integridad y continuidad, durante la operación a realizar. Se expresa como un porcentaje de tiempo, evaludado sobre largos periodos temporales.
+\item Disponibilidad o probabilidad de que el sistema esté operando con todos sus parámetros dentro de valores admisibles de precisión, integridad y continuidad, durante la operación a realizar. Se expresa como un porcentaje de tiempo, evaluado sobre largos periodos temporales.
 
-\item Integridad o confianza en el correcto funcionamiento del sistema. Se establece un tiempo máximo de alerta, dentro del cuál, cuando alguno de los parámetros del sistema sobrepasa el umbral de operación segura, el sistema de monitorización y alerta debe detectar e informar de que existe un fallo y notificar, por ejemplo, que uno de los satélites no debe emplearse para realizar el cómputo de posicionamiento, o incluso marcar el sistema como inoperativo. Si esta premisa no puede cumplirse, el sistema no puede ser empleado para navegación.
+\item Integridad o confianza en el correcto funcionamiento del sistema. Se establece un tiempo máximo de alerta, dentro del cuál, cuando alguno de los parámetros del sistema sobrepasa el umbral de operación segura, el sistema de monitorización y alerta debe detectar e informar de que existe un fallo y notificar, por ejemplo, que uno de los satélites no debe emplearse para realizar el cómputo de posicionamiento, o incluso marcar el sistema como inoperativo. %Si esta premisa no puede cumplirse, el sistema no puede ser empleado para navegación.
 
 \item Continuidad o tiempo medio entre interrupciones no programadas. Es decir, es el tiempo estimado estadísticamente entre fallos del equipo, sin tener en cuenta los apagones programados por mantenimiento.
 \end{itemize}
@@ -300,6 +309,7 @@ Si bien los sistemas GNSS pueden aportar la mejor solución de navegación, por 
 Para cumplir con todos estos parámetros se necesita de sistemas que complementen a los sistemas GNSS estándar, conocidos como sistemas de aumentación GNSS y que serán detallados en la próxima sección.
 
 
+	
 
 \section{Sistemas de aumentación GNSS}
 \label{sec:SistemasAumentacionGNSS}
@@ -317,12 +327,24 @@ Se categorizan según el tipo de infraestructura en el que se apoyen para realiz
 \end{itemize}
 
 
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.70\linewidth]{images/content/GBAS.jpg}
+	\caption[Principio operativo de GBAS.]{Principio operativo de GBAS \citeFig{GBAS_url}.}
+	\label{fig:GBAS}
+\end{figure}
+
+
+
+
+\clearpage
+
 \subsection{Ventajas del uso de PBN y GNSS}
 \label{subsec:PBN_Ventajas}
 
 El empleo de navegación PBN en conjunto con GNSS, aporta una serie de ventajas directas e indirectas en el sector aeronáutico. El primero y más evidente es que la inversión para dotar a aeropuertos de la capacidad de aceptar aproximaciones PBN es muy reducido comparado con los altos costes de inversión de los sistemas radioeléctricos convencionales. Además, el mantenimiento de estos sistemas es más económico, ofreciendo reducción de costes y mayor eficiencia para el aeropuerto.
 
-Por otro lado, mejora la seguridad operacional, sobre todo en condiciones LVP (\textit{Low Visibility Procedures}) y de noche, además de aportar mayor flexibilidad al espacio aéreo y hacer un uso más eficiente de éste. Esto conlleva a una reducción inmediata de gases contaminantes y la posibilidad de reducir la \textbf{huella acústica} sobre poblaciones cercanas a los aeropuertos.
+Por otro lado, mejora la seguridad operacional, sobre todo en condiciones LVP (\textit{Low Visibility Procedures}) y de noche, además de aportar mayor flexibilidad al espacio aéreo y hacer un uso más eficiente de éste. Esto conlleva a una reducción inmediata de gases contaminantes y la posibilidad de reducir la huella acústica sobre poblaciones cercanas a los aeropuertos.
 
 La necesidad de mínimas radioayudas en tierra, sólo como sistema de respaldo (\textit{backup}), por lo que no hay que invertir en nuevas. Incluso, podrían volverse más accesibles aquellos aeropuertos que no cuenten con sistemas de aterrizaje por instrumentos como ILS o MLS a un coste muy reducido.
 
@@ -336,7 +358,7 @@ Cuando se emplean sistemas GNSS, éstos pueden aportar información muy valiosa 
 
 
 
-\pagebreak
+\clearpage
 
 \section{La meteorología en la aviación}
 \label{sec:MeteorologiaAviacion}
@@ -352,14 +374,16 @@ En cuanto a las prestaciones de la aeronave, uno de los mayores enemigos es el e
 
 La altimetría también se basa en la presión atmosférica, mediante la diferencias de presión entre la presión actual medida y la de referencia o ISA (\textit{International Standard Atmosphere}). Cerca de los aeropuertos y, en general a bajas altitudes, por debajo del Nivel de Transición (TL, \textit{Transition Level}), se vuela con la presión barométrica local o QNH para tener una medición de altura con el terreno lo más precisa posible. En cambio, en fase de ruta, por encima de la Altitud de Transición (TA, \textit{Transition Altitude}), se configura el altímetro (se <<cala>>, en el argot) con la presión estándar de referencia (\SI{1013.25}{hPa} / \SI{29.92}{inHg}), de modo que todos los aviones que vuelen cerca entre sí tengan la misma referencia y mantengan una separación segura.
 
+El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
+
+\clearpage
+
 \begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/content/QNH_no_line.jpg}
 	\caption[Altimetría en navegación aérea.]{Altimetría en navegación aérea \cite{Ontiveros}.}
 	\label{fig:QNH}
 \end{figure}
-
-El viento, aunque si es constante no es peligroso como en el caso de la turbulencia o cizalladura, también influye mucho en la navegación. La trayectoria o derrota seguida por el avión es función de su rumbo dentro del seno de la masa de aire en la que se mueve y de la dirección de dicha masa de aire. Así pues, esa diferencia entre la trayectoria deseada y la real se le denomina deriva, y debe ser compensada (corrección de deriva). Dependiendo de la dirección de incidencia del viento se tiene: viento en cara, viento cruzado o viento en cola.
 
 La dirección e intensidad del viento y la altitud también determinan distintas velocidades:
 
@@ -431,14 +455,14 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 
 Uno de los sistemas que ha crecido exponencialmente es la Vigilancia Dependiente Automática, ADS (\textit{Automatic Dependent Surveillance}). Se trata de un sistema de vigilancia en el cual la aeronave transmite por enlace de datos su identificativo, su posición (extraída principalmente de los sistemas GNSS de a bordo) y otros datos adicionales de relevancia para el personal del Servicio de Tránsito Aéreo. 
 
-Existen dos tipos: \textbf{ADS-C}, donde la transimisión de datos se realiza hacia una estación de tierra previo contrato, y ADS-B, donde la transmisión de datos se realiza mediante difusión o \textit{broadcast} en la frecuencia de \SI{1090}{MHz}, por lo que cualquier receptor apropiado puede decodificar los datos enviados.
+Existen dos tipos: \textbf{ADS-C}, donde la transimisión de datos se realiza hacia una estación de tierra previo contrato, y ADS-B, donde la transmisión de datos se realiza mediante difusión o \textit{broadcast} en la frecuencia de \SI{1090}{MHz}, por lo que cualquier receptor apropiado puede decodificar.
 
 Este último, el ADS-B, es obligatorio en Estados Unidos para todas las aeronaves que vuelen por encima de FL100	 a partir de 2020, y en Europa para ese mismo año para las aeronaves con MTOW superior a \SI{5700}{kg} o cuya velocidad de crucero supere los \SI{250}{KTAS} \cite{ADS}.
 
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.75\linewidth]{images/content/Flightradar24.png}
+	\includegraphics[width=0.65\linewidth]{images/content/Flightradar24.png}
 	\caption[Datos ADS-B recogidos por la plataforma Flightradar24.]{Datos ADS-B recogidos por la plataforma Flightradar24 \citeFig{Flightradar24_url}.}
 	\label{fig:Flightradar24}
 \end{figure}
@@ -450,13 +474,46 @@ Con \textbf{ADS} se puede tener una mejor cobertura mundial sobre zonas donde lo
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+
+
 \section{Organización del espacio aéreo}
 \label{sec:OrganizacionEspacioAereo}
 
 \subsection{Regiones de vuelo y zonas especiales}
 \label{subsec:RegionesVueloZonasEspeciales}
 
-En 1944 fue creada la OACI (Organización de Aviación Civil Internacional) o ICAO (\textit{International Civil Aviation Organization}) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada. Ésta divide el espacio aéreo mundial en varias zonas: Norteamérica (NAM), África (AFI), Atlántico Norte (NAT), Europa (EUR), Caribe (CAR), Oriente Medio (MID), Pacífico (PAC), Asia (ASIA), Sudamérica (SUD) \cite{Ontiveros}.
+En 1944 fue creada la OACI (Organización de Aviación Civil Internacional) o ICAO (\textit{International Civil Aviation Organization}) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada.
+
+Ésta divide el espacio aéreo mundial en varias zonas \cite{Ontiveros}: 
+
+\begin{itemize}
+
+\item Norteamérica (NAM).
+\item África (AFI).
+\item Atlántico Norte (NAT).
+\item Europa (EUR).
+\item Caribe (CAR).
+\item Oriente Medio (MID).
+\item Pacífico (PAC).
+\item Asia (ASIA).
+\item Sudamérica (SUD).
+
+\end{itemize}
 
 A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen coincidir pero se distinguen verticalmente. Así, se diferencias dos espacios aéreos:
 
@@ -468,9 +525,10 @@ A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen 
 	
 \end{itemize}
 
-\pagebreak
 
 De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. De menor a mayor extensión:
+
+\pagebreak
 
 \begin{itemize}
 
@@ -484,7 +542,7 @@ De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéll
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.65\linewidth]{images/content/AreasATC.jpg}
+	\includegraphics[width=0.70\linewidth]{images/content/AreasATC.jpg}
 	\caption[Sectorización de las zonas de control ATC.]{Sectorización de las zonas de control ATC \citeFig{AreasATC_url}.}
 	\label{fig:AreasATC}
 \end{figure}
@@ -502,7 +560,7 @@ Además, dentro de estos sectores se distinguen zonas de carácter especial para
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.40\linewidth]{images/content/ZonasDRP.jpg}
+	\includegraphics[width=0.50\linewidth]{images/content/ZonasDRP.jpg}
 	\caption[Zonas de carácter especial para su sobrevuelo: D, R, P.]{Zonas de carácter especial para su sobrevuelo: D, R, P \citeFig{ZonasDRP_url}.}
 	\label{fig:ZonasDRP}
 \end{figure}
@@ -511,8 +569,7 @@ Además, dentro de estos sectores se distinguen zonas de carácter especial para
 
 
 
-
-\pagebreak
+\clearpage
 
 \subsection{Visibilidad y reglas de vuelo}
 \label{subsec:VisibilidadReglasVuelo}
@@ -521,13 +578,18 @@ Como se comentó en \textit{\ref{chap:BasesNavegacionAerea}. \nameref{chap:Bases
 
 Con la evolución de la tecnología, se fueron implantando las radioayudas terrestres y los equipos de a bordo o embarcados, lo que permitió el vuelo en Condiciones Meteorológicas Instrumentales, IMC (\textit{Instrumental Meteorological Conditions}) bajo las Reglas de Vuelo Instrumental, IFR (\textit{Instrumental Flight Rules}) basándose en la interpretación de la información ofrecida por los equipos al recibir las emisiones radioeléctricas.
 
+
+\vspace{1cm}
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{images/content/ReglasVuelo.jpg}
+	\includegraphics[width=0.95\linewidth]{images/content/ReglasVuelo.jpg}
 	\caption[Visibilidad, condiciones y reglas de vuelo.]{Visibilidad, condiciones y reglas de vuelo \citeFig{VFR_url}\citeFig{IFR_url}\citeFig{TLD}.}
 	\label{fig:ZonasDRP}
 \end{figure}
 
+
+\clearpage
 
 \subsection{Separación entre aeronaves}
 \label{subsec:SeparacionAeronaves}
@@ -538,13 +600,14 @@ La separación entre las aeronaves puede ser en dos planos:
 
 	\item Horizontal: se separan de manera longitudinal -unas detrás de otras por una distancia o tiempo marcados- o bien lateral, por una distancia regulada. Se asigna en base a la información de su posición proporcionada al controlador aéreo por los pilotos, o bien con la ayuda del radar al proporcionar este sistema información sobre la posición de las aeronaves. Por tanto, depende de la fase del vuelo (despegue, en ruta, aproximación, aterrizaje), de la estela turbulenta del avión precedente así como de la precisión de posicionamiento y las velocidades relativas entre ambas aeronaves. Varía entre \SI{3}{} y \SI{10}{NM}.
 
-	\item Vertical: se consigue al asignar a las aeronaves distintas capas de altitud o niveles, separados entre sí por \SI{1000}{ft} (\SI{300}{m}) dentro del espacio de Separación Vertical Reducida Mínima, RVSM (\textit{Reduced Vertical Separation Minimum}) y \SI{2000}{ft} (\SI{600}{m}) en espacio no-RVSM. Se asigna nivel par o impar a una aeronave dependiendo de la dirección de su ruta.
+	\item Vertical: se consigue al asignar a las aeronaves distintas capas de altitud o niveles, separados entre sí por \SI{1000}{ft} (\SI{300}{m}) dentro del espacio de Separación Vertical Reducida Mínima, RVSM (\textit{Reduced Vertical Separation Minimum}) y \SI{2000}{ft} (\SI{600}{m}) en espacio no-RVSM. Se asigna nivel par o impar a una aeronave en función de su dirección en ruta.
 
 \end{itemize}
 
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/RVSM.jpg}
+	\includegraphics[width=0.8\linewidth]{images/content/RVSM.jpg}
 	\caption[Separación Vertical Reducida Mínima, RVSM.]{Separación Vertical Reducida Mínima, RVSM \citeFig{RVSM_url}.}
 	\label{fig:RVSM}
 \end{figure}
