@@ -823,7 +823,7 @@ Se trata de una aplicación que se instala y ejecuta en una máquina local y per
 	\label{fig:ATC-GATC}
 \end{figure}
 
-La interfaz de control puede ser mediante texto o ratón, tal y como se muestra en la Figura \ref{ATC-GATC_input}.
+La interfaz de control puede ser mediante texto o ratón, tal y como se muestra en la Figura \ref{fig:ATC-GATC_input}.
 
 \begin{figure}[!hbtp]
 	\centering
@@ -887,9 +887,7 @@ Una de las características principales de este simulador es la posibilidad de e
 
 Se trata de un simulador basado en navegadores web, actualmente en su versión v6.28.0, que destaca por añadir más posibilidades que los simuladores vistos anteriormente. A las tradicionales funcionalidades de rumbo, altitud, velocidad y volar a un punto directo que comparten todos ellos, añade la simulación de vuelo de rutas SID y STAR, dibujado de áreas restringidas, así como solicitar reportes de estado a los pilotos como altitud y velocidad actuales \cite{ATC-openScopeATC}.
 
-Como puede apreciarse en la Figura \ref{fig:ATC-openScopeATC}, se trata del simulador más completo de todos y también el más complejo de usar por la cantidad de comandos que soporta, siendo tan diversos que merece la pena revisarlos en su página oficial de GitHub \cite{ATC-openScopeATC-Git}, a la que redirige desde la ayuda del simulador. 
-
-
+Como puede apreciarse en la Figura \ref{fig:ATC-openScopeATC}, se trata del simulador más completo de todos y también el más complejo de usar por la cantidad de comandos que soporta, siendo tan diversos que merece la pena revisarlos en su página oficial de GitHub \cite{ATC-openScopeATC-Git}, a la que redirige desde la ayuda del simulador. No obstante, en la Tabla \ref{tab:ResumenSimuladores} se muestran todas las funcionalidades.
 
 Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de Seattle-Tacoma International Airport (KSEA/SEA) el que se abre por defecto. 
 
@@ -911,9 +909,191 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 
 \clearpage
 
+\begin{landscape}
+
 \section{Resumen de los simuladores existentes}
 \label{sec:ResumenSimuladores}
 
 
+\begin{table}[!hbtp]
+	\begin{center}
+		\caption[Síntesis de funcionalidades de los simuladores actuales.]{Síntesis de funcionalidades de los simuladores actuales.}
+		\label{tab:ResumenSimuladores}
+		\hspace*{-2cm}
+		\begin{tabular}{|r|c|c|c|c|c|l|}
+			\hline % Title
+			\rule[-1ex]{0pt}{2.5ex} 
+			\diagbox[innerwidth=\textwidth*1/5]{\textbf{Función}}{\textbf{Simulador}}
+			& $\;\;\;\;$\textbf{ATC-SIM}$\;\;\;\;$
+			& \begin{tabular}{@{}c@{}}
+				\textbf{Global ATC} \\ 
+				\textbf{Simulator}
+			  \end{tabular}
+			& \textbf{ATC Manager 2}
+			& \begin{tabular}{@{}c@{}}
+				\textbf{openScope} \\ 
+				\textbf{ATC Simulator}
+			  \end{tabular}
+			& \begin{tabular}{@{}c@{}}
+				\textbf{ATC Analysis} \\ 
+				\textbf{and Training Tool}
+			  \end{tabular}
+			& \diagbox[dir=NE,innerwidth=\textwidth*1/5]{\textbf{Function}}{\textbf{Simulator}}
+			\\ 
+			% Test column width
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}  
+			% blank
+			& x x x x x x x x x x
+			& x x x x x x x x x x
+			& x x x x x x x x x x
+			& x x x x x x x x x x
+			& x x x x x x x x x x
+			& 
+			\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			Rumbo
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{olive}\cmark}
+			& {\color{gray}\textit{Heading}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Altitud
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{olive}\cmark}
+			& {\color{gray}\textit{Altitude}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Velocidad 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{olive}\cmark}
+			& {\color{gray}\textit{Speed}}
+			\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Directo a 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{olive}\cmark} 
+			& {\color{gray}\textit{Direct to}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			SID
+			& {\color{red}\xmark} 
+			& {\color{olive}\cmark} 
+			& {\color{red}\xmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{gray}\textit{SID}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			STAR 
+			& {\color{red}\xmark} 
+			& {\color{olive}\cmark} 
+			& {\color{red}\xmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{gray}\textit{STAR}} 
+			\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Esperas  
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{red}\xmark} 
+			& {\color{olive}\cmark}
+			& {\color{blue}\todomark} 
+			& {\color{gray}\textit{Holding patterns}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Aterrizajes  
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{orange}Transf. TWR} 
+			& {\color{gray}\textit{Landings}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Despegues  
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{orange}Transf. CTR}
+			& {\color{gray}\textit{Takeoffs}}
+			\\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex} 
+			Meteorología  
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark} 
+			& {\color{olive}\cmark}
+			& {\color{blue}\todomark} 
+			& {\color{gray}\textit{Meteorología}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			Síntesis de voz  
+			& {\color{red}\xmark} 
+			& {\color{cyan}?} 
+			& {\color{olive}\cmark}
+			& {\color{olive}\cmark} 
+			& {\color{orange}\readymark} 
+			& {\color{gray}\textit{Text To Speech}}
+			\\ 
+			%\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			Zonas restringidas 
+			& {\color{red}\xmark} 
+			& {\color{cyan}?} 
+			& {\color{red}\xmark}
+			& {\color{olive}\cmark}
+			& {\color{blue}\todomark}
+			& {\color{gray}\textit{Restricted areas}} 
+			\\ 
+			\hline 
+%			\rule[-1ex]{0pt}{2.5ex}
+%			Rumbo  
+%			& • 
+%			& • 
+%			& • 
+%			& • 
+%			& • 
+%			& {\color{gray}\textit{Heading}}
+%			\\ 
+%			\hline 
+		\end{tabular}
+	\end{center}
+\end{table} 
 
+\begin{center}
+{\color{blue}\todomark} Trabajos futuros.
+\hspace{2cm}
+{\color{orange}\readymark} Preparado para insertar API TTS.
+
+\end{center}
+
+
+
+\end{landscape}
 
