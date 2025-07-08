@@ -752,30 +752,168 @@ Y hay que darse cuenta de que se está comparando con una aproximación ILS Cat 
 \chapter{Simuladores ATC existentes}
 \label{chap:SimuladoresATC}
 
-Aunque las autoridades competentes con la navegación aérea de cada región tienen sus propias herramientas de aprendizaje e, incluso, simuladores de control ATC, en la actualidad, a nivel de usuario pueden encontrarse, principalmente, los simuladores que se listan en esta sección.
+Aunque las autoridades competentes con la navegación aérea de cada región tienen sus propias herramientas de aprendizaje e, incluso, simuladores de control ATC, en la actualidad, a nivel de usuario pueden encontrarse, principalmente, los simuladores de pantalla radar que se listan en los siguientes puntos de esta sección.
+
 
 
 %https://atc-sim.com/
 \section{ATC-SIM}
 \label{sec:ATC_SIM}
 
-Se trata de un simulador de control de tráfico aéreo basado en navegadores web 
+Se trata de un simulador de control de tráfico aéreo basado en navegadores web en el que el usuario actúa como controlador de aproximación para guiar a las aeronaves en salida y llegada al aeropuerto asegurando una separación mínima lateral de \SI{3}{NM} y vertical de \SI{1000}{ft} \cite{ATC-SIM}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/simulators/ATC-SIM.jpg}
+	\caption[Captura de pantalla del simulador ATC-SIM en Chicago O'Hare (KORD/ORD).]{Captura de pantalla del simulador ATC-SIM en Chicago O'Hare (KORD/ORD).}
+	\label{fig:ATC-SIM}
+\end{figure}
+
+Los comandos de instrucción se realizan mediante texto, seleccionando el tráfico a instruir y escribiendo el carácter del tipo de instrucción:
+
+\begin{itemize}
+\item 'c' o 'C' para (\textit{cleared to}) altitud seguido de uno o dos dígitos (miles de pies), rumbo con tres dígitos (rellenando con ceros por la izquierda) o volar directo a un punto.
+
+\item 's' o 'S' (\textit{speed}) para velocidad seguido de la velocidad (superior a \SI{140}{kt}).
+
+\item 'l' o 'L' (\textit{landing}) para autorización a aterrizar seguido de la pista de aterrizaje.
+
+\item 't' o 'T' (\textit{takeoff}) para autorización de despegue. Este comando no tiene parámetro.
+
+\item 'a' o 'A' (\textit{abort}) para abortar un despegue o aterrizaje. Este comando no tiene asociado.
+
+\item 'w' o 'W' (\textit{line and wait}) para alinear y mantener. Este comando no tiene parámetro.
+
+\item 'h' o 'H' (\textit{hold}) para realizar una espera en el punto de ruta que se le pase como parámetro.
+\end{itemize}
+
+También tiene modificadores como 'X' (\textit{expedite}) para aumentar la velocidad vertical durante una autorización de altitud y 'L' o 'R' para obligar a realizar un viraje hacia el lado izquierdo o derecho, respectivamente.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.70\linewidth]{images/simulators/ATC-SIM_label.jpg}
+	\caption[Detalle de la etiqueta de un tráfico despegando en EGLL.]{Detalle de la etiqueta de un tráfico despegando en EGLL.}
+	\label{fig:SIM_label}
+\end{figure}
+
+Las opciones son simples y permiten configurar si se muestra el rastro de las aeronaves, círculos y marcas para distancias, códigos de aerolínea ICAO (tres dígitos) o IATA (dos dígitos) y el cambio del viento durante la simulación, así como el nivel de dificultad.
+
+Actualmente el simulador cuenta con nueve aeropuertos en su versión gratuita: Chicago O'Hare (KORD/ORD), Dubai Intl. (OMDB/DXB), Kobe Airport (RJBE/UKB), London Heathrow (EGLL/LHR), Osaka Kansai (RJBB/KIX), Phoenix Sky Harbor (KPHX/PHX), Rio de Janeiro Galeao (SBGL/GIG), St. Louis Lambert (KSTL/STL) y Sydney Kingsford Smith (YSSY/SYD).
+
+También cuenta con una versión de pago único (\$20) que desbloquea un total de ciento quince aeropuertos y acceso al registro en la tabla de puntuaciones.
 
 
+
+	
+
+
+
+\clearpage
 
 %https://www.aerosoft.com/es/tienda/flight/otros-simuladores/1117/global-atc-simulator
-\section{}
-\label{sec:}
+\section{Global ATC Simulator}
+\label{sec:ATC-Simulator-Aerosoft}
 
+Se trata de una aplicación que se instala y ejecuta en una máquina local y permite realizar las tareas de los controladores de Torre, Aproximación y Salidas. Las principales características que lo diferencian del resto de simuladores ATC es que incluye la inmensa mayoría de aeropuertos del mundo con sus respectivos procedimientos de salida y llegada. Además, permite personalizar los ficheros para modificar o añadir aeronaves y aerolíneas \cite{ATC-Simulator-Aerosoft}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.80\linewidth]{images/simulators/GATC.jpg}
+	\caption[Imagen del simulador Global ATC Simulator en Munich (EEDM/MUC).]{Imagen del simulador Global ATC Simulator en Munich (EEDM/MUC).}
+	\label{fig:ATC-GATC}
+\end{figure}
+
+La interfaz de control puede ser mediante texto o ratón, tal y como se muestra en la Figura \ref{ATC-GATC_input}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.50\linewidth]{images/simulators/GATC_input.jpg}
+	\caption[Ventana de control del simulador Global ATC Simulator.]{Ventana de control del simulador Global ATC Simulator.}
+	\label{fig:ATC-GATC_input}
+\end{figure}
+
+Otros puntos interesantes son la simulación de la meteorología real (con conexión a Internet), emergencias por nivel bajo de combustible y frustradas por visibilidad, así como la capacidad de actualizar la base de datos que emplea como base, \textit{NavDataPro}. Esta base de datos ha dejado de ser comercializada por Aerosoft y ahora debe emplearse la de Navigraph, también bajo licencia, empleada por algunos simuladores de vuelo de ámbito semiprofesional y tiene un coste de suscripción de \SI{10.95}{}€ mensuales o \SI{98.78}{}€ anuales \cite{Navigraph}.
+
+Actualmente este simulador tiene un coste de \SI{30.45}{}€ y es compatible con los Sistemas Operativos Windows 7 y Windows 8, suponiéndose compatibilidad para versiones siguientes.
+
+
+\clearpage
 
 %https://esstudio.site/atc-manager-2/
-\section{}
-\label{sec:}
+\section{ATC Manager 2}
+\label{sec:ATCManager2}
 
+Este aplicación web ofrece la simulación de un puesto de control unificado de torre, aproximación y ruta, con un sólo aeropuerto y funcionalidades muy similares a las de \textit{\ref{sec:ATC_SIM} \nameref{sec:ATC_SIM}}. Así, se muestran puntos de ruta, ya sean fijos o radioayudas, pero en realidad no hay distinción en el simulador más allá de los nombres, los cuales parecen ficticios, al igual que todo el escenario.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/simulators/ATC-Manager.jpg}
+	\caption[Imagen del simulador ATC Manager 2.]{Imagen del simulador ATC Manager 2.}
+	\label{fig:ATC-Manager}
+\end{figure}
+
+En este caso el control de las aeronaves se realiza mediante el cuadro de control de la esquina inferior derecha o bien, mediante texto. Estos comandos por texto son de tipo completo \cite{ATC-Manager}:
+
+\begin{itemize}
+\item 'HDG', 'turn' o 'turn left/right heading' seguido del rumbo en grados.
+
+\item 'alt', 'climb and maintain' o 'descend and maintain' seguido de la altitud en pies.
+
+\item 'dct', 'direct' o 'direct to' seguido del punto de ruta o pista a instruir.
+
+\item 'spd', 'increase speed (+to)', 'reduce speed (+to)' seguido de la velocidad en nudos.
+
+\item 'takeoff' o 'clear for takeoff' para autorizar despegue. No tiene parámetro asociado.
+
+\item 'go around' o 'goaround' para solicitar un motor y al aire. No tiene parámetro asociado.
+\end{itemize}
+
+
+%\begin{figure}[!hbtp]
+%	\centering
+%	\includegraphics[width=0.35\linewidth]{images/simulators/ATC-Manager-Input.jpg}
+%	\caption[Ventana de control y comandos del simulador ATC Manager 2.]{Ventana de control y comandos del simulador ATC Manager 2.}
+%	\label{fig:ATC-Manager-Input}
+%\end{figure}
+
+Una de las características principales de este simulador es la posibilidad de editar aviones y compañías aéreas mediante un formulario que genera un fichero con extensión \texttt{.json}, pudiendo crearse una solicitud de aprobación por el autor para añadirlo al repositorio GitHub del proyecto \cite{ATC-Manager-Git}.
+
+
+\clearpage
 
 %https://www.openscope.co/
-\section{}
-\label{sec:}
+\section{openScope Air Traffic Control Simulator}
+\label{sec:openScopeAirTrafficControlSimulator}
+
+Se trata de un simulador basado en navegadores web, actualmente en su versión v6.28.0, que destaca por añadir más posibilidades que los simuladores vistos anteriormente. A las tradicionales funcionalidades de rumbo, altitud, velocidad y volar a un punto directo que comparten todos ellos, añade la simulación de vuelo de rutas SID y STAR, dibujado de áreas restringidas, así como solicitar reportes de estado a los pilotos como altitud y velocidad actuales \cite{ATC-openScopeATC}.
+
+Como puede apreciarse en la Figura \ref{fig:ATC-openScopeATC}, se trata del simulador más completo de todos y también el más complejo de usar por la cantidad de comandos que soporta, siendo tan diversos que merece la pena revisarlos en su página oficial de GitHub \cite{ATC-openScopeATC-Git}, a la que redirige desde la ayuda del simulador. 
+
+
+
+Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de Seattle-Tacoma International Airport (KSEA/SEA) el que se abre por defecto. 
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.99\linewidth]{images/simulators/openScopeATC.jpg}
+	\caption[Imagen del simulador openScope Air Traffic Control Simulator.]{Imagen del simulador openScope Air Traffic Control Simulator.}
+	\label{fig:ATC-openScopeATC}
+\end{figure}
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.50\linewidth]{images/simulators/openScopeATC_label.jpg}
+	\caption[Detalle de las etiquetas de openScope Air Traffic Control Simulator.]{Detalle de las etiquetas de openScope Air Traffic Control Simulator.}
+	\label{fig:ATC-openScopeATC_label}
+\end{figure}
+
+
+
+\clearpage
+
+\section{Resumen de los simuladores existentes}
+\label{sec:ResumenSimuladores}
+
 
 
 
