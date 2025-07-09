@@ -914,16 +914,21 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 \section{Resumen de los simuladores existentes}
 \label{sec:ResumenSimuladores}
 
-
+\vspace*{1.0cm}
 \begin{table}[!hbtp]
+
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}
+
 	\begin{center}
-		\caption[Síntesis de funcionalidades de los simuladores actuales.]{Síntesis de funcionalidades de los simuladores actuales.}
+		\caption{Síntesis de funcionalidades de los simuladores actuales.}
 		\label{tab:ResumenSimuladores}
 		\hspace*{-2cm}
-		\begin{tabular}{|r|c|c|c|c|c|l|}
+		\begin{tabular}{|r|c c c c|c|l|}
 			\hline % Title
 			\rule[-1ex]{0pt}{2.5ex} 
-			\diagbox[innerwidth=\textwidth*1/5]{\textbf{Función}}{\textbf{Simulador}}
+			\diagbox[innerwidth=\textwidth*1/5]{Función}{Simulador}
 			& $\;\;\;\;$\textbf{ATC-SIM}$\;\;\;\;$
 			& \begin{tabular}{@{}c@{}}
 				\textbf{Global ATC} \\ 
@@ -938,19 +943,19 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 				\textbf{ATC Analysis} \\ 
 				\textbf{and Training Tool}
 			  \end{tabular}
-			& \diagbox[dir=NE,innerwidth=\textwidth*1/5]{\textbf{Function}}{\textbf{Simulator}}
+			& \diagbox[dir=NE,innerwidth=\textwidth*1/5]{\textit{Simulator}}{\textit{Feature}}
 			\\ 
-			% Test column width
-			\hline 
-			\rule[-1ex]{0pt}{2.5ex}  
-			% blank
-			& x x x x x x x x x x
-			& x x x x x x x x x x
-			& x x x x x x x x x x
-			& x x x x x x x x x x
-			& x x x x x x x x x x
-			& 
-			\\ 
+%			% Test column width
+%			\hline 
+%			\rule[-1ex]{0pt}{2.5ex}  
+%			% blank
+%			& x x x x x x x x x x
+%			& x x x x x x x x x x
+%			& x x x x x x x x x x
+%			& x x x x x x x x x x
+%			& x x x x x x x x x x
+%			& 
+%			\\ 
 			\hline 
 			\rule[-1ex]{0pt}{2.5ex}
 			Rumbo
@@ -958,7 +963,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{olive}\cmark}
+			& \cellcolor{gray!10}{\color{olive}\cmark}
 			& {\color{gray}\textit{Heading}}
 			\\ 
 			%\hline 
@@ -968,7 +973,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{olive}\cmark}
+			& \cellcolor{gray!10}{\color{olive}\cmark}
 			& {\color{gray}\textit{Altitude}}
 			\\ 
 			%\hline 
@@ -978,7 +983,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{olive}\cmark}
+			& \cellcolor{gray!10}{\color{olive}\cmark}
 			& {\color{gray}\textit{Speed}}
 			\\ 
 			\hline 
@@ -988,7 +993,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{olive}\cmark} 
+			& \cellcolor{gray!10}{\color{olive}\cmark} 
 			& {\color{gray}\textit{Direct to}}
 			\\ 
 			%\hline 
@@ -998,7 +1003,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{red}\xmark} 
 			& {\color{olive}\cmark} 
-			& {\color{olive}\cmark}
+			& \cellcolor{gray!10}{\color{olive}\cmark}
 			& {\color{gray}\textit{SID}}
 			\\ 
 			%\hline 
@@ -1008,7 +1013,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{red}\xmark} 
 			& {\color{olive}\cmark} 
-			& {\color{olive}\cmark}
+			& \cellcolor{gray!10}{\color{olive}\cmark}
 			& {\color{gray}\textit{STAR}} 
 			\\ 
 			\hline 
@@ -1018,7 +1023,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{red}\xmark} 
 			& {\color{olive}\cmark}
-			& {\color{blue}\todomark} 
+			& \cellcolor{gray!10}{\color{blue}\todomark} 
 			& {\color{gray}\textit{Holding patterns}}
 			\\ 
 			%\hline 
@@ -1028,7 +1033,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{orange}Transf. TWR} 
+			& \cellcolor{gray!10}{\color{orange}Transf. TWR} 
 			& {\color{gray}\textit{Landings}}
 			\\ 
 			%\hline 
@@ -1038,7 +1043,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{orange}Transf. CTR}
+			& \cellcolor{gray!10}{\color{orange}Transf. CTR}
 			& {\color{gray}\textit{Takeoffs}}
 			\\ 
 			\hline 
@@ -1048,8 +1053,8 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark} 
 			& {\color{olive}\cmark}
-			& {\color{blue}\todomark} 
-			& {\color{gray}\textit{Meteorología}}
+			& \cellcolor{gray!10}{\color{blue}\todomark} 
+			& {\color{gray}\textit{Weather}}
 			\\ 
 			%\hline 
 			\rule[-1ex]{0pt}{2.5ex}
@@ -1058,7 +1063,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{cyan}?} 
 			& {\color{olive}\cmark}
 			& {\color{olive}\cmark} 
-			& {\color{orange}\readymark} 
+			& \cellcolor{gray!10}{\color{orange}\readymark} 
 			& {\color{gray}\textit{Text To Speech}}
 			\\ 
 			%\hline 
@@ -1068,7 +1073,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 			& {\color{cyan}?} 
 			& {\color{red}\xmark}
 			& {\color{olive}\cmark}
-			& {\color{blue}\todomark}
+			& \cellcolor{gray!10}{\color{blue}\todomark}
 			& {\color{gray}\textit{Restricted areas}} 
 			\\ 
 			\hline 
@@ -1079,7 +1084,7 @@ Cabe destacar que cuenta actualmente con sesenta y dos aeropuertos, siendo el de
 %			& • 
 %			& • 
 %			& • 
-%			& {\color{gray}\textit{Heading}}
+%			& \cellcolor{gray!10}{\color{gray}\textit{Heading}}
 %			\\ 
 %			\hline 
 		\end{tabular}
