@@ -219,12 +219,15 @@ Así, se define la navegación de área o RNAV (\textit{aRea NAVigation}), cuyos
 
 En la Figura \ref{fig:PBN} puede verse claramente que las rutas convencionales necesitan, en general, mayor distancia a recorrer, con el respectivo aumento del consumo de combustible y emisiones nocivas, mayor tiempo de vuelo así como menor comodidad para el pasaje que las RNAV.
 
+\bigskip
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/PBN.png}
+	\includegraphics[width=0.95\linewidth]{images/content/PBN.png}
 	\caption[Rutas convencionales, RNAV y RNP.]{Rutas convencionales, RNAV y RNP \citeFig{PBN_url}.}
 	\label{fig:PBN}
 \end{figure}
+
 
 
 \pagebreak
@@ -249,13 +252,16 @@ Un paso más allá va RNP (\textit{Required Navigation Performance}), que, adici
 
 De este modo, definiéndose el error total del sistema, TSE (\textit{Total System Error}) como la desviación lateral probable de la aeronave, se establece RNP-X (con X = TSE) como la navegación con requisitos de X NM de precisión a hacia ambos lados de la ruta para un \SI{95}{\percent} del tiempo, y un valor de 2X NM hacia cada lateral como zona de contingencia (véase Figura \ref{fig:RNAV_RNP}), a partir de la cual, si la aeronave se desvía, el sistema de monitorización y alerta debe avisar del suceso. Además, define una continuidad, disponibilidad e integridad igual o superior al \SI{99.999}{\percent}.
 
+
+
+\pagebreak
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.65\linewidth]{images/content/RNAV_RNP.png}
+	\includegraphics[width=0.80\linewidth]{images/content/RNAV_RNP.png}
 	\caption[Diferencias y similitudes entre RNAV y RNP.]{Diferencias y similitudes entre RNAV y RNP \citeFig{RNAV_RNP_url}.}
 	\label{fig:RNAV_RNP}
 \end{figure}
-
 
 
 
@@ -277,7 +283,7 @@ Para ello se identifican un conjunto de especificaciones que dan lugar a una ser
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.90\linewidth]{images/content/PBN_diagrama.png}
+	\includegraphics[width=0.95\linewidth]{images/content/PBN_diagrama.png}
 	\caption[Características PBN: RNAV y RNP.]{Características PBN: RNAV y RNP \citeFig{PBN_url}.}
 	\label{fig:PBN_diagrama}
 \end{figure}
@@ -290,6 +296,8 @@ Para ello se identifican un conjunto de especificaciones que dan lugar a una ser
 Entendiendo GNSS (\textit{Global Navigation Satellite System}) como cada uno del conjunto de sistemas que basan el cómputo del posicionamiento de un blanco en una constelación de satélites, como GPS, GLONASS, BeiDou o Galileo, se trata del sistema facilitador más importante para PBN. De hecho, tanto OACI como Eurocontrol, en sus proyectos colocan a GNSS como el sistema de navegación principal paras las nuevas rutas en mejora de la eficiencia. Las redes de radio ayudas terrestres convencionales servirán entonces como respaldo.
 
 Es más, los sistemas GNSS se categorizan como los únicos sistemas capaces de cumplir las las especificaciones más exigentes que se describen en el Manual PBN (Doc. 9613 de OACI) \cite{OACI_PBN}. Así, en Europa,  ya emplean la navegación por satélite en todas las fases del vuelo: salida (SID), ruta, llegada (STAR) y aproximación instrumental.
+
+
 
 \subsection{Requisitos GNSS para PBN}
 \label{subsec:RequisitosGNSS}
@@ -310,6 +318,7 @@ Para cumplir con todos estos parámetros se necesita de sistemas que complemente
 
 
 	
+\pagebreak
 
 \section{Sistemas de aumentación GNSS}
 \label{sec:SistemasAumentacionGNSS}
@@ -326,10 +335,11 @@ Se categorizan según el tipo de infraestructura en el que se apoyen para realiz
 \item Sistemas ABAS, con aviónica embarcada en aeronaves.
 \end{itemize}
 
+\bigskip
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.70\linewidth]{images/content/GBAS.jpg}
+	\includegraphics[width=0.80\linewidth]{images/content/GBAS.jpg}
 	\caption[Principio operativo de GBAS.]{Principio operativo de GBAS \citeFig{GBAS_url}.}
 	\label{fig:GBAS}
 \end{figure}
@@ -337,7 +347,7 @@ Se categorizan según el tipo de infraestructura en el que se apoyen para realiz
 
 
 
-\clearpage
+\pagebreak
 
 \subsection{Ventajas del uso de PBN y GNSS}
 \label{subsec:PBN_Ventajas}
@@ -406,7 +416,7 @@ Otra manera común de medir la velocidad, sobre todo en fase de crucero, es el n
 
 
 
-\newpage
+\clearpage
 
 \section{Sistemas de vigilancia}
 \label{sec:SistemasVigilancia}
@@ -428,7 +438,7 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 	\centering
 	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[height=4.5cm]{images/content/Radar.jpg}
+		\includegraphics[height=5.0cm]{images/content/Radar.jpg}
 		\caption[Antena radar PSR y SSR.]{Antena radar PSR y SSR. \citeFig{Radar}}
 		\label{fig:Radar}
 	\end{subfigure}%
@@ -445,10 +455,7 @@ El equipo de Detección y Medición de Distancias por Radio o, simplemente, rada
 \end{figure}
 
 
-
-%Imágenes extraídas de:
-%https://twitter.com/controladores/status/539108523402342401/photo/1. Twitter: @controladores.
-
+\clearpage
 
 \subsection{Vigilancia Dependiente Automática}
 \label{subsec:VigilanciaDependienteAutomatica}
@@ -519,7 +526,7 @@ A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen 
 
 \begin{itemize}
 
-	\item Espacio aéreo inferior o Región de Información de Vuelo, FIR (\textit{Flight Information Region}). Comprende desde la superficie del terreno (GND, \textit{Ground}) hasta el nivel de vuelo FL245.
+	\item Espacio aéreo inferior o Región de Información de Vuelo, FIR (\textit{Flight Information Region}). Comprende desde la superficie del terreno (GND, \textit{Ground}) hasta FL245.
 	
 	\item Espacio aéreo superior o Región Superior de Información de Vuelo, UIR (\textit{Upper Information Region}). Se sitúa por encima de las FIR, desde el nivel de vuelo FL245 y sin límite superior, si bien sólo se presta servicio de control de tráfico aéreo hasta FL460.
 	
@@ -528,7 +535,6 @@ A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen 
 
 De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. De menor a mayor extensión:
 
-\pagebreak
 
 \begin{itemize}
 
@@ -542,7 +548,7 @@ De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéll
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.70\linewidth]{images/content/AreasATC.jpg}
+	\includegraphics[width=0.85\linewidth]{images/content/AreasATC.jpg}
 	\caption[Sectorización de las zonas de control ATC.]{Sectorización de las zonas de control ATC \citeFig{AreasATC_url}.}
 	\label{fig:AreasATC}
 \end{figure}
@@ -698,23 +704,27 @@ En la siguiente página se muestran a modo de comparativa la misma región en la
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/LEBL_Convencional.png}
+	\includegraphics[width=1.0\linewidth]{images/content/LEBL_Convencional.png}
 	\caption[Extracto de SID convencional de la RWY 25R de LEBL.]{Extracto de SID convencional de la RWY 25R de LEBL \citeFig{AIP_2016_url}.}
 	\label{fig:LEBL_Convencional}
 \end{figure}
 
 
+\clearpage
+
 Puede apreciarse cómo en la Figura \ref{fig:LEBL_Convencional} todas las salidas hacia Europa y las Islas Baleares cuelgan de un arco definido completamente en base a distancias DME de los DVOR de Barcelona (BCN, \SI{116.70}{MHz}) y El Prat (PRA, \SI{114.30}{MHz}). Esta navegación se realiza a partir de los equipos de a bordo de la aeronave con ayuda del procesamiento de la señal de las radio ayudas terrestres.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/LEBL_P-RNAV.png}
+	\caption[Extracto de SID P-RNAV de la RWY 25R de LEBL.]{Extracto de SID P-RNAV de la RWY 25R de LEBL \citeFig{AIP_2016_url}.}
+	\label{fig:LEBL_RNAV}
+\end{figure}
 
 En cambio, en la Figura \ref{fig:LEBL_RNAV} algunas de las salidas son completamente independientes al resto. Esto se traduce en la posibilidad de realizar tramos más directos y cortos, con el impacto directo sobre el consumo de combustible, las emisiones y el tiempo y la eficiencia de vuelo. Además, contribuye a aumentar la capacidad del espacio aéreo, ya que al estar en salidas con trayectos independientes, pueden sacarse más aviones del aeropuerto sin que uno tenga que ser necesariamente precedente del otro en la misma ruta de salida, viéndose incrementada la capacidad en número de operaciones del aeropuerto.
 
 
-\begin{figure}[!hbtp]
-	\centering
-	\includegraphics[width=0.9\linewidth]{images/content/LEBL_P-RNAV.png}
-	\caption[Extracto de SID P-RNAV de la RWY 25R de LEBL.]{Extracto de SID P-RNAV de la RWY 25R de LEBL \citeFig{AIP_2016_url}.}
-	\label{fig:LEBL_RNAV}
-\end{figure}
+\clearpage
 
 
 \subsection{Aterrizajes normalizados por instrumentos y PBN}
