@@ -4,18 +4,298 @@
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-\textit{[1/2 página] Objetivo del proyecto. En infinitivo.}
+El objetivo principal del proyecto radica en el desarrollo de una aplicación de simulación de control aéreo que sirva como facilitador en el estudio de rutas aéreas nuevas y existentes y, a su vez, permita a usuarios afines al control aéreo entrenar y mejorar sus habilidades. De este modo, se persigue que esta herramienta pueda ser de aplicación como simulador básico para el estudio de eficiencia y cumplimiento de servidumbres aeroportuarias, así como servir de ayuda a personas que, bien por afición, bien a nivel profesional, quieran conocer mejor el ámbito del Control de Tráfico Aéreo.
+
+Como objetivo marco que engloba todo el proyecto se sitúa la verosimilitud con las herramientas profesionales existentes en el sector aéreo, por lo que se persigue en todo momento la veracidad y la similitud en apariencia de los datos y funcionalidades que se implementan.
+
+Para ello, se establecen una serie de requisitos que serán detallados en la siguiente sección, \textit{\ref{sec:objetivos-especificos-fases} \nameref{sec:objetivos-especificos-fases}}, y a los cuales se les realiza un seguimiento de evaluación de objetivos.
 
 
-\section{Objetivos específicos}
-\label{sec:objetivos-especificos}
-
-\textit{[1 página] Objetivos específicos. En infinitivo. Por ejemplo, permitir el estudio de rutas SID y STAR nuevas o de aeropuertos en estudio, estadísticas...}
+\section{Objetivos específicos y fases del proyecto}
+\label{sec:objetivos-especificos-fases}
 
 
-\section{Planificación temporal}
-\label{sec:planificacion-temporal}
+A continuación, se presentan los requisitos que se han establecido para el desarrollo de la herramienta que se recoge en este documento. Se han organizado por fases, de tal forma que en las primeras fases se encuentren aquellos requisitos que son más prioritarios o son la base para funcionalidades más avanzadas.
 
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
+
+\newcounter{Req_F1_index}
+\setcounter{Req_F1_index}{1}
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{center}
+		\caption{Requisitos básicos.}
+		\label{tab:RequisitosFase1}
+		\begin{tabular}{|c|p{0.7\textwidth}|}
+			%% Title
+			\hline 
+			\multicolumn{2}{|c|}{\cellcolor{gray!30}{\textbf{Requisitos básicos - Fase 1}}}
+			\\
+			\hline\hline
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Escena básica para añadir \texttt{GameObjects}. \\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Crear una visualización de cámara 2D que muestre objetos en pantalla. 								\newline La vista será cenital, ortográfica, sin perspectiva. \\
+			\hline\hline
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Proyección 2D. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Modelo matemático que permita trasladar las coordenadas de los objetos a representar a posiciones 2D en la pantalla. 
+			\\
+			\hline\hline			
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar aeropuerto básico. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Debe contener los siguientes parámetros básicos: 
+			\begin{itemize}
+			\item Nombre de aeropuerto.
+			\item Códigos OACI, IATA.
+			\item Coordenadas: latitud, longitud.
+			\item Elevación.
+			\item Ciudad y país.
+			\item Array de pistas. 
+			\end{itemize}
+			\\
+			\hline\hline
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Array de pistas. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Las pistas deben contener los siguientes parámetros básicos: 
+			\begin{itemize}
+			\item Identificador (por ejemplo, 32L).
+			\item Rumbo magnético (\textit{heading}).
+			\item Longitud de pista.
+			\item Posición de los umbrales de pista (latitud y longitud), elevación.
+			\end{itemize}
+			\\
+			\hline\hline
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar radioayudas y fijos. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Definir clase \texttt{Navaid} para las radioayudas y fijos con los siguientes datos:
+			\begin{itemize}
+				\item Identificador de 3 o 5 letras.
+				\item Posición en coordenadas (latitud, longitud).
+				\item Icono (representación gráfica para cada tipo).
+			\end{itemize}			 
+			Los VOR y FIX heredaran la clase \texttt{Navaid}, añadiéndose los siguientes campos para los VOR:
+			\begin{itemize}
+				\item Nombre del VOR (por ejemplo 'Perales' para PDT).
+				\item Frecuencia.
+				\item Código morse.
+				\item Si tiene o no DME coubicado.
+			\end{itemize}
+			\\
+			\hline\hline			
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar objeto de tipo Aeronave.
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Debe tener las siguientes características básicas:
+			\begin{itemize}
+				\item Datos referentes a la aeronave:
+				\begin{itemize}
+					\item Modelo de aeronave.
+					\item Categoría (\textit{light, medium, heavy}).
+					\item Número de matrícula.
+				\end{itemize}					
+				
+				\item Datos referentes al vuelo: 			
+				\begin{itemize}
+					\item Compañía a la que pertenece el vuelo (\textit{company}).
+					\item Número de vuelo (\textit{flight number}).
+					\item Identificador de llamada (\textit{callsign}).
+					\item Código transpondedor asignado (\textit{squawk})
+				\end{itemize}
+						
+				\item Datos referentes a la posición y velocidad:
+				\begin{itemize}
+					\item Velocidad respecto a tierra (GS, \textit{Ground Speed}).
+					\item Velocidad indicada (IAS, \textit{Indicated Airspeed}).
+					\item Velocidad calibrada (CAS, \textit{Calibrated Airspeed}).
+					\item Velocidad verdadera respecto al aire (TAS, \textit{True Airspeed}).
+					\item Altitud (\textit{altitude}).
+					\item Altura (\textit{height}).
+					\item Velocidad vertical (V/S, \textit{Vertical Speed} o RoC, \textit{Rate of Climb}). 			
+				\end{itemize}
+				
+			\end{itemize}
+			\\
+			\hline\hline
+			
+			%%
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			&  
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			&  
+			\\
+			\hline\hline
+			
+%			%%
+%			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+%			\\ 
+%			\hline		
+%			\cellcolor{gray!10}{\textbf{Título}} 
+%			&  
+%			\\
+%			\cellcolor{gray!10}{\textbf{Desc.}} 
+%			&  
+%			\\
+%			\hline\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\begin{center}
+		\caption{Requisitos avanzados.}
+		\label{tab:RequisitosFase2}
+		\begin{tabular}{|c|p{0.7\textwidth}|}
+			\hline 
+			\multicolumn{2}{|c|}{\textbf{Navegación autónoma - Fase 2}} 
+			\\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			\textbf{Id.} & \textbf{Descripción} \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\begin{center}
+		\caption{Requisitos de mejora en realismo.}
+		\label{tab:RequisitosFase3}
+		\begin{tabular}{|c|p{0.7\textwidth}|}
+			\hline 
+			\multicolumn{2}{|c|}{\textbf{Mejoras en realismo - Fase 3}} 
+			\\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			\textbf{Id.} & \textbf{Descripción} \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\begin{center}
+		\caption{Requisitos de mejora en funcionalidades.}
+		\label{tab:RequisitosFase4}
+		\begin{tabular}{|c|p{0.7\textwidth}|}
+			\hline 
+			\multicolumn{2}{|c|}{\textbf{Mejoras en funcionalidades - Fase 4}} 
+			\\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			\textbf{Id.} & \textbf{Descripción} \\ 
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline 
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+			\rule[-1ex]{0pt}{2.5ex}
+			 &  \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+%
+%\section{Planificación temporal}
+%\label{sec:planificacion-temporal}
+%
+%A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
+%Hay gente que añade un diagrama de GANTT.
+%Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
