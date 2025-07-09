@@ -25,6 +25,8 @@ Además, es excelente para llevar una trazabilidad exhaustiva de los cambios gen
 Para este caso concreto, se ha trabajado sobre dos repositorios de GitHub, donde se han ido subiendo los cambios tanto de la aplicación como de este propio documento:
 
 \begin{itemize}
+
+	\bigskip
 	\item Aplicación <<ATC Analysis and Training Tool>> desarrollada en el marco de este trabajo:
 	
 	\begin{itemize}
@@ -33,6 +35,18 @@ Para este caso concreto, se ha trabajado sobre dos repositorios de GitHub, donde
 		\item Colaboradores: usuario \href{https://github.com/macgyver912}{\textit{macgyver912}} (Jaime Valle Alonso).
 	\end{itemize}
 	
+	\bigskip
+	\begin{figure}[!hbtp]
+		\centering
+		\includegraphics[width=1.0\linewidth]{images/content/GitHub_Aplicacion_Milestones.jpg}
+		\caption{Repositorio de <<ATC Analysis and Training Tool>>.}
+		\label{fig:GitHub_Aplicacion_Milestones}
+	\end{figure}	
+	
+	\pagebreak
+	
+	
+	\bigskip
 	\item Elaboración de la memoria, este propio documento:
 	
 	\begin{itemize}
@@ -40,6 +54,28 @@ Para este caso concreto, se ha trabajado sobre dos repositorios de GitHub, donde
 		\item Ramas: \texttt{master} y \texttt{jaime} (donde está todo el desarrollo).
 		\item Colaboradores: usuario \href{https://github.com/macgyver912}{\textit{macgyver912}} (Jaime Valle Alonso).
 	\end{itemize}
+	
+	En la Figura \ref{fig:GitTFG} se muestran los comandos empleados para subir los cambios al repositorio remoto, que son los siguientes:
+	
+	\begin{itemize}
+		\item \texttt{git status}: muestra los ficheros que se han modificado9 desde el último \texttt{commit}.
+		
+		\item \texttt{git add -u}: prepara todos los ficheros modificados para subir en próximo \texttt{commit}.
+		
+		\item \texttt{git commit -m}: establece la cabecera de modificaciones al estado actual de tal forma que los ficheros que se añadieron ahora son la versión actual para el proyecto. El modificador \texttt{-m} se emplea para añadir un comentario descriptivo de los cambios.
+		
+		\item \texttt{git push origin jaime}: sube los cambios al repositorio que está en la web de GitHub, concretamente a la rama \texttt{jaime} (lo anterior sólo estaba en local).
+	\end{itemize}	 	
+	
+	\bigskip
+	\begin{figure}[!hbtp]
+		\centering
+		\includegraphics[width=0.9\linewidth]{images/content/GitTFG.jpg}
+		\caption{Comandos para subir cambios al repositorio de la memoria en GitHub.}
+		\label{fig:GitTFG}
+	\end{figure}	
+		
+	
 \end{itemize}
 
 
