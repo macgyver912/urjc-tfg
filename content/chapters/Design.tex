@@ -88,11 +88,57 @@ Para este caso concreto, se ha trabajado sobre dos repositorios de GitHub, donde
 
 \clearpage
 
-\subsection{LaTeX y Texmaker}
+\subsection{\LaTeX y Texmaker}
 \label{subsec:LaTeX_Texmaker}
 
-//TODO: empleado para la redacción de la memoria...
+\LaTeX es un sistema multiplataforma de composición de textos de alta calidad, diseñado y ampliamente empleado para la publicación de documentos científicos y técnicos. Esto se debe a la facilidad de escribir ecuaciones y símbolos matemáticos a partir de comandos de texto, sin necesidad de recurrir a y submenús como ocurre en otras aplicaciones. Además es gratuito y de código abierto \cite{latex}.
 
+Si bien, es una muy potente, requiere de cierto tiempo para que el usuario aprenda desenvolverse con él, principalmente debido a que no se trata de una herramienta WYSIWYG (\textit{What You See Is What You Get}). Esto es, el formato aplicado al documento de texto que se está generando no se ve mientras se edita, sino que necesita compilarse. 
+
+Por ello, \LaTeX debe verse como una herramienta que está entre programación y editor de texto. Si bien emplea comandos sencillos, la infinidad de posibilidades que ofrece, puede llegar a abrumar a los que comienzan con ello. Pero nada más lejos de la realidad; es una herramienta muy útil y que simplifica muchas tareas.
+
+Al tener esa componente de comandos con guiños hacia la programación, pueden crearse variables y emplearlas para realizar cálculos, aplicar reglas condicionales a ciertos elementos, etc. Sin ir más lejos, la numeración de los requisitos de la sección \textit{\ref{chap:objetivos} \nameref{chap:objetivos}} ha sido realizada mediante una variable que aumenta su valor en una unidad cada vez que se añade una tabla mediante los comandos que se muestran a continuación:
+
+{\footnotesize
+\begin{Verbatim}[frame=single]
+\newcounter{Req_F1_index}
+\setcounter{Req_F1_index}{1}
+
+\begin{tabular}{|c|p{0.75\textwidth}|}			
+  \hline
+  \multicolumn{2}{|l|}{\cellcolor{gray!10}
+  {\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} 
+  \stepcounter{Req_F1_index} % <- Increments by one variable 'Req_F1_index'
+  \\ \hline		
+  \cellcolor{gray!10}{\textbf{Título}} 
+  & Proyección 2D. \\
+  \cellcolor{gray!10}{\textbf{Desc.}} 
+  & Modelo matemático que permita trasladar las coordenadas de los objetos 
+  a representar a posiciones 2D en la pantalla. 
+  \\ \hline		
+\end{tabular}
+\end{Verbatim}
+}
+
+\pagebreak
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/content/latex_table.jpg}
+	\caption{Tabla generada con la porción de código anterior.}
+	\label{fig:latex_table}
+\end{figure}	
+
+Puesto que \LaTeX es una especie de lenguaje compilado, puede editarse como un fichero de texto plano desde cualquier editor y compilarse mediante el comando \texttt{latex}, de tal forma que, por defecto, generará un PDF con el contenido del documento.
+
+No obstante, existen entornos de desarrollo apropiados para editar documentos \LaTeX, como {\TeX nicCenter} \cite{texniccenter} o Texmaker \cite{texmaker}. La apariencia general de ambos es muy similar, presentando tres grandes paneles verticales: el izquierdo como navegador de archivos del proyecto, el central como editor de texto plano y el derecho como visualizador del PDF generado. Si bien, poseen multitud de opciones para configurar, por lo que el usuario puede personalizar el entorno a su gusto.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/texmaker.jpg}
+	\caption{Vista general de Texmaker sobre estas mismas líneas.}
+	\label{fig:texmaker}
+\end{figure}
 
 
 \clearpage
