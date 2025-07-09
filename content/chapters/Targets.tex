@@ -17,8 +17,23 @@ Para ello, se establecen una serie de requisitos que serán detallados en la sig
 
 A continuación, se presentan los requisitos que se han establecido para el desarrollo de la herramienta que se recoge en este documento. Se han organizado por fases, de tal forma que en las primeras fases se encuentren aquellos requisitos que son más prioritarios o son empleados como base para funcionalidades más avanzadas.
 
+De esta forma se obtiene una gestión temporal del proyecto en forma de embudo, donde en las etapas iniciales existen más funcionalidades a implementar, pero a medida que se avanzan fases, las nuevas funcionalidades hacen uso de las anteriores.
+
 
 \clearpage
+
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.80\linewidth]{images/content/FasesProyectoTiempo.jpg}
+	\caption{División del proyecto en fases.}
+	\label{fig:FasesProyectoTiempoFasesProyectoTiempo}
+\end{figure}
+
+
+
+
+
 
 \newcounter{Req_F1_index}
 \setcounter{Req_F1_index}{1}
@@ -112,8 +127,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 			\begin{itemize}
 			\item Nombre de aeropuerto.
 			\item Códigos OACI, IATA.
-			\item Coordenadas: latitud, longitud.
-			\item Elevación.
+			\item Coordenadas: latitud, longitud. Elevación.
 			\item Ciudad y país.
 			\item Array de pistas. 
 			\end{itemize}
@@ -122,6 +136,9 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 		\end{tabular}
 	\end{center}
 \end{table}	
+
+
+\clearpage
 
 \begin{table}[!hbtp]
 	\footnotesize
@@ -176,7 +193,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 				\begin{itemize}
 					\item Modelo de aeronave.
 					\item Categoría (\textit{light, medium, heavy}).
-					\item Número de matrícula.
+					%\item Número de matrícula.
 				\end{itemize}					
 				
 				\item Datos referentes al vuelo: 			
@@ -193,8 +210,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 					\item Velocidad indicada (IAS, \textit{Indicated Airspeed}).
 					\item Velocidad calibrada (CAS, \textit{Calibrated Airspeed}).
 					\item Velocidad verdadera respecto al aire (TAS, \textit{True Airspeed}).
-					\item Altitud (\textit{altitude}).
-					\item Altura (\textit{height}).
+					\item Altitud (\textit{altitude}) y altura (\textit{height}).
 					\item Velocidad vertical (V/S, \textit{Vertical Speed} o RoC, \textit{Rate of Climb}). 			
 				\end{itemize}
 				
@@ -219,6 +235,32 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 			\\ 
 			\hline		
 			\cellcolor{gray!10}{\textbf{Título}} 
+			& Menú de control ATC para consignas básicas. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Menú para instruir a las aeronaves los comandos de vuelo básicos de rumbo, altitud y velocidad. Además, se incluirá instrucción para transferir la aeronave a la siguiente dependencia (\textit{handoff}). 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\clearpage
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
 			& Modelar radioayudas y fijos. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
@@ -228,7 +270,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 				\item Posición en coordenadas (latitud, longitud).
 				\item Icono (representación gráfica para cada tipo).
 			\end{itemize}			 
-			Los VOR y FIX heredan de la clase \texttt{Navaid}, añadiéndose los siguientes campos para los VOR:
+			Los VOR y FIX heredarán de la clase \texttt{Navaid}, añadiéndose los siguientes campos para los VOR:
 			\begin{itemize}
 				\item Nombre del VOR (por ejemplo 'Perales' para PDT).
 				\item Frecuencia.
@@ -265,37 +307,11 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 	\end{center}
 \end{table}	
 
-\begin{table}[!hbtp]
-	\footnotesize
-	\setlength{\arrayrulewidth}{0.4mm}
-	%\setlength{\tabcolsep}{5pt}
-	\renewcommand{\arraystretch}{1.2}			
-	\begin{center}
-		%\caption{.}
-		%\label{tab:}
-		\begin{tabular}{|c|p{0.7\textwidth}|}			
-			\hline
-			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
-			\\ 
-			\hline		
-			\cellcolor{gray!10}{\textbf{Título}} 
-			& Menú de control ATC para consignas básicas. 
-			\\
-			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Menú para instruir a las aeronaves los comandos básicos de rumbo, altitud y velocidad. 
-			\\
-			\hline		
-		\end{tabular}
-	\end{center}
-\end{table}	
 
 
 
 
-
-
-
-
+\clearpage
 
 
 \newcounter{Req_F2_index}
@@ -308,7 +324,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 	%\setlength{\tabcolsep}{5pt}
 	\renewcommand{\arraystretch}{1.2}
 	\begin{center}
-		\caption{Tabla con los requisitos básicos de la Fase 2.}
+		\caption{Tabla con los requisitos intermedios de la Fase 2.}
 		\label{tab:Fase1}
 		\begin{tabular}{|c|}
 			%% Title
@@ -340,9 +356,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 			& Volar directo hacia un punto de ruta, guiado lateral al siguiente punto de ruta. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Cada aeronave debe poder volar rumbo al siguiente punto de ruta. En este caso la navegación lateral vendrá dada por un rumbo automático entre la posición de la aeronave y el siguiente punto de la ruta.
-
-Esto servirá de base para las SID y STAR, pues serán una sucesión de puntos de ruta que deben volarse de forma secuencial. 
+			& Cada aeronave debe poder volar rumbo al siguiente punto de ruta. En este caso la navegación lateral vendrá dada por un rumbo automático entre la posición de la aeronave y el siguiente punto de la ruta. Esto servirá de base para SID y STAR, pues serán una sucesión de puntos de ruta que deben volarse secuencialmente. 
 			\\
 			\hline		
 		\end{tabular}
@@ -387,7 +401,7 @@ Esto servirá de base para las SID y STAR, pues serán una sucesión de puntos d
 			\\ 
 			\hline		
 			\cellcolor{gray!10}{\textbf{Título}} 
-			& Asignar procedimiento a cada avión y navegación lateral autónoma en SID y STAR 
+			& Asignar procedimiento a cada aeronave y navegación autónoma en SID y STAR. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
 			& Llegados a este punto, cada una de las aeronaves podrá tener una navegación lateral bien por rumbo, bien hacia un punto concreto, o bien navegación autónoma a través de los diferentes puntos de cada SID o STAR.
@@ -414,9 +428,7 @@ Esto servirá de base para las SID y STAR, pues serán una sucesión de puntos d
 			& Aterrizajes y despegues: transferencia a la siguiente dependencia. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Este punto se refiere realmente a transferir los tráficos de llegada a la dependencia de control de Torre (TWR, \textit{Tower}) cuando estén sobrevolando el último punto de la STAR o a los tráficos de salida a la dependencia de control de área (\textit{Area Control Center}).
-
-En este punto, por simplicidad, los aviones desaparecerán del control radar. En trabajos futuros se pueden imponer restricciones para la transferencia, como altitud y ángulo y distancia a pista para aterrizajes. 
+			& Este punto se refiere realmente a transferir los tráficos de llegada a la dependencia de control de Torre (TWR, \textit{Tower}) cuando estén sobrevolando el último punto de la STAR o a los tráficos de salida a la dependencia de control de área (\textit{Area Control Center}). En este punto, por simplicidad, los aviones desaparecerán. %del control radar. %En trabajos futuros se pueden imponer restricciones para la transferencia, como altitud y ángulo y distancia a pista para aterrizajes. 
 			\\
 			\hline		
 		\end{tabular}
@@ -440,9 +452,7 @@ En este punto, por simplicidad, los aviones desaparecerán del control radar. En
 			& Menú de control ATC para consignas intermedias. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Ampliación de los menús creados con anterioridad que ahora incluirán la posibilidad de asignar un procedimiento estándar a cada aeronave. Debe valorarse el filtrado del listado completo de SID y STAR para poder asignar solamente SID a las aeronaves en salida y STAR para aquellas en llegada.
-
-Además, se incluirá instrucción para transferir la aeronave a la siguiente dependencia (\textit{handoff}). 
+			& Ampliación de los menús, incluyendo la posibilidad de asignar un procedimiento estándar a cada aeronave. Debe filtrarse el listado completo de SID y STAR para poder asignar solamente SID a las aeronaves en salida y STAR para llegadas. 
 			\\
 			\hline		
 		\end{tabular}
@@ -458,6 +468,7 @@ Además, se incluirá instrucción para transferir la aeronave a la siguiente de
 
 
 
+\clearpage
 
 \newcounter{Req_F3_index}
 \setcounter{Req_F3_index}{1}
@@ -469,15 +480,15 @@ Además, se incluirá instrucción para transferir la aeronave a la siguiente de
 	%\setlength{\tabcolsep}{5pt}
 	\renewcommand{\arraystretch}{1.2}
 	\begin{center}
-		\caption{Tabla con los requisitos básicos de la Fase 3.}
+		\caption{Tabla con los requisitos avanzados de la Fase 3.}
 		\label{tab:Fase1}
 		\begin{tabular}{|c|}
 			%% Title
 			\hline 
 			%\multicolumn{2}{|c|}{\cellcolor{gray!30}{\textbf{Requisitos básicos - Fase 3}}}
-			\hspace{3.6cm}
+			\hspace{3.3cm}
 			{\cellcolor{gray!30}{\textbf{FASE 3 - REQUISITOS AVANZADOS}}}
-			\hspace{3.6cm}
+			\hspace{3.3cm}
 			\\ 
 			\hline
 		\end{tabular}
@@ -498,15 +509,73 @@ Además, se incluirá instrucción para transferir la aeronave a la siguiente de
 			\\ 
 			\hline		
 			\cellcolor{gray!10}{\textbf{Título}} 
-			&  
+			& Velocidad mínima de vuelo según categoría de aeronave. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			&  
+			& Debe asignarse una velocidad mínima de vuelo a cada categoría, distinguiendo entre dos tipos:
+
+\begin{itemize}
+	\item En configuración limpia (\textit{clean config.}), que es aquella velocidad mínima segura que puede mantener la aeronave durante la aproximación sin desplegar ninguno de los elementos hipersustentadores como \textit{flaps} y \textit{slats}.
+
+	\item Con \textit{flaps full} o en configuración de máximo despliegue de los elementos hipersustentadores.
+\end{itemize}
+
+Si se instruye una velocidad comprendida entre la primera y la segunda, la aeronave aceptará la consigna pero responderá cuál es su velocidad mínima limpia para que la tenga en cuenta el ATC. Si la velocidad es inferior a ambas, la aeronave aceptará el máximo entre la instruida y \textit{flaps full}, de tal forma que no volará por debajo de su velocidad mínima segura. 
 			\\
 			\hline		
 		\end{tabular}
 	\end{center}
 \end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F3.\arabic{Req_F3_index}}}} \stepcounter{Req_F3_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Vuelo de SID y STAR desde un punto intermedio. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& En este punto debe implementarse la capacidad de asignar a una aeronave un procedimiento estándar, pero sin la necesidad de que sea la ruta completa, sino que se le puede instruir un punto intermedio. De este modo, pueden aprobarse recortes sin perder la SID o STAR, de tal forma que la aeronave continúe con su navegación lateral autónoma. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F3.\arabic{Req_F3_index}}}} \stepcounter{Req_F3_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Fraseología aeronáutica y preparación para TTS. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Durante todo el diseño debe cuidarse este aspecto, pero en este punto se implementarán intercambio de mensajes de texto entre ATC y pilotos de las aeronaves. De este modo se sientan las bases para la futura incorporación de un sistema de texto a locución, TTS (\textit{Text-To-Speech}). 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+
 
 
 
