@@ -228,7 +228,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 				\item Posición en coordenadas (latitud, longitud).
 				\item Icono (representación gráfica para cada tipo).
 			\end{itemize}			 
-			Los VOR y FIX heredaran la clase \texttt{Navaid}, añadiéndose los siguientes campos para los VOR:
+			Los VOR y FIX heredan de la clase \texttt{Navaid}, añadiéndose los siguientes campos para los VOR:
 			\begin{itemize}
 				\item Nombre del VOR (por ejemplo 'Perales' para PDT).
 				\item Frecuencia.
@@ -292,6 +292,230 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 
 
 
+
+
+
+
+
+
+\newcounter{Req_F2_index}
+\setcounter{Req_F2_index}{1}
+
+% Encabezado requisitos 2
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{center}
+		\caption{Tabla con los requisitos básicos de la Fase 2.}
+		\label{tab:Fase1}
+		\begin{tabular}{|c|}
+			%% Title
+			\hline 
+			%\multicolumn{2}{|c|}{\cellcolor{gray!30}{\textbf{Requisitos básicos - Fase 2}}}
+			\hspace{3.1cm}
+			{\cellcolor{gray!30}{\textbf{FASE 2 - REQUISITOS INTERMEDIOS}}}
+			\hspace{3.1cm}
+			\\ 
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}			
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F2.\arabic{Req_F2_index}}}} \stepcounter{Req_F2_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Volar directo hacia un punto de ruta, guiado lateral al siguiente punto de ruta. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Cada aeronave debe poder volar rumbo al siguiente punto de ruta. En este caso la navegación lateral vendrá dada por un rumbo automático entre la posición de la aeronave y el siguiente punto de la ruta.
+
+Esto servirá de base para las SID y STAR, pues serán una sucesión de puntos de ruta que deben volarse de forma secuencial. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F2.\arabic{Req_F2_index}}}} \stepcounter{Req_F2_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Implementación de SID y STAR. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Las clases \texttt{SID} y \texttt{STAR} derivarán de la clase \texttt{StdProcedure}, la cual contendrá el nombre del procedimiento y una lista de \texttt{Navaid}, que serán los puntos secuenciales ruta. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F2.\arabic{Req_F2_index}}}} \stepcounter{Req_F2_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Asignar procedimiento a cada avión y navegación lateral autónoma en SID y STAR 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Llegados a este punto, cada una de las aeronaves podrá tener una navegación lateral bien por rumbo, bien hacia un punto concreto, o bien navegación autónoma a través de los diferentes puntos de cada SID o STAR.
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F2.\arabic{Req_F2_index}}}} \stepcounter{Req_F2_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Aterrizajes y despegues: transferencia a la siguiente dependencia. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Este punto se refiere realmente a transferir los tráficos de llegada a la dependencia de control de Torre (TWR, \textit{Tower}) cuando estén sobrevolando el último punto de la STAR o a los tráficos de salida a la dependencia de control de área (\textit{Area Control Center}).
+
+En este punto, por simplicidad, los aviones desaparecerán del control radar. En trabajos futuros se pueden imponer restricciones para la transferencia, como altitud y ángulo y distancia a pista para aterrizajes. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F2.\arabic{Req_F2_index}}}} \stepcounter{Req_F2_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Menú de control ATC para consignas intermedias. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Ampliación de los menús creados con anterioridad que ahora incluirán la posibilidad de asignar un procedimiento estándar a cada aeronave. Debe valorarse el filtrado del listado completo de SID y STAR para poder asignar solamente SID a las aeronaves en salida y STAR para aquellas en llegada.
+
+Además, se incluirá instrucción para transferir la aeronave a la siguiente dependencia (\textit{handoff}). 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+
+
+
+
+
+
+
+
+
+
+\newcounter{Req_F3_index}
+\setcounter{Req_F3_index}{1}
+
+% Encabezado requisitos 3
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{center}
+		\caption{Tabla con los requisitos básicos de la Fase 3.}
+		\label{tab:Fase1}
+		\begin{tabular}{|c|}
+			%% Title
+			\hline 
+			%\multicolumn{2}{|c|}{\cellcolor{gray!30}{\textbf{Requisitos básicos - Fase 3}}}
+			\hspace{3.6cm}
+			{\cellcolor{gray!30}{\textbf{FASE 3 - REQUISITOS AVANZADOS}}}
+			\hspace{3.6cm}
+			\\ 
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}		
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F3.\arabic{Req_F3_index}}}} \stepcounter{Req_F3_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			&  
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			&  
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+
+
+
+
+
+
+
+
 %\begin{table}[!hbtp]
 %	\footnotesize
 %	\setlength{\arrayrulewidth}{0.4mm}
@@ -302,7 +526,7 @@ A continuación, se presentan los requisitos que se han establecido para el desa
 %		%\label{tab:}
 %		\begin{tabular}{|c|p{0.7\textwidth}|}			
 %			\hline
-%			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.F1.\arabic{Req_F1_index}}}} \stepcounter{Req_F1_index} 
+%			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: Req.Fx.\arabic{Req_Fx_index}}}} \stepcounter{Req_Fx_index} 
 %			\\ 
 %			\hline		
 %			\cellcolor{gray!10}{\textbf{Título}} 
