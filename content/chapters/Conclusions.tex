@@ -1,39 +1,291 @@
-\chapter{Conclusiones}
-\label{chap:conclusiones}
+\chapter{Conclusiones y trabajos futuros}
+\label{chap:conclusiones-trabajos-futuros}
 
-\textit{[3 páginas] Conclusiones divididas en varios apartados}
+En este capítulo se presenta un breve resumen de la consecución de los requisitos que se establecieron para el proyecto y una reflexión acerca del trabajo realizado.
 
 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-\textit{De los objetivos presentados al inicio, explicar cuáles se han cumplido y cuáles no y por qué: dificultades...}
+Mediante los resultados presentados en el capítulo \textit{\ref{chap:validacion-resultados} \nameref{chap:validacion-resultados}}, se puede comprobar que los objetivos marcados al inicio del proyecto han sido alcanzados, obteniendo una aplicación que sirve como base para una futura potente herramienta para el análisis y simulación de control aéreo.
 
-\section{Aplicación de lo aprendido}
-\label{sec:aplicacion}
+Así, se ha implementado la navegación autónoma lateral de las aeronaves en base a puntos de ruta y procedimientos estandarizados de aproximación (STAR) y salida (SID), navegación básica en base a rumbos, altitudes y velocidades, así como una amplia y sólida base para albergar todos los elementos que componen la navegación aérea como fijos, radioayudas, procedimientos RNAV, etc.
 
-\textit{Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.}
-
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+Del mismo modo, se ha cuidado la interacción del usuario con la aplicación, prestando especial atención en la sencillez y rapidez para establecer comandos a la aeronave, sin descuidar el apartado gráfico. La principal premisa, aparte de las que respectan a los aspectos técnicos, ha sido crear un entorno agradable para el usuario, de tal modo que la aplicación en su conjunto estuviese en armonía y no hubiese elementos disonantes.
 
 
-\section{Lecciones aprendidas}
-\label{sec:lecciones-aprendidas}
-
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
-
-\begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene otro.
-\end{enumerate}
-
+\clearpage
 
 \section{Trabajos futuros}
 \label{sec:trabajos-futuros}
 
-Ningún proyecto ni software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Debido a la envergadura de este proyecto, existen ciertas ideas que no tenían cabida aquí, pero que pueden presentarse como posibles mejoras de las funcionalidades de la aplicación. 
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+A continuación, se presentan las identificadas como más relevantes en el mismo formato que se hicieron los requisitos.
+
+
+\newcounter{TF_index}
+\setcounter{TF_index}{1}
+
+% Encabezado Trabajos Futuros
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{center}
+		\caption{Tabla con los Trabajos Futuros.}
+		\label{tab:Fase1}
+		\begin{tabular}{|c|}
+			%% Title
+			\hline 
+			%\multicolumn{2}{|c|}{\cellcolor{gray!30}{\textbf{TRABAJOS FUTUROS}}}
+			\hspace{4.4cm}
+			{\cellcolor{gray!30}{\textbf{TRABAJOS FUTUROS}}}
+			\hspace{4.4cm}
+			\\ 
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Patrones de espera 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Implementar patrones de espera estándar sobre cualquier punto de ruta susceptible de ello (FIX, VOR...). Deben tener una duración aproximada de cuatro minutos, uno por cada segmento del hipódromo, lo que conlleva virajes de tres grados por segundo. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar meteorología. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Concretamente, se puede modelar el viento en el sector de control, de tal forma que el rumbo (\textit{heading}) y la derrota (\textit{track}) diferirán al componerse los vectores velocidad.
+
+Puede implementarse en dos fases:
+
+\begin{itemize}
+	\item Viento fijo en una sola capa: el viento se mantiene invariante durante toda la simulación y afecta por igual a todas las altitudes.
+
+	\item Viento fijo en tres capas: el viento se mantiene invariante pero difiere en tres rangos de altitud diferente.
+
+	\item Viento según meteorología real descargado desde algún API Web como el de la agencia NOAA \cite{NOAA}.
+\end{itemize} 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Locuciones de texto, TTS (\textit{Text-To-Speech}).  
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Integración de locuciones de un motor TTS (\textit{Text-To-Speech}) al que se le pase como parámetros los textos ya preparados.  
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar masa de las aeronaves. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Lo ideal sería establecer una ruta origen – destino a cada aeronave, calcular la distancia que lo separa (esto está implementado) y calcular el combustible necesario en función del tipo de aeronave. De esta forma, establecer la masa actual de la misma. 
+
+Para simplificar, en este punto se puede tomar como referencia el MTOW (\textit{Maximum Take-Off Weight}) y el ZFW (\textit{Zero Fuel Weight}) y asignarla la masa actual de la aeroanve de la siguiente manera:
+	\begin{itemize}
+\item Aeronaves en llegada con combustible entre MTOW y ZFW, por ejemplo, cercano al 20\% de capacidad de combustible.
+\item Aeronaves en salida con combustible entre MTOW y ZFW, por ejemplo, cercano al 80-90\% de MTOW.
+	\end{itemize}
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Modelar velocidad mínima de vuelo en base a aerodinámica. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Con la masa asignada a cada aeronave se puede calcular la sustentación mínima necesaria para vuelo recto y nivelado y, a partir de los datos de cada tipo de aeronave, obtener unos coeficientes de las superficies sustentadoras y estimar una velocidad mínima de vuelo. Como referencia, puede consultarse la base de datos de prestaciones de aeronaves, BADA (\textit{Base of Aircraft Data}) \cite{BADA}. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Sectorización y zonas D, P, R. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Implementar dibujado y restricciones de altitud en zonas de altitud mínima y de consideración especial D \textit{Dangerous}, P \textit{Prohibited}, R \textit{Restricted}. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Importar escenarios con posibilidad de modificación. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Las aeronaves, compañías, aeropuertos, pistas, SID, STAR, radioayudas y todos los elementos dependientes del escenario a simular pueden implementarse en ficheros con extensión \texttt{.json} para que sean accesibles y modificables por el usuario. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Exportar datos a ficheros externos. 
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Implementar el guardado a ficheros externos del tipo a convenir, generalmente de valores separados por comas (\texttt{.csv}), de todos los datos generados por las aeronaves en vuelo: distancia recorrida, tiempo en vuelo, puntos de ruta navegado, etc.  
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+
+
+
+
+
+
+
+%\begin{table}[!hbtp]
+%	\footnotesize
+%	\setlength{\arrayrulewidth}{0.4mm}
+%	%\setlength{\tabcolsep}{5pt}
+%	\renewcommand{\arraystretch}{1.2}			
+%	\begin{center}
+%		%\caption{.}
+%		%\label{tab:}
+%		\begin{tabular}{|c|p{0.7\textwidth}|}			
+%			\hline
+%			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+%			\\ 
+%			\hline		
+%			\cellcolor{gray!10}{\textbf{Título}} 
+%			&  
+%			\\
+%			\cellcolor{gray!10}{\textbf{Desc.}} 
+%			&  
+%			\\
+%			\hline		
+%		\end{tabular}
+%	\end{center}
+%\end{table}	
+
+\clearpage
