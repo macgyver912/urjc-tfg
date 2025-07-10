@@ -267,14 +267,231 @@ No obstante, existen entornos de desarrollo apropiados para editar documentos \L
 \end{figure}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 \clearpage
 
 \section{Arquitectura general} 
 \label{sec:Arquitectura}
 
-//TODO: pantallazo o lista de puntos de directorios y ficheros de código fuente.
+El primer paso antes de comenzar a desarrollar cualquier aplicación es reflexionar sobre la estructura que la vertebrará, como si se tratase de los cimientos de un edificio. En los momentos iniciales lo habitual es tener una lluvia de ideas de qué funcionalidades podría tener esa aplicación para llevarlo posteriormente al estudio de requisitos.
 
-//TODO: breve descripción de cada una de las clases y sus miembros.
+Una buena estrategia para abordar ese estudio siempre suele ser la de <<divide y vencerás>>, de tal forma que un problema de gran extensión, como puede ser la aplicación entera, se divida en problemas más pequeños cuyas soluciones, en su conjunto, aporten una solución global.
+
+Así es como se plantean los requisitos ilustrados en el capítulo \textit{\ref{chap:objetivos} \nameref{chap:objetivos}}, visualizando el conjunto de funcionalidades que tendrá la aplicación final e identificando cada una de las funcionalidades que pueden trabajarse de forma independiente unas de otras. De este modo, se plantean varios bloques en los que se pueden englobar el resto de elementos:
+
+
+\begin{itemize}
+\item Entorno gráfico o interfaz gráfica
+
+Se trata del motor visual sobre el que se representa todo lo demás. En este caso se ha elegido Unity 6 por su flexibilidad y por ofrecer licencia gratuita para este tipo de uso.
+
+
+\item Objetivos sobre los que quiere trabajar
+
+En este caso son aeronaves sobre las que se quiere obtener información estadística y comandarlas ciertas acciones. Por ello, el modelado de aeronaves pertenece a este bloque.
+
+
+\item Escenario de la simulación
+
+El escenario hace referencia al marco espacial donde tendrá lugar la simulación. Se ha decidido implementar la solución basada en una posición de control de aproximación que cubre desde unas \SI{8}{}-\SI{10}{NM} del aeropuerto hasta unas decenas de millas hasta el control de área o en ruta. Se ha seleccionado el aeropuerto de Adolfo Suárez Madrid-Barajas (LEMD/MAD) como base del escenario de ejemplo de esta aplicación.
+
+
+\item Módulo de control
+
+Las aeronaves pueden ser controladas por el usuario, por lo que es necesario establecer una serie de funcionalidades que permitan establecer comandos de navegación a las aeronaves simuladas.
+
+
+\item Módulo de navegación
+
+Las aeronaves deben volar según una navegación lateral y vertical marcadas, bien por el usuario, bien por la navegación autónoma entre puntos de ruta. Aquí se incluirán todas las funcionalidades asociadas a la simulación del vuelo de la aeronave.
+
+\item Módulo de información y menús
+
+La información de cada aeronave en su correspondiente etiqueta, las fichas de vuelo como resumen de los tráficos que están en llegada o en salida y, en general, toda la información que deba ofrecerse al usuario debe ser tratada por este módulo. 
+
+\end{itemize}
+
+
+\section{Lenguaje de programación y jerarquía de ficheros}
+\label{sec:LenguajeProgramacionJerarquiaFicheros}
+
+En cuanto al lenguaje de programación se refiere no hay duda en la elección: C\#. Esto queda determinado con la elección de Unity 6, ya que no admite otro lenguaje de programación, algo que sí soportaban versiones anteriores de Unity en los cuales se podía programar en UnityScript.%\footnote{UnityScript era un lenguaje de programación de Unity adaptado de JavaScript y que ha quedado obsoleto por no ser soportado por las nuevas versiones de Unity.}.
+
+La jerarquía de ficheros de la aplicación se muestra en la Tabla \ref{tab:JerarquiaFicheros}, existiendo algún fichero auxiliar más como texturas o tipos de fuente necesarios para la visualización de algunos elementos, pero serán obviados por ser generados de forma automática y no aportar valor.
+
+\vspace{-0.2cm}
+
+\begin{table}[!hbtp]
+	\caption{Jerarquía de ficheros de la aplicación.}
+	\label{tab:JerarquiaFicheros}
+%	\begin{tabular}{c}
+%		\phantom{x} \\	
+%	\end{tabular} 
+\end{table}
+
+\vspace{-0.8cm}
+
+\begin{minipage}[t]{0.6\textwidth}
+\begin{footnotesize}
+\faSend\ \textbf{ATC Analysis and Training Tool/Assets/}
+	
+\begin{description}
+	\item \faFolderOpen\ Prefabs
+	
+	\begin{description}
+		\item \faFileO\ ILS.prefab
+	\end{description}	
+	
+	\item \faFolderOpen\ Resources
+	
+	\begin{description}
+		\item \faFolderOpen\ icons
+		
+		\begin{description}
+			\item \faFolderOpen\ aeronautical
+			\begin{description}
+				\item \faFolderO\ black
+				\item \faFolderO\ gray
+				\item \faFolderOpenO\ white
+				
+				\begin{description}
+					\item \faFileImageO\ Aerodrome\_Civil.png
+					\item \faFileImageO\ Aerodrome\_Civil\_(no facilities).png
+					\item \faFileImageO\ Aerodrome\_Government.png
+					\item \faFileImageO\ Aerodrome\_Government\_Civil.png
+					\item \faFileImageO\ Aircraft.png
+					\item \faFileImageO\ DME.png
+					\item \faFileImageO\ FIX\_EMPTY.png
+					\item \faFileImageO\ FIX\_FILLED.png
+					\item \faFileImageO\ VOR.png
+					\item \faFileImageO\ VOR\_DME.png
+					\item \faFileImageO\ VOR\_DME\_ROSE.png
+				\end{description}
+			\end{description}
+			
+		\end{description}
+	\end{description}
+
+	\item \faFolderOpen\ Scenes
+	\begin{description}
+		\item \faVideoCamera\ RadarScreen.unity
+	\end{description}
+	
+	\item \faFolderOpen\ Scripts
+	\begin{description}
+		\item \faFolderOpenO\ aircrafts
+		\begin{description}
+			\item \faFileCodeO\ Aircraft.cs
+			\item \faFileCodeO\ AircraftCtrl.cs			
+		\end{description}
+		
+		\item \faFolderOpenO\ airports
+			\begin{description}
+				\item \faFileCodeO\ Airport.cs
+				\item \faFileCodeO\ Runway.cs			
+			\end{description}
+	\end{description}
+	
+\end{description}
+\end{footnotesize}	
+\end{minipage}
+%
+\begin{minipage}[t]{0.4\textwidth}
+\begin{footnotesize}
+\phantom{\faSend\ \textbf{ATC Analysis and Training Tool/Assets/}} % hide to avoid duplication
+
+\phantom{newline}
+
+\phantom{newline}
+
+
+%	\begin{description}				
+%		\item \faFolderOpen\ Scripts
+		
+		\begin{description}
+%			\item \faFolderOpenO\ aircrafts
+%			\begin{description}
+%				\item \faFileCodeO\ Aircraft.cs
+%				\item \faFileCodeO\ AircraftCtrl.cs			
+%			\end{description}
+						
+%			\item \faFolderOpenO\ airports
+%			\begin{description}
+%				\item \faFileCodeO\ Airport.cs
+%				\item \faFileCodeO\ Runway.cs			
+%			\end{description}
+			
+			\item \faFolderOpenO\ companies
+			\begin{description}
+				\item \faFileCodeO\ Company.cs
+			\end{description}
+			
+			\item \faFolderOpenO\ game
+			\begin{description}
+				\item \faFileCodeO\ Config.cs
+				\item \faFileCodeO\ CreateObjects.cs			
+			\end{description}
+			
+			\item \faFolderOpenO\ general
+			\begin{description}
+				\item \faFileCodeO\ CreateInstance.cs
+				\item \faFileCodeO\ General.cs			
+			\end{description}
+			
+			\item \faFolderOpenO\ graphics
+			\begin{description}
+				\item \faFileCodeO\ ATCPopupCtrl.cs
+				\item \faFileCodeO\ DrawATCPopup.cs
+				\item \faFileCodeO\ DrawGUI.cs
+				\item \faFileCodeO\ DrawRadarScreen.cs
+				\item \faFileCodeO\ MngCamera.cs
+				\item \faFileCodeO\ MngDialogs.cs
+				\item \faFileCodeO\ MngScreen.cs		
+			\end{description}
+			
+			\item \faFolderOpenO\ navaids
+			\begin{description}
+				\item \faFileCodeO\ FIX.cs
+				\item \faFileCodeO\ Navaid.cs
+				\item \faFileCodeO\ SID.cs
+				\item \faFileCodeO\ STAR.cs
+				\item \faFileCodeO\ StdProcedure.cs
+				\item \faFileCodeO\ VOR.cs			
+			\end{description}
+			
+			\item \faFolderOpenO\ utils
+			\begin{description}
+				\item \faFileCodeO\ Measurement.cs
+				\item \faFileCodeO\ TextUtils.cs			
+			\end{description}
+			
+		\end{description}
+		
+%	\end{description}
+\end{footnotesize}	
+\end{minipage}
+
+%\begin{description}
+%	\item
+%\end{description}
+
+%\end{Verbatim}
+
+
+
+\clearpage
+
 
 
 \section{Aplicación}
