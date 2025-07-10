@@ -12,20 +12,44 @@
 
 El motor de desarrollo de videojuegos Unity 3D fue lanzado en 2005 y actualmente está en su versión 6. Se trata de un motor muy potente y con infinidad de posibilidades, que permite desarrollar videojuegos para distintas plataformas realizando muy pocos cambios o incluso ninguno para cada una de ellas \cite{Unity6}. 
 
-Desde sus inicios ha contado con varios tipos de licencia, siendo actualmente la licencia Unity Personal gratuita si no se obtienen ingresos superiores a \$\SI{200000}{} brutos anuales con las aplicaciones desarrolladas . A cambio, Unity introduce automáticamente su logotipo en el \textit{splash screen} de inicio.
+%\begin{figure}[!hbtp]
+%	\centering
+%	\includegraphics[width=0.45\linewidth]{images/content/Unity6_Loading.jpg}
+%	\caption{Logo de Unity 6 durante el proceso de carga del proyecto.}
+%	\label{fig:Unity6_Loading}
+%\end{figure}	
 
-//TODO
+Desde sus inicios ha contado con varios tipos de licencia, siendo actualmente la licencia Unity Personal gratuita si no se obtienen ingresos superiores a \$\SI{200000}{} brutos anuales con las aplicaciones desarrolladas . A cambio, Unity introduce su logotipo en el \textit{splash screen} de inicio.
+
+La calidad y el renderizado 3D que lleva a cabo es de cal calidad que se está empleando incluso para cortometrajes de animación 3D, gracias también por su gran motor de cinemáticas y movimientos de personajes.
+
+En el caso concreto que nos atañe, se ha empleado este entorno de desarrollo de videojuegos para todo el sistema de visualización y ejecución de la aplicación. En la Figura \ref{fig:Unity6_Game}, perteneciente a una captura de pantalla durante la ejecución de una prueba de la aplicación en su versión v1.2, pueden distinguirse cuatro grandes bloques de la interfaz de usuario de Unity 6:
+
+\begin{itemize}
+	\item El panel situado a la izquierda que presenta el árbol de ficheros del proyecto en la pestaña \texttt{Project}, y la vista jerarquizada de objetos generados durante la ejecución en la pestaña \texttt{Hierarchy}.
+	
+	\item La vista central está dedicada a la visualización de la escena en bruto en su pestaña \texttt{Scene}, o desde la pestaña \texttt{Game}, la vista generada por la cámara ubicada en la escena con todos los detalles de iluminación, sombras... Es decir, con el renderizado final que tendrá y los elementos de la interfaz gráfica de usuario (GUI, \textit{Graphic User Interface}) generados.
+	
+	\item En el panel ubicado a la derecha, denominado \texttt{Inspector} se muestran todas las propiedades del objeto seleccionado y las variables que sean de ámbito público, de tal forma que puedan emplearse como configuraciones.
+	
+	\item En la parte inferior, el panel \texttt{Console} muestra todos los errores y advertencias generadas durante la compilación o ejecución, así como los mensajes de depuración que hayan sido insertados.
+\end{itemize}
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics{example-image-a}
-	%\includegraphics[width=1.0\linewidth]{images/content/Unity6.jpg}
-	\caption{Vista general del entorno Unity 6.}
-	\label{fig:Unity6}
+	\includegraphics[width=0.90\linewidth]{images/content/Unity6_Scene.jpg}
+	\caption{Vista general del entorno Unity 6 para este proyecto en el modo \texttt{Escene}.}
+	\label{fig:Unity6_Scene}
 \end{figure}	
 
-La calidad y el renderizado 3D que lleva a cabo es tan bueno que se está empleando incluso para cortometrajes de animación 3D, gracias también por su gran motor de cinemáticas y movimientos de personajes.
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.90\linewidth]{images/content/Unity6_Game.jpg}
+	\caption{Vista general del entorno Unity 6 para este proyecto en el modo \texttt{Game}.}
+	\label{fig:Unity6_Game}
+\end{figure}
 
-Se ha empleado este entorno de desarrollo de videojuegos para todo el sistema de visualización y ejecución de la aplicación.
+
 
 
 
@@ -34,22 +58,28 @@ Se ha empleado este entorno de desarrollo de videojuegos para todo el sistema de
 \subsection{Visual Studio}
 \label{subsec:VisualStudio}
 
-Visual Studio es un entorno de desarrollo de integrado (IDE, \textit{Integrated Development Environment}), orientado sobre todo para programación en lenguajes C y C++, creado por Microsoft y que presenta varias versiones asociadas a distintos planes. La versión empleada en este caso ha sido Visual Studio Community 2022, siendo la versión gratuita para personas individuales sin ánimo de lucro con el desarrollo realizado con esta herramienta. Tan sólo es necesario estar registrado \cite{VisualStudio}.
+Visual Studio es un entorno de desarrollo de integrado (IDE, \textit{Integrated Development Environment}), orientado sobre todo para programación en lenguajes C y C++, creado por Microsoft y que presenta varias versiones asociadas a distintos planes. 
 
-//TODO
+La versión empleada en este caso ha sido Visual Studio Community 2022, siendo la versión gratuita para personas individuales sin ánimo de lucro con el desarrollo realizado con esta herramienta. Tan sólo es necesario estar registrado (véase Figura \ref{fig:VisualStudio}) \cite{VisualStudio}.
+
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics{example-image-b}
-	%\includegraphics[width=1.0\linewidth]{images/content/VisualStudio.jpg}
-	\caption{Vista general del IDE VisualStudio.}
+	\includegraphics[width=1.0\linewidth]{images/content/VisualStudio.jpg}
+	\caption{Vista general del IDE VisualStudio para este proyecto.}
 	\label{fig:VisualStudio}
 \end{figure}	
 	
 Visual Studio es un entorno de desarrollo muy potente y que está perfectamente integrado con Unity, por lo que es el editor de código por defecto y por excelencia de aquellas personas que desarrollen proyectos con este entorno de desarrollo de videojuegos.
 
-Para este caso concreto, todo el código desarrollado para la aplicación ha sido realizado mediante el uso de Visual Studio, tal y como puede verse en la Figura \ref{fig:VisualStudio}. 
+La interfaz de usuario se compone de tres grandes bloques:
 
-
+\begin{itemize}
+	\item El panel situado a la derecha muestra la jerarquía de ficheros de código fuente del proyecto.
+	
+	\item La vista central está dedicada al editor de texto, presentando pestañas para cada uno de los archivos abiertos.
+	
+	\item En la parte inferior, el panel muestra todos los errores y advertencias generadas durante la compilación.
+\end{itemize}
 
 
 
