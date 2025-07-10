@@ -69,6 +69,10 @@ Su portadora tiene un rango reservado de \SI{190}{kHz} a \SI{1750}{kHz}, concent
 	\label{fig:NDB_ADF}
 \end{figure}
 
+
+
+\pagebreak
+
 \subsubsection{VOR (\textit{Very High Frequency Omnidirectional Range})}
 \label{subsubsec:VOR}
 
@@ -120,7 +124,7 @@ El Equipo de Medición de Distancias en tierra es interrogado por el equipo de a
 
 
 
-\pagebreak
+\clearpage
 
 \subsection{Radioayudas para aterrizajes}
 \label{sec:RadioayudasAterrizajes}
@@ -254,7 +258,7 @@ De este modo, definiéndose el error total del sistema, TSE (\textit{Total Syste
 
 
 
-\pagebreak
+\clearpage
 
 \begin{figure}[!hbtp]
 	\centering
@@ -318,7 +322,7 @@ Para cumplir con todos estos parámetros se necesita de sistemas que complemente
 
 
 	
-\pagebreak
+\clearpage
 
 \section{Sistemas de aumentación GNSS}
 \label{sec:SistemasAumentacionGNSS}
@@ -356,9 +360,16 @@ El empleo de navegación PBN en conjunto con GNSS, aporta una serie de ventajas 
 
 Por otro lado, mejora la seguridad operacional, sobre todo en condiciones LVP (\textit{Low Visibility Procedures}) y de noche, además de aportar mayor flexibilidad al espacio aéreo y hacer un uso más eficiente de éste. Esto conlleva a una reducción inmediata de gases contaminantes y la posibilidad de reducir la huella acústica sobre poblaciones cercanas a los aeropuertos.
 
-La necesidad de mínimas radioayudas en tierra, sólo como sistema de respaldo (\textit{backup}), por lo que no hay que invertir en nuevas. Incluso, podrían volverse más accesibles aquellos aeropuertos que no cuenten con sistemas de aterrizaje por instrumentos como ILS o MLS a un coste muy reducido.
+La necesidad de mínimas radioayudas en tierra, sólo como sistema de respaldo (\textit{backup}), por lo que no hay que invertir en nuevas. Incluso, serían más accesibles aquellos aeropuertos que no cuenten con sistemas de aterrizaje por instrumentos como ILS o MLS a un coste reducido.
 
 Pero la navegación basada en GNSS no sólo tiene ventajas sobre los aeropuertos, ni en rutas continentales, sino que otro de sus puntos clave está en la mejora de la navegación intercontinental y sobre océanos. La navegación convencional no puede apoyarse sobre radio ayudas terrestres en rutas oceánicas por la propia cobertura de éstas pocas millas náuticas más allá de la línea de costa. Es entonces cuando entran en juego los sistemas de navegación inerciales, INS (\textit{Inertial Navigation Systems}) y los sistemas de referencia inerciales, IRS (\textit{Inertial Reference Systems}).
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.60\linewidth]{images/content/GNSS.jpg}
+	\caption[Constelaciones de satélites para navegación, GNSS.]{Constelaciones de satélites para navegación, GNSS \citeFig{GNSS_url}.}
+	\label{fig:GNSS_url}
+\end{figure}
 
 El problema de estos sistemas embarcados es que una vez se ajustan en tierra, en una posición bien conocida del aeropuerto de origen, no tienen ninguna referencia de otros sistemas a lo largo de todo el trayecto, por lo que el error es acumulativo, haciendo que la precisión en el seguimiento de la ruta sea cada vez menor cuanto mayor sea el tiempo de vuelo \cite{Apuntes_SistemasGNSS}. Esto exige que las rutas oceánicas tengan separaciones laterales de varias decenas de millas náuticas.
 
@@ -504,34 +515,53 @@ Con \textbf{ADS} se puede tener una mejor cobertura mundial sobre zonas donde lo
 \subsection{Regiones de vuelo y zonas especiales}
 \label{subsec:RegionesVueloZonasEspeciales}
 
-En 1944 fue creada la OACI (Organización de Aviación Civil Internacional) o ICAO (\textit{International Civil Aviation Organization}) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada.
+En 1944 fue creada la OACI (Organización de Aviación Civil Internacional) o ICAO (\textit{International Civil Aviation Organization}) con el objetivo de regular y organizar el tráfico aéreo creciente, siendo después de la Segunda Guerra Mundial (1939-1945) cuando fue activada \cite{Ontiveros}.
 
-Ésta divide el espacio aéreo mundial en varias zonas \cite{Ontiveros}: 
+Ésta divide el espacio aéreo mundial en varias zonas:  
+Norteamérica (NAM),
+África (AFI),
+Atlántico Norte (NAT),
+Europa (EUR),
+Caribe (CAR),
+Oriente Medio (MID),
+Pacífico (PAC),
+Asia (ASIA),
+Sudamérica (SUD).
 
-\begin{itemize}
 
-\item Norteamérica (NAM).
-\item África (AFI).
-\item Atlántico Norte (NAT).
-\item Europa (EUR).
-\item Caribe (CAR).
-\item Oriente Medio (MID).
-\item Pacífico (PAC).
-\item Asia (ASIA).
-\item Sudamérica (SUD).
-
-\end{itemize}
+%\begin{itemize}
+%
+%\item Norteamérica (NAM).
+%\item África (AFI).
+%\item Atlántico Norte (NAT).
+%\item Europa (EUR).
+%\item Caribe (CAR).
+%\item Oriente Medio (MID).
+%\item Pacífico (PAC).
+%\item Asia (ASIA).
+%\item Sudamérica (SUD).
+%
+%\end{itemize}
 
 A su vez, éstas se dividen en regiones locales cuyos límites laterales suelen coincidir pero se distinguen verticalmente. Así, se diferencias dos espacios aéreos:
 
 \begin{itemize}
 
-	\item Espacio aéreo inferior o Región de Información de Vuelo, FIR (\textit{Flight Information Region}). Comprende desde la superficie del terreno (GND, \textit{Ground}) hasta FL245.
+	\item Espacio aéreo inferior o Región de Información de Vuelo, FIR (\textit{Flight Information Region}). Comprende desde la superficie del terreno (GND, \textit{Ground}) hasta FL245 \footnote{Estos niveles de vuelo umbrales pueden variar según necesidades de cada espacio aéreo.}.
 	
 	\item Espacio aéreo superior o Región Superior de Información de Vuelo, UIR (\textit{Upper Information Region}). Se sitúa por encima de las FIR, desde el nivel de vuelo FL245 y sin límite superior, si bien sólo se presta servicio de control de tráfico aéreo hasta FL460.
 	
 \end{itemize}
 
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/content/Sectores.jpg}
+	\caption[Sectorización de las zonas de control en España.]{Sectorización de las zonas de control en España \citeFig{Insignia_url}.}
+	\label{fig:Sectores}
+\end{figure}
+
+
+\clearpage
 
 De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéllas con el fin de dar un servicio más adecuado según la afluencia y orientación de los flujos de tráficos que cruzan la zona. De menor a mayor extensión:
 
@@ -548,7 +578,7 @@ De nuevo, las FIR se fragmentan en sectores de control, subdivisiones de aquéll
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.85\linewidth]{images/content/AreasATC.jpg}
+	\includegraphics[width=0.75\linewidth]{images/content/AreasATC.jpg}
 	\caption[Sectorización de las zonas de control ATC.]{Sectorización de las zonas de control ATC \citeFig{AreasATC_url}.}
 	\label{fig:AreasATC}
 \end{figure}
@@ -566,7 +596,7 @@ Además, dentro de estos sectores se distinguen zonas de carácter especial para
 
 \begin{figure}[!hbtp]
 	\centering
-	\includegraphics[width=0.50\linewidth]{images/content/ZonasDRP.jpg}
+	\includegraphics[width=0.45\linewidth]{images/content/ZonasDRP.jpg}
 	\caption[Zonas de carácter especial para su sobrevuelo: D, R, P.]{Zonas de carácter especial para su sobrevuelo: D, R, P \citeFig{ZonasDRP_url}.}
 	\label{fig:ZonasDRP}
 \end{figure}
