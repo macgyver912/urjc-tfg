@@ -1,6 +1,118 @@
 \chapter{Experimentos y validación de resultados}
 \label{chap:validacion-resultados}
 
+En este capítulo se realizará la evaluación de cada uno de los objetivos marcados al inicio para definir  el grado de consecución general del proyecto.
 
 
-evaluación de cada uno de los objetivos marcados
+\section{Requisitos básicos de Fase 1}
+\label{sec:ValReqF1}
+
+La aplicación creada muestra desde una cámara ortográfica en posición cenital de un escenario de pantalla radar de aproximación a un aeropuerto, por lo que queda satisfecho el requisito Req.F1.1 con la evidencia de la Figura \ref{fig:CamaraOrtografica}. 
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/CamaraOrtografica.png}
+	\caption{Vista cenital con cámara ortográfica del escenario.}
+	\label{fig:CamaraOrtografica}
+\end{figure}	
+
+Dicha escena muestra elementos de navegación como fijos y radioayudas, así como el propio aeropuerto y sus pistas, por lo que debe contrastarse si la ubicación de éstas corresponde con la que deben tener para dar por bueno el requisito Req.F1.2. Para ello se compara la captura de la aplicación con las cartas aeronáuticas de referencia del AIP de Enaire \citeFig{AIP_2025_url}, y el resultado se muestra en la Figura \ref{fig:ComparativaAppAIP}, obteniendo un nivel de precisión muy bueno y quedando cumplido dicho requisito.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/ComparativaAppAIP.png}
+	\caption{Comparativa de posicionamiento de elementos en la aplicación y AIP.}
+	\label{fig:ComparativaAppAIP}
+\end{figure}	
+
+Los requisitos Req.F1.3 y Req.F1.4 hacen referencia al modelado del aeropuerto con sus datos y las pistas. Con los detalles de las pistas y datos del aeródromo mostrados en la Figura \ref{fig:ModeladoAeropuerto} se dan por satisfechos ambos requisitos.
+
+
+\pagebreak
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/ModeladoAeropuerto.jpg}
+	\caption{Detalle de modelado del aeropuerto y sus datos.}
+	\label{fig:ModeladoAeropuerto}
+\end{figure}	
+
+
+Del mismo modo, el Req.F1.5 hace referencia al modelado de la aeronave y sus datos. A nivel gráfico puede comprobarse en la Figura \ref{fig:ModeladoAircraft} que este requisito también queda cumplido.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/content/ModeladoAircraft.png}
+	\caption{Detalle de modelado de la aeronave y sus datos.}
+	\label{fig:ModeladoAircraft}
+\end{figure}	
+
+
+
+
+El menú básico de control ATC exigido por el requisito Req.F1.6 queda demostrado con las capturas de la figura \ref{fig:ModeladoMenuBasico}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/ModeladoMenuBasico.png}
+	\caption{Detalle del menú básico de control ATC.}
+	\label{fig:ModeladoMenuBasico}
+\end{figure}
+
+
+\pagebreak
+
+En cuanto a las radioayudas y fijos, queda comprobado en la Figura \ref{fig:ModeladoRadioayudas} que se ha modelado tanto el tipo de elemento como si es un punto de notificación obligatoria (\textit{compulsory}) o no.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=1.0\linewidth]{images/content/ModeladoRadioayudas.png}
+	\caption{Modelado de radioayudas y fijos.}
+	\label{fig:ModeladoRadioayudas}
+\end{figure}
+
+Finalmente, el requisito de categorías de las aeronaves, Req.F1.8, queda demostrado con el caracter 'H' de la esquina superior derecha en la etiqueta de las aeronaves de categoría \textit{Heavy}.
+
+
+
+\section{Requisitos intermedios de Fase 2}
+\label{sec:ValReqF2}
+
+Algunos de los requisitos de esta sección guardan relación con la navegación lateral, siendo éstos los requisitos Req.F2.1 y Req.F2.3 - Parte navegación, por lo que se comprueban mediante observación en la aplicación, corroborándose su cumplimiento positivamente. Del mismo modo, el requisito Req.F2.4 respecto a la transferencia de tráficos a otras dependencias ATC, queda comprobado.
+
+El requisito Req.F2.2 de implementación de procedimientos SID y STAR queda comprobado mediante la Figura \ref{fig:ModeladoSIDSTAR}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.70\linewidth]{images/content/ModeladoSIDSTAR.png}
+	\caption{Modelado de los procedimientos SID y STAR.}
+	\label{fig:ModeladoSIDSTAR}
+\end{figure}
+
+Los requisitos Req.F2.3 - Asignar procedimiento y Req.F2.5 pueden corroborarse en la Figura \ref{fig:ModeladoMenuProcedimientos}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.70\linewidth]{images/content/ModeladoMenuProcedimientos.png}
+	\caption{Detalle del menú de control ATC intermedio con procedimientos.}
+	\label{fig:ModeladoMenuProcedimientos}
+\end{figure}
+
+
+
+
+
+\section{Requisitos avanzados de Fase 3}
+\label{sec:ValReqF3}
+
+El requisito Req.F3.2 se corrobora desde la aplicación, navegando las aeronaves a los puntos de ruta SID o STAR asignados desde el menú de control ATC mostrado en la Figura \ref{fig:ModeladoMenuProcedimientos}.
+
+Los requisitos Req.F3.1 y Req.F3.3 referentes a la velocidad mínima de vuelo a cada categoría y la fraseología aeronáutica y preparación para TTS, respectivamente, quedan reflejados en la Figura \ref{fig:ComunicacionATC}.
+
+\begin{figure}[!hbtp]
+	\centering
+	\includegraphics[width=0.70\linewidth]{images/content/ComunicacionATC.png}
+	\caption{Comunicación ATC y velocidad mínima de vuelo.}
+	\label{fig:ComunicacionATC}
+\end{figure}
+
