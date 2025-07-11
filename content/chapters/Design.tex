@@ -326,7 +326,7 @@ La información de cada aeronave en su correspondiente etiqueta, las fichas de v
 \section{Lenguaje de programación y jerarquía de ficheros}
 \label{sec:LenguajeProgramacionJerarquiaFicheros}
 
-En cuanto al lenguaje de programación se refiere no hay duda en la elección: C\#. Esto queda determinado con la elección de Unity 6, ya que no admite otro lenguaje de programación, algo que sí soportaban versiones anteriores de Unity en los cuales se podía programar en UnityScript.%\footnote{UnityScript era un lenguaje de programación de Unity adaptado de JavaScript y que ha quedado obsoleto por no ser soportado por las nuevas versiones de Unity.}.
+En cuanto al lenguaje de programación se refiere, no hay duda en la elección: C\#. Esto queda determinado con la elección de Unity 6, ya que no admite otro lenguaje de programación, algo que sí soportaban versiones anteriores de Unity en los cuales se podía programar en UnityScript.%\footnote{UnityScript era un lenguaje de programación de Unity adaptado de JavaScript y que ha quedado obsoleto por no ser soportado por las nuevas versiones de Unity.}.
 
 La jerarquía de ficheros de la aplicación se muestra en la Tabla \ref{tab:JerarquiaFicheros}, existiendo algún fichero auxiliar más como texturas o tipos de fuente necesarios para la visualización de algunos elementos, pero serán obviados por ser generados de forma automática y no aportar valor.
 
@@ -490,9 +490,761 @@ La jerarquía de ficheros de la aplicación se muestra en la Tabla \ref{tab:Jera
 
 
 
+
+
+
 \clearpage
 
+\section{Descripción de clases}
+\label{sec:Descripción de clases}
 
+El desarrollo de la aplicación se ha abordado mediante el paradigma de Programación Orientada a Objetos (POO), mediante el cual algunas clases sirven de molde o plantilla para la creación de objetos mediante su instancia. Esto es, cada objeto de un tipo es una instancia de esa clase. Por ejemplo, el fichero \textit{Aircraft.cs} contiene a la clase \texttt{Aircraft}, la cual es instanciada mediante su constructor cada vez que se desea crear una aeronave nueva. Del mismo modo ocurriría para crear un aeropuerto o una radioayuda, instanciando a sus respectivas clases. 
+
+
+\subsection{Fichero \textit{Aircraft.cs} - Clase \texttt{Aircraft}}
+\label{subsec:ClaseAircraft}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/aircrafts/Aircraft.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Es la clase modelo para cada una de las aeronaves que aparecen en el simulador. Contiene tanto características propias como modelo y categoría de aeronave, número de vuelo, prestaciones en base a su categoría, como información referente a su estado de vuelo, como altitud, velocidad, siguiente punto de ruta, etc. Contienen un \textit{script} de la clase \texttt{AircraftCtrl} para su control.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Para generar cada una de las aeronaves es necesario instanciar al constructor \texttt{Aircraft} de esta clase pasándole como argumento los siguientes parámetros: modelo de aeronave (p. ej. ''Airbus A320-214'', código OACI del tipo de aeronave (p. ej. ''A320''), categoría de avión (p. ej. \texttt{Category.Medium}), compañía aérea, número de vuelo, matrícula de la aeronave, código del transpondedor, latitud y longitud (en grados decimales), rumbo, velocidad respecto a tierra en nudos, altidud en pies, velocidad vertical actual en ft/min, velocidad autorizada, altitud autorizada, siguiente punto de ruta (p. ej. ''ADUXO'' o \texttt{null}), procedimiento estandarizado autorizado (p. ej. ''ADUXO2D'' o \texttt{null}) y estado del vuelo (p. ej. \texttt{FlightStatus.Arrival}).
+
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{Aircraft}.}
+	\label{tab:EjemploAircraft}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new Aircraft(
+    "Airbus A320-214", "A320", Aircraft.Category.Medium, companyList[0], "5472", null, 4257,
+    Measurement.DMS2DD(40, 30, 00f), Measurement.DMS2DD(-1, 58, 00f), 270,
+    250, 18000, 0,
+    220, 6000,
+    null, // Entire route
+    GetSTAR("ADUXO2D") as StdProcedure,
+    Aircraft.FlightStatus.Arrival
+));
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{AircraftCtrl.cs} - Clase \texttt{AircraftCtrl}}
+\label{subsec:ClaseAircraftCtrl}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/aircrafts/AircraftCtrl.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, sino que contiene una serie de funciones y corrutinas (\textit{coroutines})\footnote{Función que se ejecutará en segundo plano sin bloquear la ejecución principal} que permiten al avión moverse y navegar lateral y verticalmente. Las corrutinas tienen la característica de poder invocarse de forma repetitiva cada cierto tiempo, lo cual es perfecto para ser llamadas con el periodo definido para un giro completo del radar, de tal forma que actualice la posición. Por ello, cada aeronave incluye una copia de esta clase.
+
+%\footnote{Una \textit{coroutine} en Unity es una función que se ejecutará en segundo plano a diferencia de una función normal que bloqueará la ejecución del código hasta completarse.}
+
+
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Están relacionadas con el movimiento de la aeronave, tanto con el avance según la composición de su velocidad y rumbo, como el giro a izquierdas o derechas (o por el de menor distancia angular), el cambio de velocidad en aceleración o deceleración, el ascenso o descenso y el vuelo directo a un punto (a un fijo o una radioayuda).
+
+
+
+
+\subsection{Fichero \textit{Airport.cs} - Clase \texttt{Airport}}
+\label{subsec:ClaseAirport}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/airports/Airport.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de la plantilla para crear aeropuertos en el simulador. Solamente puede existir un aeropuerto en cada simulación, ya que es el punto de referencia tanto para la cámara como para la ubicación de los objetos a su alrededor.
+
+\paragraph{Constructor} \phantom{\newline}
+
+La creación de un aeropuerto se realiza mediante la llamada al constructor con los siguientes parámetros: nombre del aeropuerto (p. ej. ''Adolfo Suárez Madrid-Barajas''), código OACI ((p. ej. ''LEMD''), código IATA (p. ej. ''MAD''), latitud y longitud en grados decimales, elevación en pies, ciudad, país, altitud de transición en pies ((p. ej. \SI{13000}{ft}), nivel de transición en niveles de vuelo o cientos de pies ((p. ej. FL140) y un array de objetos de tipo \texttt{Runway} para las pistas.
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{Airport}.}
+	\label{tab:EjemploAirport}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new Airport(
+    "Adolfo Suárez Madrid-Barajas", "LEMD", "MAD", 
+    Measurement.DMS2DD(40, 28, 20f), Measurement.DMS2DD(-3, 33, 39f), 
+    1998f, "Madrid", "Spain", 13000, 140, rwys
+);
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{Runway.cs} - Clase \texttt{Runway}}
+\label{subsec:ClaseRunway}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/airports/Runway.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Es la plantilla para crear pistas que irán asociadas al aeropuerto. Pueden crearse tantas como sean necesario ya que el aeropuerto recibirá un array de pistas en uno de sus miembros.
+
+\paragraph{Constructor} \phantom{\newline}
+
+La creación de una pista se realiza mediante la llamada al constructor con los siguientes parámetros: identificador de pista (p. ej. ''32L''), rumbo magnético (p. ej. \SI{323}\degree), longitud de pista en metros, latitud y longitud de su cabecera en grados decimales, elevación en pies y \texttt{true} si tiene asociado un ILS para aterrizajes o \texttt{false} en caso contrario.
+
+Debe tenerse en cuenta que por cada llamada al constructor se crea la mitad de una pista, es decir, una cabecera. Por ello, cada pista física debe tener dos llamadas al constructor. Por ejemplo, si se está creando la pista 14R/32L, deberá llamarse al constructor una vez con los datos de la cabecera de pista de la 14R y otra vez con los datos de la cabecera de pista de la 32L.
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{Runway}.}
+	\label{tab:EjemploRunway}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new Runway(
+    "32L", 323, 3988, Measurement.DMS2DD(40, 27, 47.10f), Measurement.DMS2DD(-3, 33, 14.02f), 
+    2000f, true
+);
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+
+\subsection{Fichero \textit{Company.cs} - Clase \texttt{Company}}
+\label{subsec:ClaseCompany}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/companies/Company.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Es la plantilla para crear un objeto del tipo aerolínea, pudiéndose crear tantas como se desee.
+
+\paragraph{Constructor} \phantom{\newline}
+
+La creación de una compañía o aerolínea requiere de la llamada a su contructor con los siguientes parámetros: nombre de la compañía (p. ej. ''British Airways''), llamado o \textit{callsign} (p. ej. ''Speedbird'') y código OACI de la compañía (p. ej. ''BAW'').
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{Company}.}
+	\label{tab:EjemploCompany}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new Company(
+    "Aerovías de México, S.A.", "AEROMEXICO", "AMX")
+);
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{Config.cs} - Clase \texttt{Config}}
+\label{subsec:ClaseConfig}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/game/Config.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, sino que contiene una serie de atributos públicos que sirven como valores de configuración para otras clases.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Existen valores de configuración de distinta índole: 
+
+\begin{itemize}
+\item Periodo del radar en segundos (establecido por defecto a \SI{5}{s}).
+\item Separación y color a la que se dibujan cada uno de los anillos de distancia radar (por defecto cada \SI{20}{NM}).
+\item Distancia y color de los anillos que delimitan el control de aproximación (por defecto uno a \SI{10}{NM} del aeropuerto y otro a \SI{60}{NM}, aunque para el escenario de Adolfo Suárez Madrid-Barajas se ha establecido el límite con torre en \SI{8}{NM} para coincidir con el AIP de ENAIRE).
+\item Color de fondo para la cámara, siendo el color de fondo que se verá en la pantalla radar (negro por defecto).
+\item Color para el dibujado de las pistas.
+\item Colores para el dibujado de los procedimientos SID y otro para STAR.
+\item Base de datos de iconos que se mostrarán (por defecto el banco de iconos grises).
+\item Los iconos y la escala para cada tipo de elemento, como fijos y radioayudas.
+\end{itemize}
+
+
+
+
+
+
+\subsection{Fichero \textit{CreateObjects.cs} - Clase \texttt{CreateObjects}}
+\label{subsec:ClaseCreateObjects}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/game/CreateObjects.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, sino que contiene una función que al inicio de la simulación llama a todos los constructores de los objetos que se deseen crear, guardándose en listas, arrays y diccionarios todos los objetos creados para su posterior acceso en ejecución.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Su única función \texttt{Init()} es llamada por la clase \texttt{General} una sola vez al iniciarse la ejecución del simulador y en ella se encuentran todas las llamadas a constructores de los objetos que aparecen en la simulación. Por ejemplo, para la creación de un fijo de tipo \texttt{FIX}:
+
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+public static Dictionary<string, FIX> fixList = new Dictionary<string, FIX>();
+fixList.Add("BUREX", new FIX("BUREX", Measurement.DMS2DD(39, 48, 39.8f), 
+    Measurement.DMS2DD(-3, 56, 21.5f), FIX.FixTypes.Compulsory, true));
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+
+\subsection{Fichero \textit{CreateInstance.cs} - Clase \texttt{CreateInstance}}
+\label{subsec:ClaseCreateInstance}
+
+\vspace{-0.4cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/general/CreateInstance.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase auxiliar que no es instanciable, sino que contiene una función que justo antes del inicio de la simulación crea una instancia del modelo 3D del ILS contenido en el fichero \texttt{ILS.prefab}.
+
+\paragraph{Principales funciones} \phantom{\newline}
+Su única función \texttt{CreateILSInstance()} crea una instancia del modelo 3D del ILS contenido en el fichero \texttt{ILS.prefab} de tal modo que por cada objeto ILS que se instancie, el \texttt{GameObject} será del modelo \texttt{ILS.prefab}.
+
+
+
+
+
+
+\subsection{Fichero \textit{General.cs} - Clase \texttt{General}}
+\label{subsec:ClaseGeneral}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/general/General.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de preparar, en orden, las llamadas a las clases encargadas de dibujar la interfaz, inicializar la cámara, crear objetos, etc.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Su única función \texttt{Start()} es llamada al iniciarse la ejecución del simulador y en ella se encuentran todas las llamadas al resto de clases que necesitan de una preparación y contienen métodos \texttt{Init()}. Se trata del punto de entrada a la ejecución de la simulación, o dicho de otro modo, el primero de los \textit{scripts} que se ejecutará.
+
+
+
+
+
+
+
+\subsection{Fichero \textit{ATCPopupCtrl.cs} - Clase \texttt{ATCPopupCtrl}}
+\label{subsec:ClaseATCPopupCtrl}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/ATCPopupCtrl.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de gestionar el menú ATC cuando se selecciona una de las aeronaves en la pantalla de simulación.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Su única función \texttt{OnMouseOver()} monitoriza cuándo el usuario posiciona el puntero del ratón encima de alguna aeronave y presiona el botón izquierdo o derecho del botón. Si presiona el botón izquierdo, la etiqueta de la aeronave cambiará a la siguiente posición en el sentido de las agujas del reloj. Si presiona el botón derecho, notificará que debe desplegarse el menú de control de la aeronave.
+
+
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{DrawATCPopup.cs} - Clase \texttt{DrawATCPopup}}
+\label{subsec:ClaseDrawATCPopup}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/DrawATCPopup.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de gestionar el dibujado de todos los menús y submenús de control ATC.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Contiene funciones para dibujado de los menús y submenús, así como funciones para control del rango de valores introducidos por el usuario y gestiona los comandos que deben enviarse a las aeronaves según la selección realizada por el usuario en dichos menús.
+
+
+
+
+
+
+
+\subsection{Fichero \textit{DrawGUI.cs} - Clase \texttt{DrawGUI}}
+\label{subsec:ClaseDrawGUI}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/DrawGUI.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de la representación en pantalla de toda la interfaz gráfica de usuario (GUI, \textit{Graphical User Interface}).
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Sus funciones dibujan el panel de fichas de progreso de vuelo, las botones de opciones de visualización de elementos, el botón de cierre de la aplicación y cualquier otro elemento superpuesto en pantalla, como la información del aeropuerto en la esquina superior izquierda o la versión y autor de la aplicación en la esquina inferior derecha.
+
+Además, se encarga de gestionar (no dibujar) el dibujado de los anillos concéntricos indicadores de distancia al aeropuerto, las marcas del borde indicadoras de distancia y el dibujado de las rutas SID y STAR, que son dibujadas por la clase \texttt{DrawRadarScreen}.
+
+
+
+
+
+
+\subsection{Fichero \textit{DrawRadarScreen.cs} - Clase \texttt{DrawRadarScreen}}
+\label{subsec:ClaseDrawRadarScreen}
+
+\vspace{-0.4cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/DrawRadarScreen.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable que se encarga de representar en pantalla los anillos concéntricos indicadores de distancia al aeropuerto, las marcas del borde indicadoras de distancia y el dibujado de las rutas SID y STAR, que son gestionadas por la clase \texttt{DrawGUI}. Además, dibuja todos los puntos de ruta y aeronaves de la simulación.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Toma la mayor parte de los datos de entrada de la clase \texttt{Config} para establecer las preferencias de dibujado de los elementos, como colores y tamaños, y de la clase \texttt{CreateObjects} para iterar a través de las listas de elementos e ir dibujando uno a uno cada uno de ellos.
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{MngCamera.cs} - Clase \texttt{MngCamera}}
+\label{subsec:ClaseMngCamera}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/MngCamera.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, cuya única misión es establecer la referencia de cárama activa a la única cámara existente y controlar el nivel de \textit{zoom} de la misma.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Durante la inicialización de la simulación se establece la cámara activa y cada vez que el usuario realiza un cambio en el nivel de \textit{zoom} a través de los botones de la interfaz, hace efectivo el cambio mediante la modificación del campo de visión de la cámara (FOV, \textit{Field Of View}).
+
+
+
+
+
+\subsection{Fichero \textit{MngDialogs.cs} - Clase \texttt{MngDialogs}}
+\label{subsec:ClaseMngDialogs}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/MngDialogs.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de gestionar los textos que simulan la comunicación entre el controlador aéreo y los pilotos de las aeronaves. 
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Mediante sus funciones \texttt{SetText()} y \texttt{GetText()} se gestiona el contenido de los textos que se muestran en pantalla relativos a las comunicaciones entre ATC y los tráficos.
+
+Internamente contiene una función que establece un temporizador para gestionar el tiempo que permanecen los textos activos en pantalla.
+
+
+
+
+
+\subsection{Fichero \textit{MngScreen.cs} - Clase \texttt{MngScreen}}
+\label{subsec:ClaseMngScreen}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/MngScreen.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de establecer de forma automática una serie de mediciones y valores para el correcto dibujado de los elementos en pantalla. No dibuja nada en pantalla, sólo gestiona parámetros para su correcto dibujado por otras clases.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Una de las tareas que realizan sus funciones es calcular de forma automática cuál es el fijo o radioayuda más lejana que debe mostrarse para asignar el tamaño de cámara correcto dejando un pequeño margen de seguridad para que no quede dibujado justo en el borde. 
+
+Otra tarea es calcular el número de píxeles que corresponden a \SI{1}{NM} de latitud y de longitud, y calcula la relación entre ambas para saber a qué distancias dibujar en el eje horizontal y vertical.
+
+Además, calcula la relación entre las coordenadas y la posición en pantalla respecto del aeropuerto, que es el elemento central que se toma como referencia.
+
+
+
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{Navaid.cs} - Clase \texttt{Navaid}}
+\label{subsec:ClaseNavaid}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/Navaid.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de la plantilla para albergar de forma genérica objetos de ayuda a la navegación como fijos del tipo \texttt{FIX} o radioayudas del tipo \texttt{VOR}.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Si bien, esta clase es instanciable, no está pensada para crear objetos nuevos, sino como una forma de albergar objetos de tipo \texttt{FIX} y \texttt{VOR} en su forma genérica \texttt{Navaid}. Por tanto, aunque se desaconseja, se pueden crear objetos del tipo \texttt{Navaid} llamando a su constructor con los siguientes parámetros: identificador del fijo (cinco caracteres), latitud y longitud en grados decimales y \texttt{true} si se quiere dibujar su icono correspondiente o \texttt{false} en caso contrario (en áreas congestionadas puede merecer la pena no dibujar el icono y solamente representar el nombre). 
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{Navaid}.}
+	\label{tab:EjemploNavaid}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+{\color{gray}
+\begin{Verbatim}[frame=single]
+// Create FIX as Navaid (not recommended)
+new Navaid(
+    "MORAL", Measurement.DMS2DD(39, 00, 00.0f), Measurement.DMS2DD(-3, 32, 31.8f),
+    FIX.FixTypes.OnRequest, true
+));
+\end{Verbatim}
+}
+\end{scriptsize}
+
+
+
+\subsection{Fichero \textit{StdProcedure.cs} - Clase \texttt{StdProcedure}}
+\label{subsec:ClaseStdProcedure}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/StdProcedure.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de la plantilla para albergar de forma genérica objetos de procedimiento estandarizado de salida \texttt{SID} o llegada \texttt{STAR}.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Si bien, esta clase es instanciable, no está pensada para crear objetos nuevos, sino como una forma de albergar objetos de tipo \texttt{SID} y \texttt{STAR} en su forma genérica \texttt{StdProcedure}. Por tanto, aunque se desaconseja, se pueden crear objetos del tipo \texttt{StdProcedure} llamando a su constructor con los siguientes parámetros: nombre del procedimiento y lista de objetos del tipo \texttt{Navaid}.
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{StdProcedure}.}
+	\label{tab:EjemploStdProcedure}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+{\color{gray}
+\begin{Verbatim}[frame=single]
+public static List<Navaid> temp_navaid_list;
+
+// STAR - BANEV4D as StdProcedure (not recommended)
+temp_navaid_list.Add(GetFIX("BANEV"));
+temp_navaid_list.Add(GetVOR("BAN"));
+temp_navaid_list.Add(GetFIX("PINAR"));
+temp_navaid_list.Add(GetFIX("MD545"));
+temp_navaid_list.Add(GetFIX("NOSKO"));
+temp_navaid_list.Add(GetFIX("MD530"));
+temp_navaid_list.Add(GetFIX("RUDBI"));
+new StdProcedure("BANEV4D", new List<Navaid>(temp_navaid_list))); 
+temp_navaid_list.Clear();
+\end{Verbatim}
+}
+\end{scriptsize}
+
+
+
+
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{FIX.cs} - Clase \texttt{FIX}}
+\label{subsec:ClaseFIX}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/FIX.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase instanciable para crear objetos que representen fijos de ruta. Hereda de la clase \texttt{Navaid} y añade un único miembro propio: el tipo de fijo (si es de notificación obligatoria o no).
+
+\paragraph{Constructor} \phantom{\newline}
+
+Para crear objetos del tipo \texttt{FIX} basta con llamar a su constructor con los siguientes parámetros: identificador del fijo (cinco caracteres), latitud y longitud en grados decimales, tipo de fijo (si es de notificación obligatoria o no) y \texttt{true} si se quiere dibujar su icono correspondiente o \texttt{false} en caso contrario (en áreas congestionadas puede merecer la pena no dibujar el icono y solamente representar el nombre).
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{FIX}.}
+	\label{tab:EjemploFIX}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new FIX(
+    "AVILA", Measurement.DMS2DD(40, 37, 28.6f), Measurement.DMS2DD(-4, 32, 59.6f),
+    FIX.FixTypes.OnRequest, true
+));
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+
+
+
+\subsection{Fichero \textit{VOR.cs} - Clase \texttt{VOR}}
+\label{subsec:ClaseVOR}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/VOR.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase instanciable para crear objetos que representen radioayudas de tipo VOR. Hereda de la clase \texttt{Navaid} y añade cuatro miembros propios: nombre, frecuencia, código morse y si tiene o no un DME coubicado.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Para crear objetos del tipo \texttt{VOR} basta con llamar a su constructor con los siguientes parámetros: identificador de la radioayuda (tres caracteres), nombre, frecuencia, código morse, \texttt{true} si tiene DME coubicado o \texttt{false} en caso contrario, latitud y longitud en grados decimales y \texttt{true} si se quiere dibujar su icono correspondiente o \texttt{false} en caso contrario (en áreas congestionadas puede merecer la pena no dibujar el icono y solamente representar el nombre).
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{VOR}.}
+	\label{tab:EjemploVOR}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+new VOR(
+    "SSY", "San Sebastian de los Reyes", 117.85f, "... ... -.--", true, 
+    Measurement.DMS2DD(40, 32, 47.1f), Measurement.DMS2DD(-3, 34, 30.7f), false)
+);
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+
+\subsection{Fichero \textit{SID.cs} - Clase \texttt{SID}}
+\label{subsec:ClaseSID}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/SID.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de la plantilla para crear objetos de procedimiento estandarizado de salida \texttt{SID}.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Se pueden crear objetos del tipo \texttt{SID} llamando a su constructor con los siguientes parámetros: nombre del procedimiento y lista de objetos del tipo \texttt{Navaid}.
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{SID}.}
+	\label{tab:EjemploSID}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+public static List<SID> sidList;
+public static List<Navaid> temp_navaid_list;
+
+// SID - CCS6L
+temp_navaid_list.Add(GetVOR("SSY"));
+temp_navaid_list.Add(GetFIX("MD039"));
+temp_navaid_list.Add(GetFIX("AVILA"));
+temp_navaid_list.Add(GetFIX("LONGA"));
+temp_navaid_list.Add(GetVOR("CCS"));
+sidList.Add(new SID("CCS6L", new List<Navaid>(temp_navaid_list)));
+temp_navaid_list.Clear();
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+\subsection{Fichero \textit{STAR.cs} - Clase \texttt{STAR}}
+\label{subsec:ClaseSTAR}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/navaids/STAR.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de la plantilla para crear objetos de procedimiento estandarizado de llegada \texttt{STAR}.
+
+\paragraph{Constructor} \phantom{\newline}
+
+Se pueden crear objetos del tipo \texttt{STAR} llamando a su constructor con los siguientes parámetros: nombre del procedimiento y lista de objetos del tipo \texttt{Navaid}.
+
+\begin{table}[!hbtp]
+	\caption{Ejemplo de instancia al constructor de la clase \texttt{STAR}.}
+	\label{tab:EjemploSTAR}
+\end{table}
+\vspace{-0.8cm}
+\begin{scriptsize}
+\begin{Verbatim}[frame=single]
+public static List<STAR> starList;
+public static List<Navaid> temp_navaid_list;
+
+// STAR - TLD3C
+temp_navaid_list.Add(GetVOR("TLD"));
+temp_navaid_list.Add(GetFIX("MD445"));
+temp_navaid_list.Add(GetFIX("BUREX"));
+temp_navaid_list.Add(GetFIX("MD440"));
+temp_navaid_list.Add(GetFIX("YUNYE"));
+temp_navaid_list.Add(GetFIX("FAFEQ"));
+starList.Add(new STAR("TLD3C", new List<Navaid>(temp_navaid_list)));
+temp_navaid_list.Clear();
+\end{Verbatim}
+\end{scriptsize}
+
+
+
+
+
+
+
+
+
+%(p. ej. )
+
+
+
+%\subsection{Fichero \textit{.cs} - Clase \texttt{}}
+%\label{subsec:Clase}
+%
+%\vspace{-0.85cm}
+%\begin{flushright}
+%\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts//.cs}{Ver en GitHub \faGithub}
+%\end{flushright}
+%
+%\paragraph{Descripción} \phantom{\newline}
+%
+%
+%
+%\paragraph{Constructor} \phantom{\newline}
+%
+%
+%
+%\begin{table}[!hbtp]
+%	\caption{Ejemplo de instancia al constructor de la clase \texttt{}.}
+%	\label{tab:EjemploCompany}
+%\end{table}
+%\vspace{-0.8cm}
+%\begin{scriptsize}
+%\begin{Verbatim}[frame=single]
+%
+%\end{Verbatim}
+%\end{scriptsize}
+
+
+
+
+
+%\begin{scriptsize}
+%\begin{Verbatim}[frame=single]
+%
+%\end{Verbatim}
+%\end{scriptsize}
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Fichero \textit{} - Clase \texttt{}}
+%\label{subsec:Clase}
+%
+%\paragraph{Descripción general} \phantom{\newline}
+%
+%\paragraph{Atributos principales} \phantom{\newline}
+%
+%\paragraph{Métodos principales} \phantom{\newline}
+
+
+
+
+
+
+
+
+\clearpage
 
 \section{Aplicación}
 \label{sec:Aplicacion}
