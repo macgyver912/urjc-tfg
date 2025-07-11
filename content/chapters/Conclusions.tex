@@ -13,7 +13,16 @@ Así, se ha implementado la navegación autónoma lateral de las aeronaves en ba
 
 La navegación lateral se realiza en base al cálculo constante de la rotación que debería tener la aeronave en ese momento para estar mirando hacia el siguiente punto de ruta. De este modo, se establece un rumbo objetivo que se va corrigiendo constantemente a medida que la aeronave realiza virajes, y de tal forma que siga siendo válida si se implementa viento en el simulador, ya que la función de navegación lateral irá corrigiendo la deriva constantemente. En este caso se apreciaría una navegación con variación de rumbo continuamente.
 
-Del mismo modo, se ha cuidado la interacción del usuario con la aplicación, prestando especial atención en la sencillez y rapidez para establecer comandos a la aeronave, sin descuidar el apartado gráfico. La principal premisa, aparte de las que respectan a los aspectos técnicos, ha sido crear un entorno agradable para el usuario, de tal modo que la aplicación en su conjunto estuviese en armonía y no hubiese elementos disonantes.
+De un modo similar, durante la navegación lateral autónoma la aeronave vuela secuencialmente los diferentes puntos de ruta de un procedimiento estándar mediante la comprobación periódica de la distancia horizontal hacia el siguiente punto. Cuando dicha distancia es inferior a \SI{1}{NM} se da por sobrevolado el punto, eliminándose de la lista de puntos siguientes, pasando a ser el siguiente punto de ruta al nuevo punto activo.
+
+La navegación vertical se ha modelado en base la velocidad vertical de cada tipo de aeronave, aceptando el modificador \textit{expedite} para agilizar la maniobra en caso necesario. Así, se establece una tasa de ascenso o descenso estándar según la categoría y se aplica un ligero componente aleatorio en cada periodo de actualización radar para dar un poco de realismo y no sean números fijos.
+
+Del mismo modo, el incremento o reducción de velocidad y los virajes se han modelado en base a las prestaciones de cada categoría de aeronave, añadiendo cierta variabilidad aleatoria.
+
+En el apartado de representación gráfica de los elementos de ruta y aeroportuarios se ha conseguido un gran nivel de fidelidad, siendo las distancias y rumbos acorde a las cartas aeronáuticas oficiales, lo que le confiere un alto nivel de calidad a los datos de trayectorias y tiempos de vuelo que puedan ser tomados para futuros análisis.
+
+
+En cuanto a la interacción del usuario con la aplicación, se ha cuidado desde el primer momento, prestando especial atención en la sencillez y rapidez para establecer comandos a la aeronave, sin descuidar el apartado gráfico. La principal premisa, aparte de las que respectan a los aspectos técnicos, ha sido crear un entorno agradable para el usuario, de tal modo que la aplicación en su conjunto estuviese en armonía y no hubiese elementos disonantes.
 
 
 \clearpage
@@ -21,9 +30,7 @@ Del mismo modo, se ha cuidado la interacción del usuario con la aplicación, pr
 \section{Trabajos futuros}
 \label{sec:trabajos-futuros}
 
-Debido a la envergadura de este proyecto, existen ciertas ideas que no tenían cabida aquí, pero que pueden presentarse como posibles mejoras de las funcionalidades de la aplicación. 
-
-A continuación, se presentan las identificadas como más relevantes en el mismo formato que se hicieron los requisitos.
+Debido a la envergadura de este proyecto, existen ciertas ideas que no tenían cabida aquí, pero que pueden presentarse como posibles mejoras de las funcionalidades de la aplicación. A continuación, se presentan las identificadas como más relevantes en el mismo formato que se hicieron los requisitos.
 
 
 \newcounter{TF_index}
@@ -68,7 +75,31 @@ A continuación, se presentan las identificadas como más relevantes en el mismo
 			& Patrones de espera 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Implementar patrones de espera estándar sobre cualquier punto de ruta susceptible de ello (FIX, VOR...). Deben tener una duración aproximada de cuatro minutos, uno por cada segmento del hipódromo, lo que conlleva virajes de tres grados por segundo. 
+			& Implementar patrones de espera estándar sobre puntos de ruta susceptibles de ello (FIX, VOR...). Deben tener una duración aproximada de cuatro minutos, uno por cada segmento del hipódromo, con virajes de tres grados por segundo. 
+			\\
+			\hline		
+		\end{tabular}
+	\end{center}
+\end{table}	
+
+\begin{table}[!hbtp]
+	\footnotesize
+	\setlength{\arrayrulewidth}{0.4mm}
+	%\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.2}			
+	\begin{center}
+		%\caption{.}
+		%\label{tab:}
+		\begin{tabular}{|c|p{0.7\textwidth}|}			
+			\hline
+			\multicolumn{2}{|l|}{\cellcolor{gray!10}{\textbf{ID: TF.\arabic{TF_index}}}} \stepcounter{TF_index} 
+			\\ 
+			\hline		
+			\cellcolor{gray!10}{\textbf{Título}} 
+			& Declinación magnética.  
+			\\
+			\cellcolor{gray!10}{\textbf{Desc.}} 
+			& Implementar la declinación magnética como un desfase (\textit{offset}) respecto a la orientación mágnetica un valor definido para el aeropuerto del escenario.  
 			\\
 			\hline		
 		\end{tabular}
@@ -92,9 +123,9 @@ A continuación, se presentan las identificadas como más relevantes en el mismo
 			& Modelar meteorología. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Concretamente, se puede modelar el viento en el sector de control, de tal forma que el rumbo (\textit{heading}) y la derrota (\textit{track}) diferirán al componerse los vectores velocidad.
+			& Modelar el viento en el sector de control, de tal forma que el rumbo (\textit{heading}) y la derrota (\textit{track}) diferirán al componerse los vectores velocidad.
 
-Puede implementarse en dos fases:
+Puede implementarse en varias fases:
 
 \begin{itemize}
 	\item Viento fijo en una sola capa: el viento se mantiene invariante durante toda la simulación y afecta por igual a todas las altitudes.
@@ -150,7 +181,7 @@ Puede implementarse en dos fases:
 			& Modelar masa de las aeronaves. 
 			\\
 			\cellcolor{gray!10}{\textbf{Desc.}} 
-			& Lo ideal sería establecer una ruta origen – destino a cada aeronave, calcular la distancia que lo separa (esto está implementado) y calcular el combustible necesario en función del tipo de aeronave. De esta forma, establecer la masa actual de la misma. 
+			& Lo ideal sería establecer una ruta origen – destino a cada aeronave y según la distancia calcular el combustible necesario en función del tipo de aeronave. De esta forma, establecer la masa actual de la misma. 
 
 Para simplificar, en este punto se puede tomar como referencia el MTOW (\textit{Maximum Take-Off Weight}) y el ZFW (\textit{Zero Fuel Weight}) y asignarla la masa actual de la aeroanve de la siguiente manera:
 	\begin{itemize}
