@@ -1007,7 +1007,7 @@ Se trata de la plantilla para albergar de forma genérica objetos de procedimien
 
 \paragraph{Constructor} \phantom{\newline}
 
-Si bien, esta clase es instanciable, no está pensada para crear objetos nuevos, sino como una forma de albergar objetos de tipo \texttt{SID} y \texttt{STAR} en su forma genérica \texttt{StdProcedure}. Por tanto, aunque se desaconseja, se pueden crear objetos del tipo \texttt{StdProcedure} llamando a su constructor con los siguientes parámetros: nombre del procedimiento y lista de objetos del tipo \texttt{Navaid}.
+Si bien, esta clase es instanciable, no está pensada para crear objetos nuevos, sino como una forma de albergar objetos de tipo \texttt{SID} y \texttt{STAR} en su forma genérica \texttt{StdProcedure}. Por tanto, aunque se desaconseja, se pueden crear objetos del tipo \texttt{StdProcedure} llamando a su constructor con los siguientes parámetros: nombre del procedimiento y lista de objetos  \texttt{Navaid}.
 
 \begin{table}[!hbtp]
 	\caption{Ejemplo de instancia al constructor de la clase \texttt{StdProcedure}.}
@@ -1019,15 +1019,12 @@ Si bien, esta clase es instanciable, no está pensada para crear objetos nuevos,
 \begin{Verbatim}[frame=single]
 public static List<Navaid> temp_navaid_list;
 
-// STAR - BANEV4D as StdProcedure (not recommended)
-temp_navaid_list.Add(GetFIX("BANEV"));
-temp_navaid_list.Add(GetVOR("BAN"));
-temp_navaid_list.Add(GetFIX("PINAR"));
-temp_navaid_list.Add(GetFIX("MD545"));
-temp_navaid_list.Add(GetFIX("NOSKO"));
-temp_navaid_list.Add(GetFIX("MD530"));
+// STAR - PRADO3D
+temp_navaid_list.Add(GetFIX("PRADO"));
+temp_navaid_list.Add(GetFIX("MD550"));
+temp_navaid_list.Add(GetFIX("SIRGU"));
 temp_navaid_list.Add(GetFIX("RUDBI"));
-new StdProcedure("BANEV4D", new List<Navaid>(temp_navaid_list))); 
+new StdProcedure("PRADO3D", new List<Navaid>(temp_navaid_list));
 temp_navaid_list.Clear();
 \end{Verbatim}
 }
