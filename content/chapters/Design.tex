@@ -495,13 +495,14 @@ La jerarquía de ficheros de la aplicación se muestra en la Tabla \ref{tab:Jera
 
 \clearpage
 
-\section{Descripción de clases}
-\label{sec:Descripción de clases}
+\section{Descripción de módulos}
+\label{sec:DescripciModulos}
 
 El desarrollo de la aplicación se ha abordado mediante el paradigma de Programación Orientada a Objetos (POO), mediante el cual algunas clases sirven de molde o plantilla para la creación de objetos mediante su instancia. Esto es, cada objeto de un tipo es una instancia de esa clase. Por ejemplo, el fichero \textit{Aircraft.cs} contiene a la clase \texttt{Aircraft}, la cual es instanciada mediante su constructor cada vez que se desea crear una aeronave nueva. Del mismo modo ocurriría para crear un aeropuerto o una radioayuda, instanciando a sus respectivas clases. 
 
 
-\subsection{Fichero \textit{Aircraft.cs} - Clase \texttt{Aircraft}}
+%\subsection{Fichero \textit{Aircraft.cs} - Clase \texttt{Aircraft}}
+\subsection{Módulo \texttt{Aircraft}}
 \label{subsec:ClaseAircraft}
 
 \vspace{-0.85cm}
@@ -539,9 +540,12 @@ new Aircraft(
 
 
 
+
+
 \clearpage
 
-\subsection{Fichero \textit{AircraftCtrl.cs} - Clase \texttt{AircraftCtrl}}
+%\subsection{Fichero \textit{AircraftCtrl.cs} - Clase \texttt{AircraftCtrl}}
+\subsection{Módulo \texttt{AircraftCtrl}}
 \label{subsec:ClaseAircraftCtrl}
 
 \vspace{-0.85cm}
@@ -564,7 +568,8 @@ Están relacionadas con el movimiento de la aeronave, tanto con el avance según
 
 
 
-\subsection{Fichero \textit{Airport.cs} - Clase \texttt{Airport}}
+%\subsection{Fichero \textit{Airport.cs} - Clase \texttt{Airport}}
+\subsection{Módulo \texttt{Airport}}
 \label{subsec:ClaseAirport}
 
 \vspace{-0.85cm}
@@ -599,7 +604,8 @@ new Airport(
 
 \clearpage
 
-\subsection{Fichero \textit{Runway.cs} - Clase \texttt{Runway}}
+%\subsection{Fichero \textit{Runway.cs} - Clase \texttt{Runway}}
+\subsection{Módulo \texttt{Runway}}
 \label{subsec:ClaseRunway}
 
 \vspace{-0.85cm}
@@ -639,7 +645,9 @@ new Runway(
 
 
 
-\subsection{Fichero \textit{Company.cs} - Clase \texttt{Company}}
+
+%\subsection{Fichero \textit{Company.cs} - Clase \texttt{Company}}
+\subsection{Módulo \texttt{Company}}
 \label{subsec:ClaseCompany}
 
 \vspace{-0.85cm}
@@ -671,9 +679,12 @@ new Company(
 
 
 
+
+
 \clearpage
 
-\subsection{Fichero \textit{Config.cs} - Clase \texttt{Config}}
+%\subsection{Fichero \textit{Config.cs} - Clase \texttt{Config}}
+\subsection{Módulo \texttt{Config}}
 \label{subsec:ClaseConfig}
 
 \vspace{-0.85cm}
@@ -705,7 +716,8 @@ Existen valores de configuración de distinta índole:
 
 
 
-\subsection{Fichero \textit{CreateObjects.cs} - Clase \texttt{CreateObjects}}
+%\subsection{Fichero \textit{CreateObjects.cs} - Clase \texttt{CreateObjects}}
+\subsection{Módulo \texttt{CreateObjects}}
 \label{subsec:ClaseCreateObjects}
 
 \vspace{-0.85cm}
@@ -733,7 +745,8 @@ fixList.Add("BUREX", new FIX("BUREX", Measurement.DMS2DD(39, 48, 39.8f),
 
 
 
-\subsection{Fichero \textit{CreateInstance.cs} - Clase \texttt{CreateInstance}}
+%\subsection{Fichero \textit{CreateInstance.cs} - Clase \texttt{CreateInstance}}
+\subsection{Módulo \texttt{CreateInstance}}
 \label{subsec:ClaseCreateInstance}
 
 \vspace{-0.4cm}
@@ -753,7 +766,8 @@ Su única función \texttt{CreateILSInstance()} crea una instancia del modelo 3D
 
 
 
-\subsection{Fichero \textit{General.cs} - Clase \texttt{General}}
+%\subsection{Fichero \textit{General.cs} - Clase \texttt{General}}
+\subsection{Módulo \texttt{General}}
 \label{subsec:ClaseGeneral}
 
 \vspace{-0.85cm}
@@ -775,7 +789,8 @@ Su única función \texttt{Start()} es llamada al iniciarse la ejecución del si
 
 
 
-\subsection{Fichero \textit{ATCPopupCtrl.cs} - Clase \texttt{ATCPopupCtrl}}
+%\subsection{Fichero \textit{ATCPopupCtrl.cs} - Clase \texttt{ATCPopupCtrl}}
+\subsection{Módulo \texttt{ATCPopupCtrl}}
 \label{subsec:ClaseATCPopupCtrl}
 
 \vspace{-0.85cm}
@@ -797,7 +812,8 @@ Su única función \texttt{OnMouseOver()} monitoriza cuándo el usuario posicion
 
 \clearpage
 
-\subsection{Fichero \textit{DrawATCPopup.cs} - Clase \texttt{DrawATCPopup}}
+%\subsection{Fichero \textit{DrawATCPopup.cs} - Clase \texttt{DrawATCPopup}}
+\subsection{Módulo \texttt{DrawATCPopup}}
 \label{subsec:ClaseDrawATCPopup}
 
 \vspace{-0.85cm}
@@ -819,7 +835,8 @@ Contiene funciones para dibujado de los menús y submenús, así como funciones 
 
 
 
-\subsection{Fichero \textit{DrawGUI.cs} - Clase \texttt{DrawGUI}}
+%\subsection{Fichero \textit{DrawGUI.cs} - Clase \texttt{DrawGUI}}
+\subsection{Módulo \texttt{DrawGUI}}
 \label{subsec:ClaseDrawGUI}
 
 \vspace{-0.85cm}
@@ -842,10 +859,11 @@ Además, se encarga de gestionar (no dibujar) el dibujado de los anillos concén
 
 
 
-\subsection{Fichero \textit{DrawRadarScreen.cs} - Clase \texttt{DrawRadarScreen}}
+%\subsection{Fichero \textit{DrawRadarScreen.cs} - Clase \texttt{DrawRadarScreen}}
+\subsection{Módulo \texttt{DrawRadarScreen}}
 \label{subsec:ClaseDrawRadarScreen}
 
-\vspace{-0.4cm}
+\vspace{-0.85cm}
 \begin{flushright}
 \href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/graphics/DrawRadarScreen.cs}{Ver en GitHub \faGithub}
 \end{flushright}
@@ -862,7 +880,8 @@ Toma la mayor parte de los datos de entrada de la clase \texttt{Config} para est
 
 \clearpage
 
-\subsection{Fichero \textit{MngCamera.cs} - Clase \texttt{MngCamera}}
+%\subsection{Fichero \textit{MngCamera.cs} - Clase \texttt{MngCamera}}
+\subsection{Módulo \texttt{MngCamera}}
 \label{subsec:ClaseMngCamera}
 
 \vspace{-0.85cm}
@@ -882,7 +901,8 @@ Durante la inicialización de la simulación se establece la cámara activa y ca
 
 
 
-\subsection{Fichero \textit{MngDialogs.cs} - Clase \texttt{MngDialogs}}
+%\subsection{Fichero \textit{MngDialogs.cs} - Clase \texttt{MngDialogs}}
+\subsection{Módulo \texttt{MngDialogs}}
 \label{subsec:ClaseMngDialogs}
 
 \vspace{-0.85cm}
@@ -904,7 +924,8 @@ Internamente contiene una función que establece un temporizador para gestionar 
 
 
 
-\subsection{Fichero \textit{MngScreen.cs} - Clase \texttt{MngScreen}}
+%\subsection{Fichero \textit{MngScreen.cs} - Clase \texttt{MngScreen}}
+\subsection{Módulo \texttt{MngScreen}}
 \label{subsec:ClaseMngScreen}
 
 \vspace{-0.85cm}
@@ -931,7 +952,8 @@ Además, calcula la relación entre las coordenadas y la posición en pantalla r
 
 \clearpage
 
-\subsection{Fichero \textit{Navaid.cs} - Clase \texttt{Navaid}}
+%\subsection{Fichero \textit{Navaid.cs} - Clase \texttt{Navaid}}
+\subsection{Módulo \texttt{Navaid}}
 \label{subsec:ClaseNavaid}
 
 \vspace{-0.85cm}
@@ -966,7 +988,12 @@ new Navaid(
 
 
 
-\subsection{Fichero \textit{StdProcedure.cs} - Clase \texttt{StdProcedure}}
+
+
+
+
+%\subsection{Fichero \textit{StdProcedure.cs} - Clase \texttt{StdProcedure}}
+\subsection{Módulo \texttt{StdProcedure}}
 \label{subsec:ClaseStdProcedure}
 
 \vspace{-0.85cm}
@@ -1014,7 +1041,8 @@ temp_navaid_list.Clear();
 
 \clearpage
 
-\subsection{Fichero \textit{FIX.cs} - Clase \texttt{FIX}}
+%\subsection{Fichero \textit{FIX.cs} - Clase \texttt{FIX}}
+\subsection{Módulo \texttt{FIX}}
 \label{subsec:ClaseFIX}
 
 \vspace{-0.85cm}
@@ -1050,7 +1078,8 @@ new FIX(
 
 
 
-\subsection{Fichero \textit{VOR.cs} - Clase \texttt{VOR}}
+%\subsection{Fichero \textit{VOR.cs} - Clase \texttt{VOR}}
+\subsection{Módulo \texttt{VOR}}
 \label{subsec:ClaseVOR}
 
 \vspace{-0.85cm}
@@ -1095,7 +1124,8 @@ new VOR(
 
 \clearpage
 
-\subsection{Fichero \textit{SID.cs} - Clase \texttt{SID}}
+%\subsection{Fichero \textit{SID.cs} - Clase \texttt{SID}}
+\subsection{Módulo \texttt{SID}}
 \label{subsec:ClaseSID}
 
 \vspace{-0.85cm}
@@ -1135,7 +1165,8 @@ temp_navaid_list.Clear();
 
 
 
-\subsection{Fichero \textit{STAR.cs} - Clase \texttt{STAR}}
+%\subsection{Fichero \textit{STAR.cs} - Clase \texttt{STAR}}
+\subsection{Módulo \texttt{STAR}}
 \label{subsec:ClaseSTAR}
 
 \vspace{-0.85cm}
