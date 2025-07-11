@@ -1114,11 +1114,6 @@ new VOR(
 
 
 
-
-
-
-
-
 \clearpage
 
 %\subsection{Fichero \textit{SID.cs} - Clase \texttt{SID}}
@@ -1200,6 +1195,69 @@ starList.Add(new STAR("TLD3C", new List<Navaid>(temp_navaid_list)));
 temp_navaid_list.Clear();
 \end{Verbatim}
 \end{scriptsize}
+
+
+
+
+
+
+\clearpage
+
+%\subsection{Fichero \textit{Measurement.cs} - Clase \texttt{Measurement}}
+\subsection{Módulo \texttt{Measurement}}
+\label{subsec:ClaseMeasurement}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/utils/Measurement.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase que no es instanciable, encargada de proporcionar funciones de cálculo públicas para el resto de módulos, tales como distancia entre puntos o equivalencia de un grado sexagesimal en kilómetros o millas náuticas, y viceversa.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+Una de las funciones empleadas extensivamente de este módulo es el cálculo de distancia entre dos puntos basado en sus coordenadas. De este modo, mediante la aplicación de la fórmula de Haversine \cite{Haversine}, se realiza el cálculo de distancia en millas náuticas o kilómetros.
+
+Además, la función de cómputo de unidades de grado sexagesimal a kilómetros es empleada por el módulo \texttt{MngScreen} para ubicar cada elemento a dibujar en la pantalla radar a partir del aeropuerto, tomado como referencia \cite{MichaelTaylor}.
+
+
+
+
+%\subsection{Fichero \textit{TextUtils.cs} - Clase \texttt{TextUtils}}
+\subsection{Módulo \texttt{TextUtils}}
+\label{subsec:ClaseMeasurement}
+
+\vspace{-0.85cm}
+\begin{flushright}
+\href{https://github.com/macgyver912/atc-simulator/blob/jaime/Assets/Scripts/utils/TextUtils.cs}{Ver en GitHub \faGithub}
+\end{flushright}
+
+\paragraph{Descripción} \phantom{\newline}
+
+Se trata de una clase no instanciable cuya principal misión es proporcionar funciones públicas para el resto de módulos relativas al tratamiento de texto.
+
+\paragraph{Principales funciones} \phantom{\newline}
+
+La función \texttt{Text2SpellFormat()} recibe un texto de entrada y devuelve el texto deletreado en con el alfabeto fonético internacional y separando las cifras de rumbos y niveles de vuelo, mientras que las velocidades y las altitudes en pies las deja intactas. De esta forma la pronunciación de un posible módulo TTS lo pronuncia tal como es el argot. Esto es:
+
+\begin{itemize}
+\item Ejemplo A - Orden de rumbo:
+
+Texto original: \hfill 		AVIANCA 182, turn to heading 040. \\
+Texto convertido: \hfill 	AVIANCA 1 8 2, turn to heading 0 4 0.
+
+\item Ejemplo B - Colación de altitud:
+
+Texto original: \hfill 		Climb to flight level 360, VUELING 3201. \\
+Texto convertido: \hfill 	Climb to flight level 3 6 0, VUELING 3 2 0 1.
+
+\item Ejemplo C - Orden de vuelo directo a:
+
+Texto original: \hfill 		EUROPA 450C, fly direct to AVILA. \\
+Texto convertido: \hfill 	EUROPA 4 5 0 Charlie, fly direct to AVILA.
+\end{itemize}
 
 
 

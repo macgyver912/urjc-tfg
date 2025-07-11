@@ -11,6 +11,8 @@ Mediante los resultados presentados en el capítulo \textit{\ref{chap:validacion
 
 Así, se ha implementado la navegación autónoma lateral de las aeronaves en base a puntos de ruta y procedimientos estandarizados de aproximación (STAR) y salida (SID), navegación básica en base a rumbos, altitudes y velocidades, así como una amplia y sólida base para albergar todos los elementos que componen la navegación aérea como fijos, radioayudas, procedimientos RNAV, etc.
 
+La navegación lateral se realiza en base al cálculo constante de la rotación que debería tener la aeronave en ese momento para estar mirando hacia el siguiente punto de ruta. De este modo, se establece un rumbo objetivo que se va corrigiendo constantemente a medida que la aeronave realiza virajes, y de tal forma que siga siendo válida si se implementa viento en el simulador, ya que la función de navegación lateral irá corrigiendo la deriva constantemente. En este caso se apreciaría una navegación con variación de rumbo continuamente.
+
 Del mismo modo, se ha cuidado la interacción del usuario con la aplicación, prestando especial atención en la sencillez y rapidez para establecer comandos a la aeronave, sin descuidar el apartado gráfico. La principal premisa, aparte de las que respectan a los aspectos técnicos, ha sido crear un entorno agradable para el usuario, de tal modo que la aplicación en su conjunto estuviese en armonía y no hubiese elementos disonantes.
 
 
